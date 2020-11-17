@@ -1,0 +1,25 @@
+.footer {
+    background-color: rgb(45, 143, 223);
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+    a {
+        text-decoration: none;
+    }
+
+
+
+
+    p {
+        padding: 10px
+    }
+
+    @media (max-width: 900px) {
+        p {
+            display: none;
+        }
+    }
+}

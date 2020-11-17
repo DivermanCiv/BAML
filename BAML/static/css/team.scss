@@ -1,0 +1,100 @@
+.team {
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba(129, 136, 66, 0.424);
+
+
+    .team-presentation {
+        margin: 5rem;
+        display: flex;
+        flex-direction: column;
+
+
+        h1 {
+            flex: 1 1 auto;
+            align-self: center;
+        }
+
+        p {
+            flex: 2 1 auto;
+            align-self: stretch;
+        }
+    }
+
+    .team-member {
+        margin: 5rem;
+        display: flex;
+        justify-content: space-around;
+
+
+        flex-wrap: wrap;
+
+
+
+        #member-1,
+        #member-2,
+        #member-3,
+        #member-4,
+        #member-5,
+        #member-6,
+        #member-7 {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            border-radius: 5px 5px 0 0;
+            ;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+
+            width: 15rem;
+            height: 18rem;
+
+            @media (max-width: 900px) {
+                width: 100%;
+                height: 7rem;
+                text-align: center;
+            }
+
+            img {
+
+                justify-self: center;
+                max-height: 170px;
+                width: auto;
+
+                border-radius: 5px 5px 0 0;
+
+                @media (max-width: 900px) {
+                    display: none;
+                }
+            }
+
+
+
+
+
+        }
+
+        /* On mouse-over, add a deeper shadow */
+
+        #member-1:hover,
+        #member-2:hover,
+        #member-3:hover,
+        #member-4:hover,
+        #member-5:hover,
+        #member-6:hover,
+        #member-7:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add some padding inside the card container */
+        .container {
+            padding: 2px 16px;
+            border-radius: 5px 5px 0 0;
+        }
+    }
+}
