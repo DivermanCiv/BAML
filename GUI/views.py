@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 def index(request):
@@ -16,9 +16,13 @@ def index(request):
     .. todo: Tests unitaire
     .. todo: contenu à revoir
     """
-    message = "Salut tout le monde !"
-    return HttpResponse(message)
+    return render(request, 'BAML/index.html')
 
+
+def application(request):
+    """Method to go to the application page"""
+
+    return render(request, 'BAML/application.html')
 
 def analyse(request):
     message = "Analyse des données"

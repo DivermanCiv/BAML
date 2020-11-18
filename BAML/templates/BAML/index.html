@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
-        <link rel="stylesheet" href="../../static/css/style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>accueil</title>
@@ -16,7 +17,7 @@
                 <h2>L'application BAML</h2>
                 <div class="presentation-raw-content">
 
-                    <img class="presentation-image" src="assets/images/data.jpg" alt="image ordinateur libre de droit">
+                    <img class="presentation-image" src="{% static 'images/data.jpg' %}" alt="image ordinateur libre de droit">
                     <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet tortor in quam
                         gravida,
                         ut finibus ex tincidunt. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis
@@ -52,7 +53,7 @@
                     </p>
                 </div>
 
-                <button><a href="application.html">Lancer l'Application</a></button>
+                <button><a href="application">Lancer l'Application</a></button>
             </div>
         </div>
 

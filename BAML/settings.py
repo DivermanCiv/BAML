@@ -25,7 +25,7 @@ SECRET_KEY = 'nxokv@#7n9%b0@fi35yc%t%@f8d&s1u@)s%$11@39!=be5i0yh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
-    'GUI.apps.GuiConfig'
+    'GUI.apps.GuiConfig',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'BAML.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'BAML/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -130,5 +130,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+print(STATIC_ROOT)
+print(STATIC_URL)
 
 INTERNAL_IPS = ['127.0.0.1']
