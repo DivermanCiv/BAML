@@ -23,6 +23,8 @@ from GUI import views
 urlpatterns = [
     url(r'^$', views.index),
     url('application/', views.application),
+    url('mention-legales/', views.mentionLegales),
+    url('plan-du-site/', views.planDuSite),
     url(r'^home/', include('GUI.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -1,37 +1,22 @@
+{% extends 'BAML/base.html'%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../static/css/style.css">
-        <script type="text/javascript" src="burger.js"></script>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
         <title>mention légales</title>
     </head>
 
     <body>
-        <header>
-            <div class="navbar">
-                <div class="navbar-title">BAML</div>
-                <img src="/assets/images/logo-menu-burger.png" class="navbar-burger" onclick="afficheMenu()">
 
-            </div>
-
-            <div id="mobile">
-
-                <a href="plan-du-site.html">plan du site</a>
-                <a href="mention-legale.html">mentions légales</a>
-                <a href="">RGPD</a>
-                <a href="application.html">lancer l'appli</a>
-                <p>0156829643 <br>mail.mail@mail.mail</p>
-
-            </div>
-
-        </header>
-
+        {% block content %}
         <div class="mention">
 
-            <div><a href="index.html"> retour à l'acceuil </a></div>
+
 
             <h1>Mentions légales sur internet</h1>
 
@@ -52,6 +37,7 @@
                 suppression des données vous concernant (art. 34 de la loi "Informatique et Libertés"). Pour l'exercer,
                 adressez vous à [a compléter]</p>
         </div>
+        {% endblock content %}
     </body>
 
 </html>

@@ -24,6 +24,16 @@ def application(request):
 
     return render(request, 'BAML/application.html')
 
+def mentionLegales(request):
+    """Method to go to the mentionsLegales page"""
+
+    return render(request, 'BAML/mention-legales.html')
+
+def planDuSite(request):
+    """Method to go to the planDuSite page"""
+
+    return render(request, 'BAML/plan-du-site.html')
+
 def analyse(request):
     message = "Analyse des données"
     return HttpResponse(message)

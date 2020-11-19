@@ -1,10 +1,14 @@
+{% extends 'BAML/base.html'%}
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../static/css/style.css">
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 
         <title>Document</title>
@@ -15,6 +19,8 @@
 
 
     <body>
+        {% block content %}
+
         <form action="./upload" method="POST" enctype="multipart/form-data">
             <div class="drop-zone">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
@@ -22,7 +28,8 @@
                 <input type="file" name="myFile" class="drop-zone__input" multiple>
             </div>
         </form>
-        <script type="text/javascript" src="../../JS/drag.js"></script>
+        <script type="text/javascript" src="{% static 'JS/drag.js' %}"></script>
+        {% endblock content %}
     </body>
 
 </html>

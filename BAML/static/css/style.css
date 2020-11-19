@@ -7,6 +7,9 @@
     margin-right: auto;
     padding-left: 10px;
     font-size: 60px; }
+    .navbar .navbar-title a {
+      text-decoration: none;
+      color: black; }
   .navbar .navbar-burger {
     display: none; }
 
@@ -39,10 +42,53 @@
       height: 2rem;
       text-decoration: none;
       color: black; } }
+.btnPopupHeader {
+  padding: 1em 2em;
+  cursor: pointer; }
+
+.overlayHeader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none; }
+
+.popupHeader {
+  margin: 10% auto;
+  width: 70%;
+  background-color: #f3f3f3;
+  padding: 1em;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 5px; }
+
+.btnCloseHeader {
+  float: right;
+  font-size: 16pt;
+  cursor: pointer;
+  color: #1a1a1a; }
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  height: 100%; }
+
 body {
   margin: 0;
-  padding: 0;
-  background-color: rgba(129, 136, 66, 0.424); }
+  padding: 0 0 5rem 0;
+  background-color: rgba(129, 136, 66, 0.424);
+  min-height: 100%;
+  position: relative; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; }
 
 .presentation {
   display: flex;
@@ -193,6 +239,30 @@ body {
   @media (max-width: 900px) {
     .footer p {
       display: none; } }
+  .footer .btnPopupFooter {
+    padding: 1em 2em;
+    cursor: pointer; }
+  .footer .overlayFooter {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none; }
+  .footer .popupFooter {
+    margin: 10% auto;
+    width: 70%;
+    background-color: #f3f3f3;
+    padding: 1em;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px; }
+  .footer .btnCloseFooter {
+    float: right;
+    font-size: 16pt;
+    cursor: pointer;
+    color: #1a1a1a; }
 
 .mention {
   padding: 2rem; }
