@@ -10,7 +10,7 @@
         flex-direction: column;
         height: 45rem;
 
-        @media (max-width: 900px) {
+        @media (max-width: 480px) {
             height: 100%;
         }
 
@@ -19,7 +19,7 @@
             flex-direction: row;
             height: 100%;
 
-            @media (max-width: 900px) {
+            @media (max-width: 480px) {
                 flex-direction: column;
 
             }
@@ -34,7 +34,7 @@
                 flex: 2 1 auto;
                 align-self: stretch;
 
-                @media (max-width: 900px) {
+                @media (max-width: 480px) {
                     display: none;
 
                 }
@@ -76,7 +76,7 @@
             height: 5rem;
             width: 10rem;
 
-            @media (max-width: 900px) {
+            @media (max-width: 480px) {
                 display: none;
 
             }

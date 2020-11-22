@@ -17,9 +17,13 @@
         padding: 10px
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 480px) {
         p {
             display: none;
+        }
+
+        .btnPopupFooter {
+            display: none
         }
     }
 

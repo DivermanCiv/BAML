@@ -1,5 +1,25 @@
-.drop-zone {
+.drag-application-title {
     margin: 1rem;
+
+
+
+
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#monSelect {
+    margin: 1rem;
+    height: 2rem;
+    width: 20rem;
+}
+
+.drop-zone {
+    margin: 5rem;
     max-width: 200px;
     height: 200px;
     padding: 25px;

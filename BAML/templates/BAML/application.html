@@ -20,14 +20,20 @@
 
     <body>
         {% block content %}
+        <div class="drag-application-title">
+            <h1>Notre application</h1>
+            <p>Veuillez selectionnez un type de traitement et glisser votre fichier a analyser</p>
+
+        </div>
+
 
         <form action="./upload" method="POST" enctype="multipart/form-data">
             <select id="monSelect">
                 <!-- il faudra changer les value="" et le texte à afficher -->
                 <option value="">--Please choose an option--</option>
-                <option value="">value1</option>
-                <option value="">value2</option>
-                <option value="">value3</option>
+                <option value="value1">value1</option>
+                <option value="value2">value2</option>
+                <option value="value3">value3</option>
             </select>
             <div class="drop-zone">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
