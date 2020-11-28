@@ -1,23 +1,7 @@
 {% extends 'BAML/base.html'%}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="fr">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-
-        <title>Document</title>
-    </head>
-
-
-
-
-
+{% block title %}Application{% endblock %}
     <body>
         {% block content %}
         <div class="drag-application-title">
@@ -28,13 +12,16 @@
 
 
         <form action="./upload" method="POST" enctype="multipart/form-data">
-            <select id="monSelect">
-                <!-- il faudra changer les value="" et le texte à afficher -->
-                <option value="">--Please choose an option--</option>
-                <option value="value1">value1</option>
-                <option value="value2">value2</option>
-                <option value="value3">value3</option>
-            </select>
+          <div id="monSelect">
+            <div class="radio_option">
+              <input type="radio" id="value1" name ="traitement" value="value1" checked>
+              <label for="value1">Obtenir le meilleur algorithme Scikit Learn à utiliser</label>
+            </div>
+            <div class="radio_option">
+              <input type="radio" id="value2" name ="traitement" value="value2">
+              <label for="value2">Obtenir un fichier .csv contenant la prédiction des données envoyées</label>
+            </div>
+          </div>
             <div class="drop-zone">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
 

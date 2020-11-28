@@ -2,15 +2,7 @@
 
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="fr">
-
-    <head>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>accueil</title>
-    </head>
+{% block title %}Accueil{% endblock %}
 
     <body>
         {% block content %}
@@ -62,74 +54,5 @@
             </div>
         </div>
 
-        <!--équipe-->
-        <div class="team">
-            <div class="team-presentation">
-                <h1>Notre équipe</h1>
-                <p>eu faucibus enim. Maecenas vitae magna nec eros rutrum porttitor. Aenean pharetra libero at erat
-                    posuere, ac tincidunt dolor vestibulum. Praesent vitae leo et neque condimentum vestibulum. Class
-                    aptent
-                    taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti
-                    sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus enim felis, dictum
-                    id
-                    tempus et, lacinia eu odio. Proin quis arcu at ligula malesuada sodales a interdum tortor.
-                    Suspendisse
-                    at ligula feugiat tellus ullamcorper vehicula a sodales tortor.
-                </p>
-            </div>
-            <div class="team-member">
-                <div id="member-1">
-                    <img src="{% static 'images/kevin.jpg' %}" alt="photo kevin">
-                    <div class="container">
-                        <h4><b>Kevin CARRILLO</b></h4>
-                        <p>SCRUM Master</p>
-                    </div>
-                </div>
-                <div id="member-2">
-                    <img src="{% static 'images/mathieu.jpg' %}" alt="photo mathieu">
-                    <div class="container">
-                        <h4><b>Mathieu MESNIL</b></h4>
-                        <p>DEV Leader</p>
-                    </div>
-                </div>
-                <div id="member-3">
-                    <img src="{% static 'images/romain.jpg' %}" alt="photo Romain">
-                    <div class="container">
-                        <h4><b>Romain CHARPENTIER</b></h4>
-                        <p>System Operator</p>
-                    </div>
-                </div>
-                <div id="member-4">
-                    <img src="{% static 'images/adam.jpg' %}" alt="photo Adam">
-                    <div class="container">
-                        <h4><b>Adam DUPUIS</b></h4>
-                        <p>Développeur</p>
-                    </div>
-                </div>
-                <div id="member-5">
-                    <img src="{% static 'images/samuel.jpg' %}" alt="photo Samuel">
-                    <div class="container">
-                        <h4><b>Samuel WROBLEWSKI</b></h4>
-                        <p>Développeur</p>
-                    </div>
-                </div>
-                <div id="member-6">
-                    <img src="{% static 'images/wided.jpg' %}" alt="photo Wided">
-                    <div class="container">
-                        <h4><b>Wided BARI</b></h4>
-                        <p>Développeur</p>
-                    </div>
-                </div>
-                <div id="member-7">
-                    <img src="{% static 'images/mahel.jpg' %}" alt="photo Mahel">
-                    <div class="container">
-                        <h4><b>Mahel BERBUDEAU</b></h4>
-                        <p>Développeur</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </body>
     {% endblock content %}
-
-</html>

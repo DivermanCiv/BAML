@@ -24,6 +24,11 @@ def application(request):
 
     return render(request, 'BAML/application.html')
 
+def quiSommesNous(request):
+    """Method to go to the Qui Sommes Nous page"""
+
+    return render(request, 'BAML/qui-sommes-nous.html')
+
 def mentionLegales(request):
     """Method to go to the mentionsLegales page"""
 

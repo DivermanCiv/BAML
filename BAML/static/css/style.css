@@ -192,6 +192,15 @@ form {
   height: 2rem;
   width: 20rem; }
 
+.radio_option {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    height: 2rem;
+    width: 20rem;
+  }
+
+
 .drop-zone {
   margin: 5rem;
   max-width: 200px;
