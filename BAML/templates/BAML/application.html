@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block title %}Application{% endblock %}
-    <body>
+
         {% block content %}
+
         <div class="drag-application-title">
             <h1>Notre application</h1>
             <p>Veuillez selectionnez un type de traitement et glisser votre fichier a analyser</p>
@@ -29,7 +30,6 @@
             </div>
         </form>
         <script type="text/javascript" src="{% static 'JS/drag.js' %}"></script>
+        {% include "BAML/footer.html" %}
         {% endblock content %}
-    </body>
 
-</html>

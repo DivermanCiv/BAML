@@ -1,8 +1,8 @@
 {% extends 'BAML/base.html'%}
 {% load static %}
+
     {% block title %}Mentions légales{% endblock %}
 
-    <body>
 
         {% block content %}
         <div class="mention">
@@ -28,5 +28,6 @@
                 suppression des données vous concernant (art. 34 de la loi "Informatique et Libertés"). Pour l'exercer,
                 adressez vous à [a compléter]</p>
         </div>
+        {% include "BAML/footer.html" %}
         {% endblock content %}
-    </body>
+
