@@ -1,0 +1,8 @@
+/d = copier les fichier les plus recent
+/e = meme si ils sont vide
+/c = continuer meme si erreur
+/r = remplacer les fichier en lecture seule
+/h fichier cache et fichier systeme
+/I = 
+/k = tout les attribut du fichier
+/Y = confirmer la supression
