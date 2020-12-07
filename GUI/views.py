@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
+
 # Create your views here.
 def index(request):
     """Method to present the application HomePage
@@ -12,9 +13,8 @@ def index(request):
     :type request: HttpRequest
     :return: Response HTTP with the HomePage content.
     :rtype: HttpResponse
+    
 
-    .. todo: Tests unitaire
-    .. todo: contenu à revoir
     """
     return render(request, 'BAML/index.html')
 
