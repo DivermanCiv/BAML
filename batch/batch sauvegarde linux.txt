@@ -1,0 +1,17 @@
+commande linux pour sauvegarde :
+rsync -av --delete /home/Documents/sources /home/Documents/destination/
+
+
+--delete pas obligé
+
+
+pour automatiser  : 
+gedit/et save en .sh
+
+terminale : 
+chmode +x /home/Documents/sauvegarde.sh
+
+automatiser : 
+export VISUAL=nano; crontab -e
+apres mettre l'heure : 
+exemple 20h: 00 20 * * * /home/Documents/sauvegarde.sh
