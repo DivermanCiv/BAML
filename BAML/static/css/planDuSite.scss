@@ -2,4 +2,11 @@
 .plan {
     padding: 2rem;
 
+    /* prevent default comportement of a tag */
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+
 }

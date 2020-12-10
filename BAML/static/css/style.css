@@ -186,33 +186,6 @@ footer {
   /* prevent the default style of a tag */ }
   footer a {
     text-decoration: none; }
-  @media (max-width: 480px) {
-    footer .btnPopupFooter {
-      display: none; } }
-  footer .btnPopupFooter {
-    padding: 1em 2em;
-    cursor: pointer; }
-  footer .overlayFooter {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    background-color: rgba(0, 0, 0, 0.15);
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    display: none; }
-  footer .popupFooter {
-    margin: 10% auto;
-    width: 70%;
-    background-color: #f3f3f3;
-    padding: 1em;
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 5px; }
-  footer .btnCloseFooter {
-    float: right;
-    font-size: 16pt;
-    cursor: pointer;
-    color: #1a1a1a; }
 
 /* add padding into the mention container */
 .mention {
@@ -220,7 +193,11 @@ footer {
 
 /* add padding into the plan container */
 .plan {
-  padding: 2rem; }
+  padding: 2rem;
+  /* prevent default comportement of a tag */ }
+  .plan a {
+    text-decoration: none;
+    color: black; }
 
 /* style of the title and text */
 .drag-application-title {
@@ -296,6 +273,9 @@ form {
   width: 100%;
   height: 4rem;
   display: flex;
+  position: fixed;
+  top: 0;
+  margin-bottom: 10rem;
   /*Style for navbar-title or logo  */ }
   .navbar .navbar-title {
     margin-right: auto;
@@ -308,11 +288,25 @@ form {
 
 /* prevent the display of burger button with big screen */
 .navbar-burger {
-  display: none; }
+  max-width: 50px;
+  margin-right: 10px; }
 
-#mobile {
+#burger-menu-content {
   /* prevent the display of burger menu content on big screen */
-  display: none; }
+  flex-direction: column;
+  background-color: #2d8fdf;
+  text-decoration: none;
+  padding: 0 1rem 0 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 80%;
+  width: 20%;
+  display: none;
+  position: fixed;
+  /* prevent the default comportment of a tag  */ }
+  #burger-menu-content a {
+    text-decoration: none;
+    color: black; }
 
 /* style change only on phone screen */
 @media (max-width: 480px) {
@@ -333,7 +327,7 @@ form {
       height: 2rem; }
 
   /* Style of burger menu content if displayed */
-  #mobile {
+  #burger-menu-content {
     display: none;
     flex-direction: column;
     background-color: #2d8fdf;
@@ -341,18 +335,22 @@ form {
     padding: 0 1rem 0 1rem;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
+    margin-left: 0;
     /*prevent the default comportment of a tag  */ }
-    #mobile a {
+    #burger-menu-content a {
       height: 2rem;
       text-decoration: none;
       color: black; } }
 /* style of the pop up button in header */
-.btnPopupHeader {
+.btnPopupHeader,
+.btnPopupContact {
   padding: 1em 2em;
   cursor: pointer; }
 
 /* style of the pop up container of content in header */
-.overlayHeader {
+.overlayHeader,
+.overlayHeaderContact {
   position: fixed;
   left: 0px;
   top: 0px;
@@ -363,7 +361,8 @@ form {
   display: none; }
 
 /* style of the pop up content in header */
-.popupHeader {
+.popupHeader,
+.popupHeaderContact {
   margin: 10% auto;
   width: 70%;
   background-color: #f3f3f3;
@@ -372,7 +371,8 @@ form {
   border-radius: 5px; }
 
 /* style of close button on popup in header */
-.btnCloseHeader {
+.btnCloseHeader,
+.btnCloseHeaderContact {
   float: right;
   font-size: 16pt;
   cursor: pointer;
@@ -387,7 +387,7 @@ html {
 
 body {
   margin: 0;
-  padding: 0 0 0 0;
+  padding: 4rem 0 5rem 0;
   background-color: rgba(129, 136, 66, 0.424);
   min-height: 100%;
   position: relative; }
@@ -396,6 +396,7 @@ footer {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0; }
+  right: 0;
+  margin-top: 2rem; }
 
 /*# sourceMappingURL=style.css.map */

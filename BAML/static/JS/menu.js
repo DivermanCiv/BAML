@@ -1,6 +1,7 @@
+// show content of burger menu
 function afficheMenu() {
 
-    var x = document.getElementById("mobile");
+    var x = document.getElementById("burger-menu-content");
     if (x.style.display === "flex") {
         x.style.display = "none";
     } else {
@@ -8,6 +9,7 @@ function afficheMenu() {
     }
 }
 
+// popup RGPD
 function openModalHeader() {
 
     overlayHeader.style.display = 'block';
@@ -19,13 +21,19 @@ function closeModalHeader() {
     overlayHeader.style.display = 'none';
 }
 
-function openModalFooter() {
 
-    overlayFooter.style.display = 'block';
+
+// popup contact
+
+
+function openModalHeaderContact() {
+
+    overlayHeaderContact.style.display = 'block';
 }
 
 
-function closeModalFooter() {
+function closeModalHeaderContact() {
 
-    overlayFooter.style.display = 'none';
+    overlayHeaderContact.style.display = 'none';
 }
+
