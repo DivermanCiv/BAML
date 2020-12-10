@@ -6,4 +6,5 @@ from . import views # import views so we can use them in urls.
 urlpatterns = [
     url(r'^analyses$', views.analyse),
     url(r'^predictions$', views.predict)
+
 ]

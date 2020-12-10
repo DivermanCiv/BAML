@@ -1,3 +1,4 @@
+/*Content of Navbar*/
 .navbar {
     background-color: rgb(45, 143, 223);
     width: 100%;
@@ -5,46 +6,51 @@
     display: flex;
 
 
-
+    /*Style for navbar-title or logo  */
     .navbar-title {
 
         margin-right: auto;
         padding-left: 10px;
         font-size: 60px;
 
+        /* prevent the default comportment of a tag  */
         a {
             text-decoration: none;
             color: black;
         }
     }
-
-    .navbar-burger {
-        display: none;
-    }
-
 }
 
+/* prevent the display of burger button with big screen */
+.navbar-burger {
+    display: none;
+}
 
 
 
 #mobile {
+    /* prevent the display of burger menu content on big screen */
+
     display: none;
 }
 
+/* style change only on phone screen */
 @media (max-width: 480px) {
 
-
+    /* style of navbar on phone screen */
     .navbar {
 
         height: 5rem;
         display: flex;
         flex-direction: row;
 
+        /* style of navbar title only on phone screen */
         .navbar-title {
             margin-top: 1rem;
             font-size: 50px;
         }
 
+        /* display and style of burger menu on pĥone screen */
         .navbar-burger {
             display: flex;
             margin: 1.5rem;
@@ -53,8 +59,11 @@
         }
 
 
+
+
     }
 
+    /* Style of burger menu content if displayed */
     #mobile {
         display: none;
         flex-direction: column;
@@ -65,24 +74,17 @@
         align-items: center;
 
 
-
+        /*prevent the default comportment of a tag  */
         a {
 
             height: 2rem;
-
             text-decoration: none;
-
             color: black
         }
-
-
-
     }
-
-
-
 }
 
+/* style of the pop up button in header */
 .btnPopupHeader {
 
     padding: 1em 2em;
@@ -90,7 +92,7 @@
 }
 
 
-
+/* style of the pop up container of content in header */
 .overlayHeader {
     position: fixed;
     left: 0px;
@@ -102,6 +104,7 @@
     display: none;
 }
 
+/* style of the pop up content in header */
 .popupHeader {
     margin: 10% auto;
     width: 70%;
@@ -111,6 +114,7 @@
     border-radius: 5px;
 }
 
+/* style of close button on popup in header */
 .btnCloseHeader {
     float: right;
     font-size: 16pt;

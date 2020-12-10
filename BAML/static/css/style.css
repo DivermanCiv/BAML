@@ -1,64 +1,101 @@
+@charset "UTF-8";
+/* todo réviser pour version tablette */
+/* style of the body of the index page */
 .presentation {
   display: flex;
-  background-color: rgba(129, 136, 66, 0.424); }
+  min-height: 100%;
+  /* correction bug d'affichage */
+  padding: 0 0 3.30rem 0;
+  /* style of flex-box of content of the index page */ }
   .presentation .presentation-content {
     margin: 0 5rem;
     display: flex;
     flex-direction: column;
-    height: 45rem; }
+    height: 45rem;
+    /* prevent the superposition of footer on content in phone screen */
+    /* prevent the superposition of footer on content in tablet screen */
+    /* style of flex-box of content without title of the index page */
+    /* style of title */
+    /* style of text */
+    /* style of Lancer l'applicatiob button */
+    /* prevent the default comportement of a tag */ }
     @media (max-width: 480px) {
       .presentation .presentation-content {
         height: 100%; } }
+    @media (min-width: 480px) and (max-width: 1024px) {
+      .presentation .presentation-content {
+        height: 100%;
+        padding-bottom: 1rem; } }
     .presentation .presentation-content .presentation-raw-content {
       display: flex;
       flex-direction: row;
-      height: 100%; }
+      height: 100%;
+      margin-left: 5%;
+      overflow: hidden;
+      /* changing direction on phone screen */
+      /* changing direction on tablet screen */
+      /* style of presentation image */ }
       @media (max-width: 480px) {
+        .presentation .presentation-content .presentation-raw-content {
+          flex-direction: column; } }
+      @media (min-width: 480px) and (max-width: 1024px) {
         .presentation .presentation-content .presentation-raw-content {
           flex-direction: column; } }
       .presentation .presentation-content .presentation-raw-content .presentation-image {
         margin: 40px;
         height: 80%;
         width: 100%;
-        flex: 2 1 auto;
-        align-self: stretch; }
+        flex: 2 1 33%;
+        align-self: stretch;
+        /* border et border-radius + object-fit */
+        border: 1px black solid;
+        border-radius: 15px;
+        object-fit: fill;
+        /* the image is not shown on phone screen */
+        /* image style on tablet screen */ }
         @media (max-width: 480px) {
           .presentation .presentation-content .presentation-raw-content .presentation-image {
             display: none; } }
+        @media (min-width: 480px) and (max-width: 1024px) {
+          .presentation .presentation-content .presentation-raw-content .presentation-image {
+            align-self: center;
+            width: 80%;
+            height: 80%; } }
       .presentation .presentation-content .presentation-raw-content p {
-        flex: 3 1 auto;
-        align-self: stretch; }
+        flex: 3 1 66%;
+        align-self: stretch;
+        margin-left: 1%; }
     .presentation .presentation-content h2 {
       flex: 1 1 auto;
       align-self: center; }
-    .presentation .presentation-content .presentation-image {
-      margin: 40px;
-      height: 35rem;
-      width: 35rem;
-      flex: 2 1 auto;
-      align-self: auto; }
     .presentation .presentation-content p {
-      flex: 3 1 auto;
+      margin-top: 5rem;
+      flex: 1 1 66%;
       align-self: stretch; }
     .presentation .presentation-content button {
       flex: 4 1 auto;
       align-self: center;
       height: 5rem;
-      width: 10rem; }
+      width: 10rem;
+      /* the button is not show on phone screen */ }
       @media (max-width: 480px) {
         .presentation .presentation-content button {
           display: none; } }
     .presentation .presentation-content a {
       text-decoration: none; }
 
+/* style of the flex container */
 .team {
   display: flex;
   flex-direction: column;
-  background-color: rgba(129, 136, 66, 0.424); }
+  /*style of the text presentation container ( text and title) */
+  /* Style of the cards container */ }
   .team .team-presentation {
     margin: 5rem;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    /*style of the title*/
+    /* style of the text */ }
     .team .team-presentation h1 {
       flex: 1 1 auto;
       align-self: center; }
@@ -70,6 +107,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    /* style of the cards */
     /* On mouse-over, add a deeper shadow */
     /* Add some padding inside the card container */ }
     .team .team-member #member-1,
@@ -90,7 +128,9 @@
       align-items: center;
       align-content: center;
       width: 15rem;
-      height: 18rem; }
+      height: 18rem;
+      /* style of the cards on phone screen */
+      /* style of the photo of team member */ }
       @media (max-width: 480px) {
         .team .team-member #member-1,
         .team .team-member #member-2,
@@ -112,7 +152,8 @@
         justify-self: center;
         max-height: 170px;
         width: auto;
-        border-radius: 5px 5px 0 0; }
+        border-radius: 5px 5px 0 0;
+        /* photo not showed on phone screen */ }
         @media (max-width: 480px) {
           .team .team-member #member-1 img,
           .team .team-member #member-2 img,
@@ -134,25 +175,24 @@
       padding: 2px 16px;
       border-radius: 5px 5px 0 0; }
 
-.footer {
+/* todo change class name of footer for mobile screen  */
+/* the style of footer */
+footer {
   background-color: #2d8fdf;
   height: 5rem;
   display: flex;
   justify-content: space-around;
-  align-items: center; }
-  .footer a {
+  align-items: center;
+  /* prevent the default style of a tag */ }
+  footer a {
     text-decoration: none; }
-  .footer p {
-    padding: 10px; }
   @media (max-width: 480px) {
-    .footer p {
-      display: none; }
-    .footer .btnPopupFooter {
+    footer .btnPopupFooter {
       display: none; } }
-  .footer .btnPopupFooter {
+  footer .btnPopupFooter {
     padding: 1em 2em;
     cursor: pointer; }
-  .footer .overlayFooter {
+  footer .overlayFooter {
     position: fixed;
     left: 0px;
     top: 0px;
@@ -161,46 +201,43 @@
     height: 100%;
     z-index: 1;
     display: none; }
-  .footer .popupFooter {
+  footer .popupFooter {
     margin: 10% auto;
     width: 70%;
     background-color: #f3f3f3;
     padding: 1em;
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
     border-radius: 5px; }
-  .footer .btnCloseFooter {
+  footer .btnCloseFooter {
     float: right;
     font-size: 16pt;
     cursor: pointer;
     color: #1a1a1a; }
 
+/* add padding into the mention container */
 .mention {
   padding: 2rem; }
 
+/* add padding into the plan container */
 .plan {
   padding: 2rem; }
 
+/* style of the title and text */
 .drag-application-title {
   margin: 1rem; }
 
+/* style of the form container  */
 form {
   display: flex;
   flex-direction: column; }
 
-#monSelect {
+/* style of the radio button */
+#mySelect {
   margin: 1rem;
   height: 2rem;
   width: 20rem; }
 
-.radio_option {
-    display: flex;
-    flex-direction: row;
-    margin: 1rem;
-    height: 2rem;
-    width: 20rem;
-  }
-
-
+/* style of the drag and drop zone */
 .drop-zone {
   margin: 5rem;
   max-width: 200px;
@@ -218,12 +255,15 @@ form {
   border-radius: 10px;
   background-color: #ffffff; }
 
+/* style of dropzone when a file is in */
 .drop-zone--over {
   border-style: solid; }
 
+/* not show the real drag zone */
 .drop-zone__input {
   display: none; }
 
+/* style of drop zone if a image is loaded */
 .drop-zone__thumb {
   width: 100%;
   height: 100%;
@@ -233,6 +273,7 @@ form {
   background-size: cover;
   position: relative; }
 
+/* style of drop zone if a image is loaded */
 .drop-zone__thumb::after {
   content: attr(data-label);
   position: absolute;
@@ -245,29 +286,39 @@ form {
   font-size: 14px;
   text-align: center; }
 
+/*Content of Navbar*/
 .navbar {
   background-color: #2d8fdf;
   width: 100%;
   height: 4rem;
-  display: flex; }
+  display: flex;
+  /*Style for navbar-title or logo  */ }
   .navbar .navbar-title {
     margin-right: auto;
     padding-left: 10px;
-    font-size: 60px; }
+    font-size: 60px;
+    /* prevent the default comportment of a tag  */ }
     .navbar .navbar-title a {
       text-decoration: none;
       color: black; }
-  .navbar .navbar-burger {
-    display: none; }
 
-#mobile {
+/* prevent the display of burger button with big screen */
+.navbar-burger {
   display: none; }
 
+#mobile {
+  /* prevent the display of burger menu content on big screen */
+  display: none; }
+
+/* style change only on phone screen */
 @media (max-width: 480px) {
+  /* style of navbar on phone screen */
   .navbar {
     height: 5rem;
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    /* style of navbar title only on phone screen */
+    /* display and style of burger menu on pĥone screen */ }
     .navbar .navbar-title {
       margin-top: 1rem;
       font-size: 50px; }
@@ -277,6 +328,7 @@ form {
       width: 2rem;
       height: 2rem; }
 
+  /* Style of burger menu content if displayed */
   #mobile {
     display: none;
     flex-direction: column;
@@ -284,15 +336,18 @@ form {
     text-decoration: none;
     padding: 0 1rem 0 1rem;
     justify-content: flex-start;
-    align-items: center; }
+    align-items: center;
+    /*prevent the default comportment of a tag  */ }
     #mobile a {
       height: 2rem;
       text-decoration: none;
       color: black; } }
+/* style of the pop up button in header */
 .btnPopupHeader {
   padding: 1em 2em;
   cursor: pointer; }
 
+/* style of the pop up container of content in header */
 .overlayHeader {
   position: fixed;
   left: 0px;
@@ -303,6 +358,7 @@ form {
   z-index: 1;
   display: none; }
 
+/* style of the pop up content in header */
 .popupHeader {
   margin: 10% auto;
   width: 70%;
@@ -311,6 +367,7 @@ form {
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
   border-radius: 5px; }
 
+/* style of close button on popup in header */
 .btnCloseHeader {
   float: right;
   font-size: 16pt;
@@ -326,7 +383,7 @@ html {
 
 body {
   margin: 0;
-  padding: 0 0 5rem 0;
+  padding: 0 0 0 0;
   background-color: rgba(129, 136, 66, 0.424);
   min-height: 100%;
   position: relative; }

@@ -81,7 +81,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # Adaptateur postgresql
         'NAME': 'baml',  # Nom de la BDD
-        'USER': 'postgres',  # Nom d'utilisateur
+        'USER': 'postgres2',  # Nom d'utilisateur
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '5432',

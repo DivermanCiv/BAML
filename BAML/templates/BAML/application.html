@@ -3,33 +3,33 @@
 
 {% block title %}Application{% endblock %}
 
-        {% block content %}
+{% block content %}
+<!-- title and explaination-->
+<div class="drag-application-title">
+  <h1>Notre application</h1>
+  <p>Veuillez selectionnez un type de traitement et glisser votre fichier a analyser</p>
 
-        <div class="drag-application-title">
-            <h1>Notre application</h1>
-            <p>Veuillez selectionnez un type de traitement et glisser votre fichier a analyser</p>
+</div>
 
-        </div>
+<!-- radio buttons-->
+<form action="./upload" method="POST" enctype="multipart/form-data">
+  <div id="mySelect">
+    <div class="radio_option">
+      <input type="radio" id="value1" name="traitement" value="value1" checked>
+      <label for="value1">Obtenir le meilleur algorithme Scikit Learn à utiliser</label>
+    </div>
+    <div class="radio_option">
+      <input type="radio" id="value2" name="traitement" value="value2">
+      <label for="value2">Obtenir un fichier .csv contenant la prédiction des données envoyées</label>
+    </div>
+  </div>
+  <!--drag and drop-->
+  <div class="drop-zone">
+    <span class="drop-zone__prompt">Drop file here or click to upload</span>
 
-
-        <form action="./upload" method="POST" enctype="multipart/form-data">
-          <div id="monSelect">
-            <div class="radio_option">
-              <input type="radio" id="value1" name ="traitement" value="value1" checked>
-              <label for="value1">Obtenir le meilleur algorithme Scikit Learn à utiliser</label>
-            </div>
-            <div class="radio_option">
-              <input type="radio" id="value2" name ="traitement" value="value2">
-              <label for="value2">Obtenir un fichier .csv contenant la prédiction des données envoyées</label>
-            </div>
-          </div>
-            <div class="drop-zone">
-                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-
-                <input type="file" name="myFile" class="drop-zone__input" multiple>
-            </div>
-        </form>
-        <script type="text/javascript" src="{% static 'JS/drag.js' %}"></script>
-        {% include "BAML/footer.html" %}
-        {% endblock content %}
-
+    <input type="file" name="myFile" class="drop-zone__input" multiple>
+  </div>
+</form>
+<script type="text/javascript" src="{% static 'JS/drag.js' %}"></script>
+{% include "BAML/footer.html" %}
+{% endblock content %}

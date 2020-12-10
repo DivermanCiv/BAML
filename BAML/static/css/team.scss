@@ -1,27 +1,29 @@
+/* style of the flex container */
 .team {
     display: flex;
     flex-direction: column;
 
-    background-color: rgba(129, 136, 66, 0.424);
 
-
+    /*style of the text presentation container ( text and title) */
     .team-presentation {
         margin: 5rem;
         display: flex;
         flex-direction: column;
 
-
+        /*style of the title*/
         h1 {
             flex: 1 1 auto;
             align-self: center;
         }
 
+        /* style of the text */
         p {
             flex: 2 1 auto;
             align-self: stretch;
         }
     }
 
+    /* Style of the cards container */
     .team-member {
         margin: 5rem;
         display: flex;
@@ -31,7 +33,7 @@
         flex-wrap: wrap;
 
 
-
+        /* style of the cards */
         #member-1,
         #member-2,
         #member-3,
@@ -54,12 +56,14 @@
             width: 15rem;
             height: 18rem;
 
+            /* style of the cards on phone screen */
             @media (max-width: 480px) {
                 width: 100%;
                 height: 7rem;
                 text-align: center;
             }
 
+            /* style of the photo of team member */
             img {
 
                 justify-self: center;
@@ -68,6 +72,7 @@
 
                 border-radius: 5px 5px 0 0;
 
+                /* photo not showed on phone screen */
                 @media (max-width: 480px) {
                     display: none;
                 }

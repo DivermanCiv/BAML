@@ -1,37 +1,52 @@
 /* todo réviser pour version tablette */
 
+/* style of the body of the index page */
 .presentation {
   display: flex;
-  background-color: rgba(129, 136, 66, 0.424);
   min-height: 100%;
   /* correction bug d'affichage */
   padding: 0 0 3.30rem 0;
 
-
+  /* style of flex-box of content of the index page */
   .presentation-content {
     margin: 0 5rem;
     display: flex;
     flex-direction: column;
     height: 45rem;
 
+    /* prevent the superposition of footer on content in phone screen */
     @media (max-width: 480px) {
       height: 100%;
     }
 
+    /* prevent the superposition of footer on content in tablet screen */
+    @media (min-width: 480px) and (max-width: 1024px) {
+      height: 100%;
+      padding-bottom: 1rem;
+    }
+
+    /* style of flex-box of content without title of the index page */
     .presentation-raw-content {
       display: flex;
       flex-direction: row;
       height: 100%;
       margin-left: 5%;
-      /* overflow hidden empèche le texte de déborder */
       overflow: hidden;
 
+      /* changing direction on phone screen */
       @media (max-width: 480px) {
         flex-direction: column;
 
       }
 
+      /* changing direction on tablet screen */
+      @media (min-width: 480px) and (max-width: 1024px) {
+        flex-direction: column;
 
+
+      }
+
+      /* style of presentation image */
       .presentation-image {
 
         margin: 40px;
@@ -44,8 +59,17 @@
         border-radius: 15px;
         object-fit: fill;
 
+        /* the image is not shown on phone screen */
         @media (max-width: 480px) {
           display: none;
+
+        }
+
+        /* image style on tablet screen */
+        @media (min-width: 480px) and (max-width: 1024px) {
+          align-self: center;
+          width: 80%;
+          height: 80%;
 
         }
       }
@@ -54,48 +78,40 @@
       p {
         flex: 3 1 66%;
         align-self: stretch;
-        /* margin à vérifier */
-        margin-left: 5%;
+        margin-left: 1%;
       }
 
     }
 
+    /* style of title */
     h2 {
       flex: 1 1 auto;
       align-self: center;
 
     }
 
-
-    .presentation-image {
-
-      margin: 40px;
-      height: 35rem;
-      width: 35rem;
-      /* ajustement texte/image */
-      flex: 1 1 33%;
-      align-self: auto;
-    }
-
-
+    /* style of text */
     p {
-      /* ajustement texte/image */
+      margin-top: 5rem;
       flex: 1 1 66%;
       align-self: stretch;
     }
 
+    /* style of Lancer l'applicatiob button */
     button {
       flex: 4 1 auto;
       align-self: center;
       height: 5rem;
       width: 10rem;
 
+      /* the button is not show on phone screen */
       @media (max-width: 480px) {
         display: none;
 
       }
     }
 
+    /* prevent the default comportement of a tag */
     a {
       text-decoration: none;
     }

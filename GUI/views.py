@@ -16,6 +16,7 @@ def index(request):
     
 
     """
+    visitor_ip_address(request)
     return render(request, 'BAML/index.html')
 
 
@@ -47,3 +48,27 @@ def analyse(request):
 def predict(request):
     message = "Prédiction des données"
     return HttpResponse(message)
+
+
+
+    """Method to get the user IP
+
+    This method catch the user IP and return it
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: user IP adress
+    :rtype: request
+    
+
+    """
+def visitor_ip_address(request):
+
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    print(ip)
+    return ip

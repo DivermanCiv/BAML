@@ -1,26 +1,23 @@
-.footer {
+/* todo change class name of footer for mobile screen  */
+
+/* the style of footer */
+footer {
     background-color: rgb(45, 143, 223);
     height: 5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
 
-
+    /* prevent the default style of a tag */
     a {
         text-decoration: none;
     }
 
+    // a supprimer ?
 
 
-
-    p {
-        padding: 10px
-    }
 
     @media (max-width: 480px) {
-        p {
-            display: none;
-        }
 
         .btnPopupFooter {
             display: none
