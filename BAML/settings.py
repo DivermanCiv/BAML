@@ -81,7 +81,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # Adaptateur postgresql
         'NAME': 'baml',  # Nom de la BDD
-        'USER': 'postgres',  # Nom d'utilisateur
+        'USER': 'postgres2',  # Nom d'utilisateur
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '5432',
@@ -138,3 +138,32 @@ STATICFILES_DIRS = [
 # print(STATIC_URL)
 
 INTERNAL_IPS = ['127.0.0.1']
+
+# Loggers
+
+
+LOGGING ={
+    'version':1,
+    'loggers':{
+        'django':{
+            'handlers':['IP'],
+            'level':'INFO'
+        }
+    },
+    'handlers':{
+        'IP':{
+            'level':'INFO',
+            'class': 'logging.FileHandler',
+            'filename':'./BAML/logs/IP.log',
+            'formatter':'simpleformat',
+        },
+        
+    },
+    'formatters':{
+        'simpleformat': {
+            'format': '{levelname} {asctime} {message}',
+            'style': '{',
+        }
+
+    }
+}

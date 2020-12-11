@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
+import logging, traceback
+
 
 
 # Create your views here.
@@ -53,7 +55,7 @@ def predict(request):
 
     """Method to get the user IP
 
-    This method catch the user IP and return it
+    This method catch the user IP, throw it in IP.log and return it
 
     :param request: HTTP request
     :type request: HttpRequest
@@ -70,5 +72,6 @@ def visitor_ip_address(request):
         ip = x_forwarded_for.split(',')[0]
     else:
         ip = request.META.get('REMOTE_ADDR')
-    print(ip)
+        logging.getLogger('django').info(ip)
+    
     return ip
