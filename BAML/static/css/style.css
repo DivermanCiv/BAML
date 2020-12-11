@@ -17,7 +17,7 @@
     /* style of flex-box of content without title of the index page */
     /* style of title */
     /* style of text */
-    /* style of Lancer l'applicatiob button */
+    /* style of Lancer l'application button */
     /* prevent the default comportement of a tag */ }
     @media (max-width: 480px) {
       .presentation .presentation-content {
@@ -82,7 +82,10 @@
         .presentation .presentation-content button {
           display: none; } }
     .presentation .presentation-content a {
-      text-decoration: none; }
+      align-self: center;
+      text-decoration: none;
+      height: 5rem;
+      width: 10rem; }
 
 /* style of the flex container */
 .team {
