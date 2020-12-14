@@ -13,18 +13,30 @@
     <body>
         <header>
             <div class="navbar">
-                <div class="navbar-title"><a href="/">BAML</a></div>
+                <div class="navbar-title">
+                    <a href="/">BAML</a>
+                </div>
                 <img src="{% static 'images/logo-menu-burger.png' %}" class="navbar-burger" onclick="afficheMenu()">
 
             </div>
 
             <div id="burger-menu-content">
-                <p><a href="/plan-du-site">Plan du Site</a></p>
-                <p><a href="/application">Application BAML</a></p>
-                <p><a href="/mention-legales">Mentions Légale</a></p>
-                <p><a href="/qui-sommes-nous">qui sommes nous</a></p>
+                <p>
+                    <a href="/plan-du-site">Plan du Site</a>
+                </p>
+                <p>
+                    <a href="/application">Application BAML</a>
+                </p>
+                <p>
+                    <a href="/mention-legales">Mentions Légale</a>
+                </p>
+                <p>
+                    <a href="/qui-sommes-nous">qui sommes nous</a>
+                </p>
 
-                <p><a id="btnPopupHeader" class="btnPopupHeader" onclick="openModalHeader()">RGPD</a></p>
+                <p>
+                    <a id="btnPopupHeader" class="btnPopupHeader" onclick="openModalHeader()">RGPD</a>
+                </p>
                 <div id="overlayHeader" class="overlayHeader">
                     <div id="popupHeader" class="popupHeader">
                         <h2>
@@ -38,10 +50,10 @@
                         </div>
                     </div>
                 </div>
-
-
-
-                <p><a id="btnPopupContact" class="btnPopupContact" onclick="openModalHeaderContact()">Contact</a></p>
+            
+                <p>
+                    <a id="btnPopupContact" class="btnPopupContact" onclick="openModalHeaderContact()">Contact</a>
+                </p>
                 <div id="overlayHeaderContact" class="overlayHeaderContact">
                     <div id="popupHeaderContact" class="popupHeaderContact">
                         <h2>
@@ -54,17 +66,13 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
 
         </header>
 
         {% block content %}
-        {% endblock content %}
+        {% endblock %}
 
     </body>
-
+    {% include "BAML/footer.html" %}
 </html>

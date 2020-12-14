@@ -1,33 +1,31 @@
 {% extends 'BAML/base.html'%}
+
 {% load static %}
 
-    {% block title %}Mentions légales{% endblock %}
+{% block title %}Mentions légales{% endblock %}
 
+{% block content %}
+    <div class="mention">
+        <h1>Mentions légales sur internet</h1>
 
-        {% block content %}
-        <div class="mention">
+        <h2>Propriété</h2>
+        <p>à complété</p>
 
+        <h2>Développement et hébergement</h2>
+        <p>à complété</p>
 
+        <h2>Contenu du site (texte, images, conception)</h2>
+        <p>Ce site respecte le droit d'auteur. Tous les droits des auteurs des Oeuvres protégées reproduites et
+            communiquées sur ce site, sont réservés. Sauf autorisation, toute utilisation des Oeuvres autres que la
+            reproduction et la consultation individuelles et privées sont interdites. Toute reproduction,
+            rediffusion ou commercialisation totale ou partielle du contenu est interdite.
+        </p>
 
-            <h1>Mentions légales sur internet</h1>
-
-            <h2>Propriété</h2>
-            <p>à complété</p>
-
-            <h2>Développement et hébergement</h2>
-            <p>à complété</p>
-
-            <h2>Contenu du site (texte, images, conception)</h2>
-            <p>Ce site respecte le droit d'auteur. Tous les droits des auteurs des Oeuvres protégées reproduites et
-                communiquées sur ce site, sont réservés. Sauf autorisation, toute utilisation des Oeuvres autres que la
-                reproduction et la consultation individuelles et privées sont interdites. Toute reproduction,
-                rediffusion ou commercialisation totale ou partielle du contenu est interdite.</p>
-
-            <h2>Informatique et libertés</h2>
-            <p>Conformément à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de
-                suppression des données vous concernant (art. 34 de la loi "Informatique et Libertés"). Pour l'exercer,
-                adressez vous à [a compléter]</p>
-        </div>
-        {% include "BAML/footer.html" %}
-        {% endblock content %}
+        <h2>Informatique et libertés</h2>
+        <p>Conformément à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de
+            suppression des données vous concernant (art. 34 de la loi "Informatique et Libertés"). Pour l'exercer,
+            adressez vous à [a compléter]
+        </p>
+    </div>
+{% endblock %}
 

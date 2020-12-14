@@ -1,71 +1,72 @@
 {% extends 'BAML/base.html'%}
+
 {% load static %}
 
 {% block title %}Qui sommes nous ?{% endblock %}
 
 {% block content %}
-<!--équipe-->
-<div class="team">
-    <div class="team-presentation">
-        <h1>Notre équipe</h1>
-        <p>Composée d'étudiants de la formation Switch IT de Campus Academy, les profils sont de tous les niveaux,
-            permettant une montée en compétences de tous les membres, que ce soit au niveau des connaissances techniques
-            pures ou bien au niveau de la gestion managériale. <br>
-            Notre ambition est de proposer une solution applicative pour les entreprises souhaitant une utilisation
-            facilitée de solutions Machine Learning sur leurs jeux de données.
-        </p>
+    <!--équipe-->
+    <div class="team">
+        <div class="team-presentation">
+            <h1>Notre équipe</h1>
+            <p>
+                Composée d'étudiants de la formation Switch IT de Campus Academy, les profils sont de tous les niveaux,
+                permettant une montée en compétences de tous les membres, que ce soit au niveau des connaissances techniques
+                pures ou bien au niveau de la gestion managériale. <br>
+                Notre ambition est de proposer une solution applicative pour les entreprises souhaitant une utilisation
+                facilitée de solutions Machine Learning sur leurs jeux de données.
+            </p>
+        </div>
+        <div class="team-member">
+            <div id="member-1">
+                <img src="{% static 'images/kevin.jpg' %}" alt="photo kevin">
+                <div class="container">
+                    <h4><b>Kevin CARRILLO</b></h4>
+                    <p>SCRUM Master</p>
+                </div>
+            </div>
+            <div id="member-2">
+                <img src="{% static 'images/mathieu.jpg' %}" alt="photo mathieu">
+                <div class="container">
+                    <h4><b>Mathieu MESNIL</b></h4>
+                    <p>DEV Leader</p>
+                </div>
+            </div>
+            <div id="member-3">
+                <img src="{% static 'images/romain.jpg' %}" alt="photo Romain">
+                <div class="container">
+                    <h4><b>Romain CHARPENTIER</b></h4>
+                    <p>System Operator</p>
+                </div>
+            </div>
+            <div id="member-4">
+                <img src="{% static 'images/adam.jpg' %}" alt="photo Adam">
+                <div class="container">
+                    <h4><b>Adam DUPUIS</b></h4>
+                    <p>Développeur</p>
+                </div>
+            </div>
+            <div id="member-5">
+                <img src="{% static 'images/samuel.jpg' %}" alt="photo Samuel">
+                <div class="container">
+                    <h4><b>Samuel WROBLEWSKI</b></h4>
+                    <p>Développeur</p>
+                </div>
+            </div>
+            <div id="member-6">
+                <img src="{% static 'images/wided.jpg' %}" alt="photo Wided">
+                <div class="container">
+                    <h4><b>Wided BARI</b></h4>
+                    <p>Développeur</p>
+                </div>
+            </div>
+            <div id="member-7">
+                <img src="{% static 'images/mahel.jpg' %}" alt="photo Mahel">
+                <div class="container">
+                    <h4><b>Mahel BERBUDEAU</b></h4>
+                    <p>Développeur</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="team-member">
-        <div id="member-1">
-            <img src="{% static 'images/kevin.jpg' %}" alt="photo kevin">
-            <div class="container">
-                <h4><b>Kevin CARRILLO</b></h4>
-                <p>SCRUM Master</p>
-            </div>
-        </div>
-        <div id="member-2">
-            <img src="{% static 'images/mathieu.jpg' %}" alt="photo mathieu">
-            <div class="container">
-                <h4><b>Mathieu MESNIL</b></h4>
-                <p>DEV Leader</p>
-            </div>
-        </div>
-        <div id="member-3">
-            <img src="{% static 'images/romain.jpg' %}" alt="photo Romain">
-            <div class="container">
-                <h4><b>Romain CHARPENTIER</b></h4>
-                <p>System Operator</p>
-            </div>
-        </div>
-        <div id="member-4">
-            <img src="{% static 'images/adam.jpg' %}" alt="photo Adam">
-            <div class="container">
-                <h4><b>Adam DUPUIS</b></h4>
-                <p>Développeur</p>
-            </div>
-        </div>
-        <div id="member-5">
-            <img src="{% static 'images/samuel.jpg' %}" alt="photo Samuel">
-            <div class="container">
-                <h4><b>Samuel WROBLEWSKI</b></h4>
-                <p>Développeur</p>
-            </div>
-        </div>
-        <div id="member-6">
-            <img src="{% static 'images/wided.jpg' %}" alt="photo Wided">
-            <div class="container">
-                <h4><b>Wided BARI</b></h4>
-                <p>Développeur</p>
-            </div>
-        </div>
-        <div id="member-7">
-            <img src="{% static 'images/mahel.jpg' %}" alt="photo Mahel">
-            <div class="container">
-                <h4><b>Mahel BERBUDEAU</b></h4>
-                <p>Développeur</p>
-            </div>
-        </div>
-    </div>
-</div>
-{% include "BAML/footer.html" %}
 {% endblock %}

@@ -1,17 +1,15 @@
 {% extends 'BAML/base.html'%}
+
 {% load static %}
+
 {% block title %}Plan du site{% endblock %}
 
-
 {% block content %}
-<div class="plan">
-
-
-    <h1>Plan du site</h1>
-    <p><a href="/">Accueil</a></p>
-    <p><a href="/application">Application BAML</a></p>
-    <p><a href="/mention-legales">Mentions Légale</a></p>
-    <p><a href="/qui-sommes-nous">qui sommes nous</a></p>
-</div>
-{% include "BAML/footer.html" %}
-{% endblock content %}
+    <div class="plan">
+        <h1>Plan du site</h1>
+        <p><a href="/">Accueil</a></p>
+        <p><a href="/application">Application BAML</a></p>
+        <p><a href="/mention-legales">Mentions Légale</a></p>
+        <p><a href="/qui-sommes-nous">qui sommes nous</a></p>
+    </div>
+{% endblock %}
