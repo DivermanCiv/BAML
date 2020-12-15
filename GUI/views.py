@@ -9,7 +9,7 @@ def index(request):
     """Method to present the application HomePage
 
     This method catch the HTTP request from the Front End and return the
-    content of the HomePage.
+    content of the HomePage. This method also call the visitor_ip_address method which catch the user IP and send it to the log
 
     :param request: HTTP request
     :type request: HttpRequest
@@ -22,21 +22,72 @@ def index(request):
     return render(request, 'BAML/index.html')
 
 
+"""Method to present the application page
+
+    This method catch the HTTP request from the Front End and return the
+    content of the application page. 
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Response HTTP with application page content.
+    :rtype: HttpResponse
+    
+
+    """
+
 def application(request):
     """Method to go to the application page"""
 
     return render(request, 'BAML/application.html')
 
+"""Method to present the team page
+
+    This method catch the HTTP request from the Front End and return the
+    content of the team page. 
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Response HTTP with team page content.
+    :rtype: HttpResponse
+    
+
+    """
 def quiSommesNous(request):
     """Method to go to the Qui Sommes Nous page"""
 
     return render(request, 'BAML/qui-sommes-nous.html')
 
+
+"""Method to present the legal mention page
+
+    This method catch the HTTP request from the Front End and return the
+    content of the legal mention page. 
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Response HTTP with legal mention page content.
+    :rtype: HttpResponse
+    
+
+    """
 def mentionLegales(request):
-    """Method to go to the mentionsLegales page"""
+    """Method to go to the Sitemap page"""
 
     return render(request, 'BAML/mention-legales.html')
 
+
+"""Method to present the legal mention page
+
+    This method catch the HTTP request from the Front End and return the
+    content of the Sitemap page. 
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Response HTTP with Sitemap page content.
+    :rtype: HttpResponse
+    
+
+    """
 def planDuSite(request):
     """Method to go to the planDuSite page"""
 

@@ -10,15 +10,15 @@ function afficheMenu() {
 }
 
 // popup RGPD
-function openModalHeader() {
-
-    overlayHeader.style.display = 'block';
+function openModalFooter() {
+    console.log()
+    overlayFooter.style.display = 'block';
 }
 
 
-function closeModalHeader() {
+function closeModalFooter() {
 
-    overlayHeader.style.display = 'none';
+    overlayFooter.style.display = 'none';
 }
 
 
@@ -26,14 +26,14 @@ function closeModalHeader() {
 // popup contact
 
 
-function openModalHeaderContact() {
+function openModalFooterContact() {
 
-    overlayHeaderContact.style.display = 'block';
+    overlayFooterContact.style.display = 'block';
 }
 
 
-function closeModalHeaderContact() {
+function closeModalFooterContact() {
 
-    overlayHeaderContact.style.display = 'none';
+    overlayFooterContact.style.display = 'none';
 }
 
