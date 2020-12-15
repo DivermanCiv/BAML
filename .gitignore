@@ -5,7 +5,7 @@
 __pycache__
 db.sqlite3
 media
-BAML/script.py
+BAML/settings.py
 # Backup files # 
 *.bak 
 
