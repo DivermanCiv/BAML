@@ -162,6 +162,14 @@ LOGGING ={
         'simpleformat': {
             'format': '{levelname} {asctime} {message}',
             'style': '{',
+
+
+
+
+
+
+
+            
         }
     }
 }
