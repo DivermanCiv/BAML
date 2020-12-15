@@ -16,20 +16,20 @@
 <form action="./upload" method="POST" enctype="multipart/form-data">
   <div id="mySelect">
     <div class="radio_option">
-      <input type="radio" id="value1" name="traitement" value="value1" checked>
-      <label for="value1">Obtenir le meilleur algorithme Scikit Learn à utiliser</label>
+      <input type="radio" id="analyze" name="analyze" value="analyze" checked>
+      <label for="analyze">Obtenir le meilleur algorithme Scikit Learn à utiliser</label>
     </div>
     <div class="radio_option">
-      <input type="radio" id="value2" name="traitement" value="value2">
-      <label for="value2">Obtenir un fichier .csv contenant la prédiction des données envoyées</label>
+      <input type="radio" id="prediction" name="prediction" value="prediction">
+      <label for="prediction">Obtenir un fichier .csv contenant la prédiction des données envoyées</label>
     </div>
   </div>
   <!-- input-->
 
 
   <div class="form-separator">
-    <label for="name">Entrez votre séparateur </label>
-    <input type="text" name="name" id="name" required maxlength="1">
+    <label for="separator">Entrez votre séparateur </label>
+    <input type="text" name="separator" id="separator" required maxlength="1">
   </div>
 
 
@@ -38,7 +38,7 @@
   <div class="drop-zone">
     <span class="drop-zone__prompt">Déposez ici votre fichier</span>
 
-    <input type="file" name="myFile" class="drop-zone__input" multiple>
+    <input type="file" name="csvFile" class="drop-zone__input" multiple>
   </div>
 
   <input type="submit" value="Envoyer le CSV">
