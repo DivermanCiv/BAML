@@ -31,6 +31,7 @@
       flex-direction: row;
       height: 100%;
       margin-left: 5%;
+      margin-right: 15%;
       overflow: hidden;
       /* changing direction on phone screen */
       /* changing direction on tablet screen */
@@ -42,9 +43,9 @@
         .presentation .presentation-content .presentation-raw-content {
           flex-direction: column; } }
       .presentation .presentation-content .presentation-raw-content .presentation-image {
-        margin: 40px;
-        height: 80%;
-        width: 100%;
+        margin: 70px 40px 40px 40px;
+        height: 47%;
+        width: 67%;
         flex: 2 1 33%;
         align-self: stretch;
         /* border et border-radius + object-fit */
@@ -178,17 +179,49 @@
       padding: 2px 16px;
       border-radius: 5px 5px 0 0; }
 
-/* todo change class name of footer for mobile screen  */
 /* the style of footer */
-footer {
+.footer {
   background-color: #2d8fdf;
   height: 5rem;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  /* prevent the default style of a tag */ }
-  footer a {
+  /*align-items: center; */
+  flex-direction: row;
+  /* prevent the default style of a tag */
+  /* style of the pop up button in footer */
+  /* style of the pop up container of content in footer */
+  /* style of the pop up content in footer */
+  /* style of close button on popup in footer */ }
+  .footer a {
     text-decoration: none; }
+  .footer .btnPopupFooter,
+  .footer .btnPopupContact {
+    padding: 1em 2em;
+    cursor: pointer; }
+  .footer .overlayFooter,
+  .footer .overlayFooterContact {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none; }
+  .footer .popupFooter,
+  .footer .popupFooterContact {
+    margin: 10% auto;
+    width: 70%;
+    background-color: #f3f3f3;
+    padding: 1em;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px; }
+  .footer .btnCloseFooter,
+  .footer .btnCloseFooterContact {
+    float: right;
+    font-size: 16pt;
+    cursor: pointer;
+    color: #1a1a1a; }
 
 /* add padding into the mention container */
 .mention {
@@ -345,42 +378,6 @@ form {
       height: 2rem;
       text-decoration: none;
       color: black; } }
-/* style of the pop up button in header */
-.btnPopupHeader,
-.btnPopupContact {
-  padding: 1em 2em;
-  cursor: pointer; }
-
-/* style of the pop up container of content in header */
-.overlayHeader,
-.overlayHeaderContact {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  background-color: rgba(0, 0, 0, 0.15);
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  display: none; }
-
-/* style of the pop up content in header */
-.popupHeader,
-.popupHeaderContact {
-  margin: 10% auto;
-  width: 70%;
-  background-color: #f3f3f3;
-  padding: 1em;
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-  border-radius: 5px; }
-
-/* style of close button on popup in header */
-.btnCloseHeader,
-.btnCloseHeaderContact {
-  float: right;
-  font-size: 16pt;
-  cursor: pointer;
-  color: #1a1a1a; }
-
 * {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
