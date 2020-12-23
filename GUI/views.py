@@ -1,6 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 import logging, traceback
+
 
 
 
@@ -37,8 +38,10 @@ def index(request):
 
 def application(request):
     """Method to go to the application page"""
+    get_form_info(request)
 
     return render(request, 'BAML/application.html')
+
 
 """Method to present the team page
 
@@ -93,15 +96,18 @@ def planDuSite(request):
 
     return render(request, 'BAML/plan-du-site.html')
 
-def analyse(request):
-    message = "Analyse des données"
-    return HttpResponse(message)
+def analyze(request):
+    #message = "Analyse des données"
+    #pass
+    return render(request, 'BAML/analyse.html')
+
+    #return HttpResponse(message)
 
 
 def predict(request):
     message = "Prédiction des données"
-    return HttpResponse(message)
-
+    #return HttpResponse(message)
+    return render(request, 'BAML/analyse.html')
 
 
     """Method to get the user IP
@@ -125,5 +131,24 @@ def visitor_ip_address(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
         logging.getLogger('django').info(ip)
-    
+    print(ip)
     return ip
+
+
+def get_form_info(request):
+
+
+    if request.method == 'POST':
+        radioChoice = request.POST.get('algoChoice')
+        separator = request.POST.get('separator')
+        csvFile = request.POST.get('csvFile')
+
+        if radioChoice == 'analyze':
+            print('je suis une ' + radioChoice + ' mon séparateur est ' + separator + " et je contiens " + csvFile.name)
+            return HttpResponseRedirect('analyze/')
+
+        if radioChoice == 'prediction':
+            print('je suis une ' + radioChoice + ' mon séparateur est ' + separator + " et je contiens " + csvFile.name)
+            return redirect('/prediction/')
+    
+                

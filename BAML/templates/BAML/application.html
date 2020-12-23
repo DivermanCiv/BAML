@@ -7,13 +7,14 @@
 {% block content %}
 <!-- title and explaination-->
 <div class="drag-application-title">
-  <h1>Notre application</h1>
+  <h1><a href="/analyze"> Notre application</a></h1>
   <p>Veuillez selectionnez un type de traitement et glisser votre fichier a analyser</p>
 
 </div>
 
 <!-- radio buttons-->
-<form action="./upload" method="POST" enctype="multipart/form-data">
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
   <div id="mySelect">
     <div class="radio_option">
       <input type="radio" id="analyze" name="algoChoice" value="analyze" checked>
