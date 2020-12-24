@@ -27,10 +27,11 @@ def index(request):
 
     This method catch the HTTP request from the Front End and return the
     content of the application page. 
+    If the form is fill, the page will be redirected on the user choice
 
     :param request: HTTP request
     :type request: HttpRequest
-    :return: Response HTTP with application page content.
+    :return: Response HTTP with application page content. and the Separator
     :rtype: HttpResponse
     
 
@@ -38,7 +39,20 @@ def index(request):
 
 def application(request):
     """Method to go to the application page"""
-    get_form_info(request)
+
+
+    if request.method == 'POST' and request.POST.get('algoChoice'):
+            radioChoice = request.POST.get('algoChoice')
+            separator = request.POST.get('separator')
+            csvFile = request.POST.get('csvFile')
+
+            if radioChoice == 'analyze':
+                message = analyze(request, separator)
+                return render(request, 'BAML/analyse.html', {'separator' : message})
+
+            if radioChoice == 'prediction':
+                message = analyze(request, separator)
+                return render(request, 'BAML/prediction.html', {'separator' : message})
 
     return render(request, 'BAML/application.html')
 
@@ -96,19 +110,47 @@ def planDuSite(request):
 
     return render(request, 'BAML/plan-du-site.html')
 
-def analyze(request):
-    #message = "Analyse des données"
-    #pass
-    return render(request, 'BAML/analyse.html')
 
-    #return HttpResponse(message)
+"""Method to analyse the CVS file
+
+    This method catch the HTTP request from the Front End and return the
+    content of the Sitemap page. 
+
+    :param string: separator
+    :param file: csvFile
+    :return: a message displayed on analyse page
+    :rtype: string
+    
+
+    """
+
+def analyze(request, separator = ';', csvFile = None):
+    message = "Vous avez choisis " + separator + " comme séparateur de CVS"
 
 
-def predict(request):
-    message = "Prédiction des données"
-    #return HttpResponse(message)
-    return render(request, 'BAML/analyse.html')
+    # mettre ici l'algorythme
 
+    return message
+
+
+    """Method to prediction the CVS file
+
+    This method catch the HTTP request from the Front End and return the
+    content of the Sitemap page. 
+
+    :param string: separator
+    :param file: csvFile
+    :return: a message displayed on prediction page
+    :rtype: string
+    
+
+    """
+
+def predict(request, separator = ';', csvFile = None):
+    message = "Vous avez choisis " + separator + " comme séparateur de CVS"
+
+    # mettre ici l'algorythme
+    return message
 
     """Method to get the user IP
 
@@ -134,21 +176,3 @@ def visitor_ip_address(request):
     print(ip)
     return ip
 
-
-def get_form_info(request):
-
-
-    if request.method == 'POST':
-        radioChoice = request.POST.get('algoChoice')
-        separator = request.POST.get('separator')
-        csvFile = request.POST.get('csvFile')
-
-        if radioChoice == 'analyze':
-            print('je suis une ' + radioChoice + ' mon séparateur est ' + separator + " et je contiens " + csvFile.name)
-            return HttpResponseRedirect('analyze/')
-
-        if radioChoice == 'prediction':
-            print('je suis une ' + radioChoice + ' mon séparateur est ' + separator + " et je contiens " + csvFile.name)
-            return redirect('/prediction/')
-    
-                
