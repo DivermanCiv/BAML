@@ -33,3 +33,11 @@ class viewTest(TestCase):
     def test_qui_sommes_nous_view_url_exists_at_desired_location5(self):
         response = self.client.get('/qui-sommes-nous/')
         self.assertEqual(response.status_code, 200)
+
+    def test_analyse_view_url_exists_at_desired_location6(self):
+        response = self.client.get('/analyze/')
+        self.assertEqual(response.status_code, 200)
+
+    def prediction(self):
+        response = self.client.get('/prediction/')
+        self.assertEqual(response.status_code, 200)

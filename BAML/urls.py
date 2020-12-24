@@ -26,10 +26,10 @@ urlpatterns = [
     url('mention-legales/', views.mentionLegales),
     url('plan-du-site/', views.planDuSite),
     url('qui-sommes-nous/', views.quiSommesNous),
-    url(r'^home/', include('GUI.urls')),
     path('admin/', admin.site.urls),
-    url('analyze/', views.analyze, name="analyze"),
-    url('prediction/', views.predict, name ="prediction"),
+    #url('analyze/', views.application, name="analyze"),
+    url('prediction/', views.predictionHTML, name ="predictionHTML"),
+    path('analyze', views.analyseHTML, name="analyzeHTML")
 
 
 ]

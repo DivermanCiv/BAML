@@ -19,7 +19,8 @@ def index(request):
     
 
     """
-    visitor_ip_address(request)
+   
+        
     return render(request, 'BAML/index.html')
 
 
@@ -31,7 +32,7 @@ def index(request):
 
     :param request: HTTP request
     :type request: HttpRequest
-    :return: Response HTTP with application page content. and the Separator
+    :return: Response HTTP with application page content.
     :rtype: HttpResponse
     
 
@@ -39,20 +40,21 @@ def index(request):
 
 def application(request):
     """Method to go to the application page"""
+#TODO ajouter parametre au redirect
+    getChoice = get_form_info(request)
 
+    if getChoice == 'analyze':
+        radioChoice = request.POST.get('algoChoice')
+        separator = request.POST.get('separator')
+        csvFile = request.POST.get('csvFile')
+        return redirect('analyzeHTML')
 
-    if request.method == 'POST' and request.POST.get('algoChoice'):
-            radioChoice = request.POST.get('algoChoice')
-            separator = request.POST.get('separator')
-            csvFile = request.POST.get('csvFile')
+    if getChoice == 'prediction':
+        radioChoice = request.POST.get('algoChoice')
+        separator = request.POST.get('separator')
+        csvFile = request.POST.get('csvFile')
+        return redirect('predictionHTML')
 
-            if radioChoice == 'analyze':
-                message = analyze(request, separator)
-                return render(request, 'BAML/analyse.html', {'separator' : message})
-
-            if radioChoice == 'prediction':
-                message = analyze(request, separator)
-                return render(request, 'BAML/prediction.html', {'separator' : message})
 
     return render(request, 'BAML/application.html')
 
@@ -128,7 +130,7 @@ def analyze(request, separator = ';', csvFile = None):
     message = "Vous avez choisis " + separator + " comme séparateur de CVS"
 
 
-    # mettre ici l'algorythme
+# mettre ici l'algorythme
 
     return message
 
@@ -147,10 +149,10 @@ def analyze(request, separator = ';', csvFile = None):
     """
 
 def predict(request, separator = ';', csvFile = None):
-    message = "Vous avez choisis " + separator + " comme séparateur de CVS"
 
-    # mettre ici l'algorythme
+#mettre ici l'algorythme
     return message
+
 
     """Method to get the user IP
 
@@ -176,3 +178,27 @@ def visitor_ip_address(request):
     print(ip)
     return ip
 
+
+def analyseHTML(request, separator=';'):
+
+    return render(request, 'BAML/analyse.html', {'separator': separator})
+
+def predictionHTML(request, separator=';'):
+    return render(request, 'BAML/prediction.html')
+
+
+def get_form_info(request):
+    if request.method == 'POST' and request.POST.get('algoChoice'):
+            radioChoice = request.POST.get('algoChoice')
+            separator = request.POST.get('separator')
+            csvFile = request.POST.get('csvFile')
+
+            if radioChoice == 'analyze':
+              
+                return 'analyze'
+
+            if radioChoice == 'prediction':
+                return 'prediction'
+
+                """message = analyze(request, separator)
+                return render(request, 'BAML/prediction.html', {'separator' : message})"""
