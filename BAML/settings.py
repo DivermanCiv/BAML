@@ -156,7 +156,7 @@ LOGGING ={
             'class': 'logging.FileHandler',
             'filename':'./BAML/logs/IP.log',
             'formatter':'simpleformat',
-        },       
+        },
     },
     'formatters':{
         'simpleformat': {
