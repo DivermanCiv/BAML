@@ -16,44 +16,44 @@ def index(request):
     :type request: HttpRequest
     :return: Response HTTP with the HomePage content.
     :rtype: HttpResponse
-    
+
 
     """
-   
-        
+
+
     return render(request, 'BAML/index.html')
 
 
 """Method to present the application page
 
     This method catch the HTTP request from the Front End and return the
-    content of the application page. 
+    content of the application page.
     If the form is fill, the page will be redirected on the user choice
 
     :param request: HTTP request
     :type request: HttpRequest
     :return: Response HTTP with application page content.
     :rtype: HttpResponse
-    
+
 
     """
 
 def application(request):
     """Method to go to the application page"""
 #TODO ajouter parametre au redirect
+    radioChoice = request.POST.get('algoChoice')
+    separator = request.POST.get('separator')
+    csvFile = request.POST.get('csvFile')
+    context = {'algo': radioChoice, 'csv': csvFile, 'sep': separator}
     getChoice = get_form_info(request)
 
     if getChoice == 'analyze':
-        radioChoice = request.POST.get('algoChoice')
-        separator = request.POST.get('separator')
-        csvFile = request.POST.get('csvFile')
-        return redirect('analyzeHTML')
+
+        return redirect('BAML/analyse.html', context, permanent=True)
 
     if getChoice == 'prediction':
-        radioChoice = request.POST.get('algoChoice')
-        separator = request.POST.get('separator')
-        csvFile = request.POST.get('csvFile')
-        return redirect('predictionHTML')
+
+        return redirect('BAML/prediction.html', context, permanent=True)
 
 
     return render(request, 'BAML/application.html')
@@ -62,13 +62,13 @@ def application(request):
 """Method to present the team page
 
     This method catch the HTTP request from the Front End and return the
-    content of the team page. 
+    content of the team page.
 
     :param request: HTTP request
     :type request: HttpRequest
     :return: Response HTTP with team page content.
     :rtype: HttpResponse
-    
+
 
     """
 def quiSommesNous(request):
@@ -80,13 +80,13 @@ def quiSommesNous(request):
 """Method to present the legal mention page
 
     This method catch the HTTP request from the Front End and return the
-    content of the legal mention page. 
+    content of the legal mention page.
 
     :param request: HTTP request
     :type request: HttpRequest
     :return: Response HTTP with legal mention page content.
     :rtype: HttpResponse
-    
+
 
     """
 def mentionLegales(request):
@@ -98,13 +98,13 @@ def mentionLegales(request):
 """Method to present the legal mention page
 
     This method catch the HTTP request from the Front End and return the
-    content of the Sitemap page. 
+    content of the Sitemap page.
 
     :param request: HTTP request
     :type request: HttpRequest
     :return: Response HTTP with Sitemap page content.
     :rtype: HttpResponse
-    
+
 
     """
 def planDuSite(request):
@@ -116,13 +116,13 @@ def planDuSite(request):
 """Method to analyse the CVS file
 
     This method catch the HTTP request from the Front End and return the
-    content of the Sitemap page. 
+    content of the Sitemap page.
 
     :param string: separator
     :param file: csvFile
     :return: a message displayed on analyse page
     :rtype: string
-    
+
 
     """
 
@@ -138,13 +138,13 @@ def analyze(request, separator = ';', csvFile = None):
     """Method to prediction the CVS file
 
     This method catch the HTTP request from the Front End and return the
-    content of the Sitemap page. 
+    content of the Sitemap page.
 
     :param string: separator
     :param file: csvFile
     :return: a message displayed on prediction page
     :rtype: string
-    
+
 
     """
 
@@ -162,7 +162,7 @@ def predict(request, separator = ';', csvFile = None):
     :type request: HttpRequest
     :return: user IP adress
     :rtype: request
-    
+
 
     """
 def visitor_ip_address(request):
@@ -194,7 +194,7 @@ def get_form_info(request):
             csvFile = request.POST.get('csvFile')
 
             if radioChoice == 'analyze':
-              
+
                 return 'analyze'
 
             if radioChoice == 'prediction':
