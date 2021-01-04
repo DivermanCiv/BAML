@@ -126,7 +126,7 @@ def planDuSite(request):
 
     """
 
-def analyze(request, separator = ';', csvFile = None):
+def analyze(request, separator, csvFile = None):
     message = "Vous avez choisis " + separator + " comme séparateur de CVS"
 
 
@@ -148,7 +148,7 @@ def analyze(request, separator = ';', csvFile = None):
 
     """
 
-def predict(request, separator = ';', csvFile = None):
+def predict(request, separator, csvFile = None):
 
 #mettre ici l'algorythme
     return message
@@ -199,6 +199,3 @@ def get_form_info(request):
 
             if radioChoice == 'prediction':
                 return 'prediction'
-
-                """message = analyze(request, separator)
-                return render(request, 'BAML/prediction.html', {'separator' : message})"""

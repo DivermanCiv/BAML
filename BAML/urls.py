@@ -29,7 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #url('analyze/', views.application, name="analyze"),
     url('prediction/', views.predictionHTML, name ="predictionHTML"),
-    path('analyze', views.analyseHTML, name="analyzeHTML")
+    path('analyze/', views.analyseHTML, name="analyzeHTML")
 
 
 ]

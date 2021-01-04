@@ -38,6 +38,6 @@ class viewTest(TestCase):
         response = self.client.get('/analyze/')
         self.assertEqual(response.status_code, 200)
 
-    def prediction(self):
+    def prediction_analyse_view_url_exists_at_desired_location7(self):
         response = self.client.get('/prediction/')
         self.assertEqual(response.status_code, 200)
