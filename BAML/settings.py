@@ -57,8 +57,7 @@ ROOT_URLCONF = 'BAML.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'BAML/templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'BAML/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -142,23 +141,23 @@ INTERNAL_IPS = ['127.0.0.1']
 # Loggers
 
 
-LOGGING ={
-    'version':1,
-    'loggers':{
-        'django':{
-            'handlers':['IP'],
-            'level':'INFO'
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'django': {
+            'handlers': ['IP'],
+            'level': 'INFO'
         }
     },
-    'handlers':{
-        'IP':{
-            'level':'INFO',
+    'handlers': {
+        'IP': {
+            'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename':'./BAML/logs/IP.log',
-            'formatter':'simpleformat',
+            'filename': './BAML/logs/IP.log',
+            'formatter': 'simpleformat',
         },
     },
-    'formatters':{
+    'formatters': {
         'simpleformat': {
             'format': '{levelname} {asctime} {message}',
             'style': '{',
