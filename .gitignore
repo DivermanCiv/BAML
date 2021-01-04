@@ -25,7 +25,7 @@ settings.py
 *.iws /out/
 .idea/BAML.iml
 .idea/misc.xml
-.idea
+.idea/
 
 # Python # 
 *.py[cod] 
