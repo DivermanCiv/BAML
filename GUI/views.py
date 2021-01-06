@@ -1,6 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 import logging, traceback
+
 
 
 
@@ -18,7 +19,8 @@ def index(request):
     
 
     """
-    visitor_ip_address(request)
+   
+        
     return render(request, 'BAML/index.html')
 
 
@@ -26,6 +28,7 @@ def index(request):
 
     This method catch the HTTP request from the Front End and return the
     content of the application page. 
+    If the form is fill, the page will be redirected on the user choice
 
     :param request: HTTP request
     :type request: HttpRequest
@@ -37,8 +40,25 @@ def index(request):
 
 def application(request):
     """Method to go to the application page"""
+#TODO ajouter parametre au redirect
+    getChoice = get_form_info(request)
+
+    if getChoice == 'analyze':
+        radioChoice = request.POST.get('algoChoice')
+        separator = request.POST.get('separator')
+        csvFile = request.POST.get('csvFile')
+        context = {'separator': separator}
+        return redirect('analyzeHTML', {'separator': separator}, permanent=True)
+
+    if getChoice == 'prediction':
+        radioChoice = request.POST.get('algoChoice')
+        separator = request.POST.get('separator')
+        csvFile = request.POST.get('csvFile')
+        return redirect('predictionHTML')
+
 
     return render(request, 'BAML/application.html')
+
 
 """Method to present the team page
 
@@ -93,15 +113,46 @@ def planDuSite(request):
 
     return render(request, 'BAML/plan-du-site.html')
 
-def analyse(request):
-    message = "Analyse des données"
-    return HttpResponse(message)
+
+"""Method to analyse the CVS file
+
+    This method catch the HTTP request from the Front End and return the
+    content of the Sitemap page. 
+
+    :param string: separator
+    :param file: csvFile
+    :return: a message displayed on analyse page
+    :rtype: string
+    
+
+    """
+
+def analyze(request, separator, csvFile = None):
+    message = "Vous avez choisis " + separator + " comme séparateur de CVS"
 
 
-def predict(request):
-    message = "Prédiction des données"
-    return HttpResponse(message)
+# mettre ici l'algorythme
 
+    return message
+
+
+    """Method to prediction the CVS file
+
+    This method catch the HTTP request from the Front End and return the
+    content of the Sitemap page. 
+
+    :param string: separator
+    :param file: csvFile
+    :return: a message displayed on prediction page
+    :rtype: string
+    
+
+    """
+
+def predict(request, separator, csvFile = None):
+
+#mettre ici l'algorythme
+    return message
 
 
     """Method to get the user IP
@@ -125,5 +176,29 @@ def visitor_ip_address(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
         logging.getLogger('django').info(ip)
-    
+    print(ip)
     return ip
+
+def analyseHTML(request,context):
+    #separator = request.GET.get('separator')
+    #context = {'separator': separator}
+    print(request)
+    print(context)
+    return render(request, 'BAML/analyse.html', context )
+
+def predictionHTML(request, separator=';'):
+    return render(request, 'BAML/prediction.html',{'separator': separator} )
+
+
+def get_form_info(request):
+    if request.method == 'POST' and request.POST.get('algoChoice'):
+            radioChoice = request.POST.get('algoChoice')
+            separator = request.POST.get('separator')
+            csvFile = request.POST.get('csvFile')
+
+            if radioChoice == 'analyze':
+              
+                return 'analyze'
+
+            if radioChoice == 'prediction':
+                return 'prediction'

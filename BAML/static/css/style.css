@@ -399,4 +399,16 @@ footer {
   right: 0;
   margin-top: 2rem; }
 
+.title-prediction {
+  text-align: center; }
+
+.separator-analyse {
+  text-align: center; }
+
+.title-analyse {
+  text-align: center; }
+
+.separator-prediction {
+  text-align: center; }
+
 /*# sourceMappingURL=style.css.map */
