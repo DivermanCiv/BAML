@@ -47,7 +47,8 @@ def application(request):
         radioChoice = request.POST.get('algoChoice')
         separator = request.POST.get('separator')
         csvFile = request.POST.get('csvFile')
-        return redirect('analyzeHTML', permanent=True)
+        context = {'separator': separator}
+        return redirect('analyzeHTML', {'separator': separator}, permanent=True)
 
     if getChoice == 'prediction':
         radioChoice = request.POST.get('algoChoice')
@@ -178,9 +179,12 @@ def visitor_ip_address(request):
     print(ip)
     return ip
 
-def analyseHTML(request, separator=';'):
-
-    return render(request, 'BAML/analyse.html', {'separator': separator})
+def analyseHTML(request,context):
+    #separator = request.GET.get('separator')
+    #context = {'separator': separator}
+    print(request)
+    print(context)
+    return render(request, 'BAML/analyse.html', context )
 
 def predictionHTML(request, separator=';'):
     return render(request, 'BAML/prediction.html',{'separator': separator} )

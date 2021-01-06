@@ -27,9 +27,8 @@ urlpatterns = [
     url('plan-du-site/', views.planDuSite),
     url('qui-sommes-nous/', views.quiSommesNous),
     path('admin/', admin.site.urls),
-    #url('analyze/', views.application, name="analyze"),
     url('prediction/', views.predictionHTML, name ="predictionHTML"),
-    path('analyze/', views.analyseHTML, name="analyzeHTML")
+    url(r'analyze/$', views.analyseHTML, name="analyzeHTML")
 
 
 ]
