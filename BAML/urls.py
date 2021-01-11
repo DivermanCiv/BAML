@@ -22,13 +22,13 @@ from GUI import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    url('application/', views.application,),
+    url('formulaire/', views.form),
     url('mention-legales/', views.mentionLegales),
     url('plan-du-site/', views.planDuSite),
     url('qui-sommes-nous/', views.quiSommesNous),
     path('admin/', admin.site.urls),
     url('prediction/', views.predictionHTML, name ="predictionHTML"),
-    url(r'analyze/$', views.analyseHTML, name="analyzeHTML")
+    url(r'analyse/$', views.analyseHTML, name="analyzeHTML")
 
 
 ]
