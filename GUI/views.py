@@ -179,12 +179,10 @@ def visitor_ip_address(request):
     print(ip)
     return ip
 
-def analyseHTML(request,context):
-    #separator = request.GET.get('separator')
-    #context = {'separator': separator}
-    print(request)
-    print(context)
-    return render(request, 'BAML/analyse.html', context )
+def analyseHTML(request):
+    separator = request.GET.get('separator')
+    context = {'separator': separator}
+    return render(request, 'BAML/analyse.html',context )
 
 def predictionHTML(request, separator=';'):
     return render(request, 'BAML/prediction.html',{'separator': separator} )

@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'GUI.apps.GuiConfig',
     'django_jenkins',
-    'pylint'
 ]
 
 MIDDLEWARE = [
@@ -171,6 +170,9 @@ LOGGING = {
 JENKINS_TASKS = (
     'django_jenkins.tasks.run_pep8',
     'django_jenkins.tasks.run_pyflakes',
-    'django_jenkins.tasks.run_pylint',
+
+)
+PROJECT_APPS = (
+    
 )
 
