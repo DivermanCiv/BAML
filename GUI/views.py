@@ -23,20 +23,6 @@ def index(request):
     return render(request, 'BAML/index.html')
 
 
-
-
-"""Method to present the team page
-
-    This method catch the HTTP request from the Front End and return the
-    content of the team page.
-
-    :param request: HTTP request
-    :type request: HttpRequest
-    :return: Response HTTP with team page content.
-    :rtype: HttpResponse
-
-
-    """
 def quiSommesNous(request):
     """Method to go to the Qui Sommes Nous page"""
 
@@ -136,33 +122,10 @@ def visitor_ip_address(request):
     return ip
 
 def analyseHTML(request):
-    separator = request.GET.get('separator')
-    context = {'separator': separator}
-    return render(request, 'BAML/analyse.html',context )
+    separator = request.POST.get('separator')
+    return render(request, 'BAML/analyse.html', {'separator' : separator})
 
-def predictionHTML(request, separator=';'):
+
+def predictionHTML(request):
+    separator = request.POST.get('separator')
     return render(request, 'BAML/prediction.html',{'separator': separator} )
-
-
-def get_form_info(request):
-    if request.method == 'POST' and request.POST.get('algoChoice'):
-            radioChoice = request.POST.get('algoChoice')
-            separator = request.POST.get('separator')
-            csvFile = request.POST.get('csvFile')
-
-            if radioChoice == 'analyze':
-
-                return 'analyze'
-
-            if radioChoice == 'prediction':
-                return 'prediction'
-
-# def get_button_info(request):
-#     if request.method == 'POST' and request.POST.get('buttonChoice'):
-#         buttonChoice = request.POST.get('buttonChoice')
-#
-#         if buttonChoice == 'analyse' :
-#             return 'analyse'
-#
-#         if buttonChoice == 'prediction':
-#             return 'prediction'

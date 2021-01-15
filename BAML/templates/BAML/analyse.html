@@ -6,9 +6,15 @@
 {% block title %}Analyse{% endblock %}
 
 {% block content %}
-{% include "BAML/formulaire.html" %}
+{% if request.method == "POST" %}
 
-<h1 class="title-analyse">Meilleur Algorithme Scikit Learn </h1>
+  <h1 class="title-analyse">Meilleur Algorithme Scikit Learn </h1>
 
-<p class="separator-analyse">vous avez choisi {{ separator }} comme séparateur</p>
+  <p class="separator-analyse">vous avez choisi {{ separator }} comme séparateur</p>
+
+{% else %}
+
+  {% include "BAML/formulaire.html" %}
+
+{% endif %}
 {% endblock content %}
