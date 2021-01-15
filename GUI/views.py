@@ -10,7 +10,7 @@ def index(request):
     """Method to present the application HomePage
 
     This method catch the HTTP request from the Front End and return the
-    content of the HomePage. This method also call the visitor_ip_address method which catch the user IP and send it to the log
+    content of the HomePage. This method also call the visitor_ip_address method which catch the user IP and send it to the log.
 
     :param request: HTTP request
     :type request: HttpRequest
@@ -20,44 +20,9 @@ def index(request):
 
     """
 
-
     return render(request, 'BAML/index.html')
 
 
-"""Method to present the application page
-
-    This method catch the HTTP request from the Front End and return the
-    content of the application page.
-    If the form is fill, the page will be redirected on the user choice
-
-    :param request: HTTP request
-    :type request: HttpRequest
-    :return: Response HTTP with application page content.
-    :rtype: HttpResponse
-
-
-    """
-
-def form(request):
-    """Method to go to the form page"""
-#TODO ajouter parametre au redirect
-    getChoice = get_form_info(request)
-
-    if getChoice == 'analyze':
-        radioChoice = request.POST.get('algoChoice')
-        separator = request.POST.get('separator')
-        csvFile = request.POST.get('csvFile')
-        context = {'separator': separator}
-        return redirect('analyzeHTML', {'separator': separator}, permanent=True)
-
-    if getChoice == 'prediction':
-        radioChoice = request.POST.get('algoChoice')
-        separator = request.POST.get('separator')
-        csvFile = request.POST.get('csvFile')
-        return redirect('predictionHTML')
-
-
-    return render(request, 'BAML/application.html')
 
 
 """Method to present the team page
@@ -78,43 +43,33 @@ def quiSommesNous(request):
     return render(request, 'BAML/qui-sommes-nous.html')
 
 
-"""Method to present the legal mention page
-
-    This method catch the HTTP request from the Front End and return the
-    content of the legal mention page.
-
-    :param request: HTTP request
-    :type request: HttpRequest
-    :return: Response HTTP with legal mention page content.
-    :rtype: HttpResponse
-
-
-    """
 def mentionLegales(request):
-    """Method to go to the Sitemap page"""
+
+    """Method to present the legal mention page
+
+        This method catch the HTTP request from the Front End and return the
+        content of the Sitemap page.
+
+        :param request: HTTP request
+        :type request: HttpRequest
+        :return: Response HTTP with Sitemap page content.
+        :rtype: HttpResponse
+
+
+        """
 
     return render(request, 'BAML/mention-legales.html')
 
 
-"""Method to present the legal mention page
-
-    This method catch the HTTP request from the Front End and return the
-    content of the Sitemap page.
-
-    :param request: HTTP request
-    :type request: HttpRequest
-    :return: Response HTTP with Sitemap page content.
-    :rtype: HttpResponse
-
-
-    """
 def planDuSite(request):
     """Method to go to the planDuSite page"""
 
     return render(request, 'BAML/plan-du-site.html')
 
 
-"""Method to analyse the CVS file
+
+def analyze(request, separator, csvFile = None):
+    """Method to analyse the CVS file
 
     This method catch the HTTP request from the Front End and return the
     content of the Sitemap page.
@@ -124,18 +79,19 @@ def planDuSite(request):
     :return: a message displayed on analyse page
     :rtype: string
 
-
     """
 
-def analyze(request, separator, csvFile = None):
     message = "Vous avez choisi " + separator + " comme séparateur de CVS"
 
 
-# mettre ici l'algorythme
+# mettre ici l'algorithme
 
     return message
 
 
+
+
+def predict(request, separator, csvFile = None):
     """Method to prediction the CVS file
 
     This method catch the HTTP request from the Front End and return the
@@ -148,13 +104,15 @@ def analyze(request, separator, csvFile = None):
 
 
     """
+#mettre ici l'algorithme
 
-def predict(request, separator, csvFile = None):
+    message = "Vous avez choisi " + separator + " comme séparateur de CVS"
 
-#mettre ici l'algorythme
     return message
 
 
+
+def visitor_ip_address(request):
     """Method to get the user IP
 
     This method catch the user IP, throw it in IP.log and return it
@@ -166,8 +124,6 @@ def predict(request, separator, csvFile = None):
 
 
     """
-def visitor_ip_address(request):
-
 
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
 
@@ -200,3 +156,13 @@ def get_form_info(request):
 
             if radioChoice == 'prediction':
                 return 'prediction'
+
+# def get_button_info(request):
+#     if request.method == 'POST' and request.POST.get('buttonChoice'):
+#         buttonChoice = request.POST.get('buttonChoice')
+#
+#         if buttonChoice == 'analyse' :
+#             return 'analyse'
+#
+#         if buttonChoice == 'prediction':
+#             return 'prediction'

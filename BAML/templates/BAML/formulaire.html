@@ -1,21 +1,16 @@
-{% extends 'BAML/base.html'%}
 
 {% load static %}
 
-{% block title %}Application{% endblock %}
-
-{% block content %}
 <!-- title and explaination-->
 <div class="drag-application-title">
 
   <h1>Notre application</h1>
-  <p>Veuillez sélectionner un type de traitement et glisser votre fichier à analyser</p>
+  <!-- <p>Veuillez sélectionner un type de traitement et glisser votre fichier à analyser</p> -->
 
 
 
 </div>
 
-<!-- radio buttons-->
 <form action="" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   <!-- input-->
@@ -39,6 +34,4 @@
 
 
 </form>
-
 <script type="text/javascript" src="{% static 'JS/drag.js' %}"></script>
-{% endblock content %}

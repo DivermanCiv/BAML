@@ -2,9 +2,12 @@
 
 {% load static %}
 
-{% block title %}Application{% endblock %}
+{% block title %}Prédiction{% endblock %}
+
+
 
 {% block content %}
+{% include "BAML/formulaire.html" %}
 <h1 class="title-prediction">Prédictions des algorithmes scikitlearn </h1>
 <p class="separator-prediction">vous avez choisi {{ separator }} comme séparateur </p>
 {% endblock content %}
