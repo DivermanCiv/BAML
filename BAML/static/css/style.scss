@@ -1,8 +1,516 @@
-@import"presentation.scss";
-@import"team.scss";
-@import"footer.scss";
-@import"mentionLegales.scss";
-@import"planDuSite.scss";
-@import"applicationDragAndDrop.scss";
-@import "header.scss";
-@import "body.scss";
+@charset "UTF-8";
+/* todo réviser pour version tablette */
+/* style of the body of the index page */
+.presentation {
+  display: flex;
+  min-height: 100%;
+  /* correction bug d'affichage */
+  padding: 0 0 3.3rem 0;
+  /* style of flex-box of content of the index page */
+}
+
+.presentation .presentation-content {
+  margin: 0 5rem;
+  display: flex;
+  flex-direction: column;
+  height: 45rem;
+  /* prevent the superposition of footer on content in phone screen */
+  /* prevent the superposition of footer on content in tablet screen */
+  /* style of flex-box of content without title of the index page */
+  /* style of title */
+  /* style of text */
+  /* style of Lancer l'applicatiob button */
+  /* prevent the default comportement of a tag */
+}
+
+@media (max-width: 480px) {
+  .presentation .presentation-content {
+    height: 100%;
+  }
+}
+@media (min-width: 480px) and (max-width: 1024px) {
+  .presentation .presentation-content {
+    height: 100%;
+    padding-bottom: 1rem;
+  }
+}
+.presentation .presentation-content .presentation-raw-content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  margin-left: 5%;
+  overflow: hidden;
+  /* changing direction on phone screen */
+  /* changing direction on tablet screen */
+  /* style of presentation image */
+}
+
+@media (max-width: 480px) {
+  .presentation .presentation-content .presentation-raw-content {
+    flex-direction: column;
+  }
+}
+@media (min-width: 480px) and (max-width: 1024px) {
+  .presentation .presentation-content .presentation-raw-content {
+    flex-direction: column;
+  }
+}
+.presentation .presentation-content .presentation-raw-content .presentation-image {
+  margin: 40px;
+  height: 80%;
+  width: 100%;
+  flex: 2 1 33%;
+  align-self: stretch;
+  /* border et border-radius + object-fit */
+  border: 1px black solid;
+  border-radius: 15px;
+  object-fit: fill;
+  /* the image is not shown on phone screen */
+  /* image style on tablet screen */
+}
+
+@media (max-width: 480px) {
+  .presentation .presentation-content .presentation-raw-content .presentation-image {
+    display: none;
+  }
+}
+@media (min-width: 480px) and (max-width: 1024px) {
+  .presentation .presentation-content .presentation-raw-content .presentation-image {
+    align-self: center;
+    width: 80%;
+    height: 80%;
+  }
+}
+.presentation .presentation-content .presentation-raw-content p {
+  flex: 3 1 66%;
+  align-self: stretch;
+  margin-left: 1%;
+}
+
+.presentation .presentation-content h2 {
+  flex: 1 1 auto;
+  align-self: center;
+}
+
+.presentation .presentation-content p {
+  margin-top: 5rem;
+  flex: 1 1 66%;
+  align-self: stretch;
+}
+
+.presentation .presentation-content button {
+  flex: 4 1 auto;
+  align-self: center;
+  height: 5rem;
+  width: 10rem;
+  /* the button is not show on phone screen */
+}
+
+@media (max-width: 480px) {
+  .presentation .presentation-content button {
+    display: none;
+  }
+}
+.presentation .presentation-content a {
+  text-decoration: none;
+}
+
+/* style of the flex container */
+.team {
+  display: flex;
+  flex-direction: column;
+  /*style of the text presentation container ( text and title) */
+  /* Style of the cards container */
+}
+
+.team .team-presentation {
+  margin: 5rem;
+  display: flex;
+  flex-direction: column;
+  /*style of the title*/
+  /* style of the text */
+}
+
+.team .team-presentation h1 {
+  flex: 1 1 auto;
+  align-self: center;
+}
+
+.team .team-presentation p {
+  flex: 2 1 auto;
+  align-self: stretch;
+}
+
+.team .team-member {
+  margin: 5rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* style of the cards */
+  /* On mouse-over, add a deeper shadow */
+  /* Add some padding inside the card container */
+}
+
+.team .team-member #member-1,
+.team .team-member #member-2,
+.team .team-member #member-3,
+.team .team-member #member-4,
+.team .team-member #member-5,
+.team .team-member #member-6,
+.team .team-member #member-7 {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 15rem;
+  height: 18rem;
+  /* style of the cards on phone screen */
+  /* style of the photo of team member */
+}
+
+@media (max-width: 480px) {
+  .team .team-member #member-1,
+.team .team-member #member-2,
+.team .team-member #member-3,
+.team .team-member #member-4,
+.team .team-member #member-5,
+.team .team-member #member-6,
+.team .team-member #member-7 {
+    width: 100%;
+    height: 7rem;
+    text-align: center;
+  }
+}
+.team .team-member #member-1 img,
+.team .team-member #member-2 img,
+.team .team-member #member-3 img,
+.team .team-member #member-4 img,
+.team .team-member #member-5 img,
+.team .team-member #member-6 img,
+.team .team-member #member-7 img {
+  justify-self: center;
+  max-height: 170px;
+  width: auto;
+  border-radius: 5px 5px 0 0;
+  /* photo not showed on phone screen */
+}
+
+@media (max-width: 480px) {
+  .team .team-member #member-1 img,
+.team .team-member #member-2 img,
+.team .team-member #member-3 img,
+.team .team-member #member-4 img,
+.team .team-member #member-5 img,
+.team .team-member #member-6 img,
+.team .team-member #member-7 img {
+    display: none;
+  }
+}
+.team .team-member #member-1:hover,
+.team .team-member #member-2:hover,
+.team .team-member #member-3:hover,
+.team .team-member #member-4:hover,
+.team .team-member #member-5:hover,
+.team .team-member #member-6:hover,
+.team .team-member #member-7:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.team .team-member .container {
+  padding: 2px 16px;
+  border-radius: 5px 5px 0 0;
+}
+
+/* todo change class name of footer for mobile screen  */
+/* the style of footer */
+footer {
+  background-color: #2d8fdf;
+  height: 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* prevent the default style of a tag */
+}
+
+footer a {
+  text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  footer .btnPopupFooter {
+    display: none;
+  }
+}
+footer .btnPopupFooter {
+  padding: 1em 2em;
+  cursor: pointer;
+}
+
+footer .overlayFooter {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+}
+
+footer .popupFooter {
+  margin: 10% auto;
+  width: 70%;
+  background-color: #f3f3f3;
+  padding: 1em;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+footer .btnCloseFooter {
+  float: right;
+  font-size: 16pt;
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+/* add padding into the mention container */
+.mention {
+  padding: 2rem;
+}
+
+/* add padding into the plan container */
+.plan {
+  padding: 2rem;
+}
+
+form {
+  margin: 0 auto 0 auto;
+  width: 98%;
+}
+
+div.form_field {
+  margin: 0 auto 0 auto;
+  width: 98%;
+  text-align: center;
+  padding: 0.5em 0 0.5em;
+}
+
+div.form_field label {
+  display: block;
+  margin: 0 auto 0 auto;
+  padding: 0.5em 0 1em;
+  width: 100%;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+div.form_field label div.drag_drop_field {
+  margin: 0 auto 0 auto;
+  width: 90%;
+  padding: 0.5em 0 0.5em 0;
+  box-shadow: inset 0 0 2px #000000ad;
+  color: #000000ad;
+  font-weight: lighter;
+}
+
+div.form_field label div.drag_drop_field input {
+  width: 0;
+  height: 0;
+  outline: none;
+  opacity: 0;
+}
+
+div.file_list {
+  margin: 0.2em auto 0.2em auto;
+  width: 80%;
+  grid-template-columns: 1fr;
+  font-size: 0.8em;
+}
+
+div.file_list div.file {
+  width: 100%;
+  margin: 1em auto 1em auto;
+  display: grid;
+  grid-template-columns: 100%;
+  text-transform: uppercase;
+  box-shadow: -3px 1px 6px grey;
+  letter-spacing: 0.1em;
+}
+
+div.file_list div.file div.file_name,
+div.file_list div.file div.file_details div.file_extension,
+div.file_list div.file div.file_details div.file_size {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  overflow-x: auto;
+  padding: 1.2em 0 1.2em;
+}
+
+div.file_list div.file div.file_name {
+  background: white;
+  color: wheat;
+}
+
+div.file_list div.file div.file_details div.file_extension {
+  color: white;
+  background-color: rgba(128, 0, 128, 0.513);
+}
+
+div.file_list div.file div.file_details div.file_size {
+  color: white;
+  background-color: rgba(0, 0, 139, 0.561);
+}
+
+div.file_list div.file div.file_details {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+@media (max-width: 1020px) {
+  .responsive {
+    width: 90%;
+  }
+}
+/*Content of Navbar*/
+.navbar {
+  background-color: #2d8fdf;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  /*Style for navbar-title or logo  */
+}
+
+.navbar .navbar-title {
+  margin-right: auto;
+  padding-left: 10px;
+  font-size: 60px;
+  /* prevent the default comportment of a tag  */
+}
+
+.navbar .navbar-title a {
+  text-decoration: none;
+  color: black;
+}
+
+/* prevent the display of burger button with big screen */
+.navbar-burger {
+  display: none;
+}
+
+#mobile {
+  /* prevent the display of burger menu content on big screen */
+  display: none;
+}
+
+/* style change only on phone screen */
+@media (max-width: 480px) {
+  /* style of navbar on phone screen */
+  .navbar {
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    /* style of navbar title only on phone screen */
+    /* display and style of burger menu on pĥone screen */
+  }
+
+  .navbar .navbar-title {
+    margin-top: 1rem;
+    font-size: 50px;
+  }
+
+  .navbar .navbar-burger {
+    display: flex;
+    margin: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  /* Style of burger menu content if displayed */
+  #mobile {
+    display: none;
+    flex-direction: column;
+    background-color: #2d8fdf;
+    text-decoration: none;
+    padding: 0 1rem 0 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    /*prevent the default comportment of a tag  */
+  }
+
+  #mobile a {
+    height: 2rem;
+    text-decoration: none;
+    color: black;
+  }
+}
+/* style of the pop up button in header */
+.btnPopupHeader {
+  padding: 1em 2em;
+  cursor: pointer;
+}
+
+/* style of the pop up container of content in header */
+.overlayHeader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+}
+
+/* style of the pop up content in header */
+.popupHeader {
+  margin: 10% auto;
+  width: 70%;
+  background-color: #f3f3f3;
+  padding: 1em;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+/* style of close button on popup in header */
+.btnCloseHeader {
+  float: right;
+  font-size: 16pt;
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 0 0 0;
+  background-color: rgba(129, 136, 66, 0.424);
+  min-height: 100%;
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
+
+/*# sourceMappingURL=style.scss.map */

@@ -5,17 +5,18 @@
 
 {% block content %}
 <!-- title and explaination-->
-<div class="drag-application-title">
+<div class="drag-application-title" xmlns="" xmlns="">
   <h1>Notre application</h1>
   <p>Veuillez selectionnez un type de traitement et glisser votre fichier a analyser</p>
 
 </div>
 
 <!-- radio buttons-->
-<form action="./upload" method="POST" enctype="multipart/form-data">
+<section class="responsive">
+<form method="POST" action="" id="drag_drop">
   <div id="mySelect">
     <div class="radio_option">
-      <input type="radio" id="value1" name="traitement" value="value1" checked>
+      <input type="radio" id="value1" name="traitement" value="value1" checked required>
       <label for="value1">Obtenir le meilleur algorithme Scikit Learn à utiliser</label>
     </div>
     <div class="radio_option">
@@ -24,12 +25,26 @@
     </div>
   </div>
   <!--drag and drop-->
-  <div class="drop-zone">
-    <span class="drop-zone__prompt">Drop file here or click to upload</span>
-
-    <input type="file" name="myFile" class="drop-zone__input" multiple>
+  <div class="form_field">
+      <label data-form-field="attachments[]" data-form-id="drag_drop" for="input_field">
+          <div class="drag_drop_field" data-form-field="attachments[]" data-form-id="drag_drop">
+              <p data-form-field="attachments[]" data-form-id="drag_drop">Sélectionnez un fichier ou</p>
+              <p data-form-field="attachments[]" data-form-id="drag_drop">glissez et déposez votre fichier ici</p>
+              <input class="file_input" data-form-field="attachments[]" data-form-id="drag_drop" name="attachments[]"
+                     type="file" multiple id="input_field">
+          </div>
+      </label>
+      <div data-form-field="attachments[]" class="file_list">
+      </div>
   </div>
+
+{#  <div class="drop-zone">#}
+{#    <span class="drop-zone__prompt">Drop file here or click to upload</span>#}
+{##}
+{#    <input type="file" name="myFile" class="drop-zone__input" multiple>#}
+{#  </div>#}
 </form>
+</section>
 <script type="text/javascript" src="{% static 'JS/drag.js' %}"></script>
 {% include "BAML/footer.html" %}
 {% endblock content %}
