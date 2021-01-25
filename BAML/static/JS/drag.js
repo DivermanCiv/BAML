@@ -131,22 +131,24 @@ class DragAndDrop {
             let fileExt = this.getFileExtension(files[i].name);
             let fileSize = this.convertBytesTo(files[i].size, 'K', 0);
 
+            if (fileExt )
+
             fileList = `
-${fileList}
-<div class="file">
-<div class="file_name">
-${files[i].name}
-</div>
-<div class="file_details">
-<div class="file_extension">
-${fileExt}
-</div>
-<div class="file_size">
-${fileSize} KB
-</div>
-</div>
-</div>                 
-`;
+                ${fileList}
+                <div class="file">
+                    <div class="file_name">
+                        ${files[i].name}
+                    </div>
+                    <div class="file_details">
+                        <div class="file_extension">
+                            ${fileExt}
+                        </div>
+                        <div class="file_size">
+                            ${fileSize} KB
+                        </div>
+                    </div>
+                </div>                 
+                `;
         }
 
         document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = fileList;
@@ -172,8 +174,10 @@ ${fileSize} KB
         return bytes = +bytes.toFixed(decimalPlaces);
     }
 
+
     getFileExtension(fileName) {
         return fileName.split('.').pop()
     }
+
 }
 let dd = new DragAndDrop();
