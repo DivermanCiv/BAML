@@ -89,6 +89,7 @@ class DragAndDrop {
         this.filesDropped();
         this.filesChanged();
     }
+
     filesDropped() {
         let field = document.querySelectorAll("div.drag_drop_field");
 
@@ -131,7 +132,9 @@ class DragAndDrop {
             let fileExt = this.getFileExtension(files[i].name);
             let fileSize = this.convertBytesTo(files[i].size, 'K', 0);
 
-            if (fileExt )
+            if (fileExt === 'csv') {
+
+            }
 
             fileList = `
                 ${fileList}
