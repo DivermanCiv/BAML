@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'GUI.apps.GuiConfig',
+    'django_jenkins',
 ]
 
 MIDDLEWARE = [
@@ -57,8 +58,7 @@ ROOT_URLCONF = 'BAML.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'BAML/templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'BAML/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,3 +138,40 @@ STATICFILES_DIRS = [
 # print(STATIC_URL)
 
 INTERNAL_IPS = ['127.0.0.1']
+
+# Loggers
+
+
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'django': {
+            'handlers': ['IP'],
+            'level': 'INFO'
+        }
+    },
+    'handlers': {
+        'IP': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': './BAML/logs/IP.log',
+            'formatter': 'simpleformat',
+        },
+    },
+    'formatters': {
+        'simpleformat': {
+            'format': '{levelname} {asctime} {message}',
+            'style': '{',
+        }
+    }
+}
+
+# Jenkins
+JENKINS_TASKS = (
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_pyflakes',
+
+)
+PROJECT_APPS = (
+    
+)

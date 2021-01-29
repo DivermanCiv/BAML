@@ -1,39 +1,33 @@
-/* todo change class name of footer for mobile screen  */
-
 /* the style of footer */
-footer {
+.footer {
     background-color: rgb(45, 143, 223);
     height: 5rem;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    /*align-items: center; */
+    flex-direction: row;
+
+
+
 
     /* prevent the default style of a tag */
     a {
         text-decoration: none;
     }
 
-    // a supprimer ?
 
-
-
-    @media (max-width: 480px) {
-
-        .btnPopupFooter {
-            display: none
-        }
-    }
-
-
-    .btnPopupFooter {
+    /* style of the pop up button in footer */
+    .btnPopupFooter,
+    .btnPopupContact {
 
         padding: 1em 2em;
         cursor: pointer;
     }
 
 
-
-    .overlayFooter {
+    /* style of the pop up container of content in footer */
+    .overlayFooter,
+    .overlayFooterContact {
         position: fixed;
         left: 0px;
         top: 0px;
@@ -44,7 +38,9 @@ footer {
         display: none;
     }
 
-    .popupFooter {
+    /* style of the pop up content in footer */
+    .popupFooter,
+    .popupFooterContact {
         margin: 10% auto;
         width: 70%;
         background-color: rgb(243, 243, 243);
@@ -53,10 +49,15 @@ footer {
         border-radius: 5px;
     }
 
-    .btnCloseFooter {
+    /* style of close button on popup in footer */
+    .btnCloseFooter,
+    .btnCloseFooterContact {
         float: right;
         font-size: 16pt;
         cursor: pointer;
         color: rgb(26, 26, 26);
     }
+
+
+
 }

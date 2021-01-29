@@ -13,41 +13,35 @@
     <body>
         <header>
             <div class="navbar">
-                <div class="navbar-title"><a href="/">BAML</a></div>
+                <div class="navbar-title">
+                    <a href="/">BAML</a>
+                </div>
                 <img src="{% static 'images/logo-menu-burger.png' %}" class="navbar-burger" onclick="afficheMenu()">
 
             </div>
 
-            <div id="mobile">
-
-                <a href="/plan-du-site">plan du site</a>
-                <a href="/mention-legales">mentions légales</a>
-
-                <p><a id="btnPopupHeader" class="btnPopupHeader" onclick="openModalHeader()">RGPD</a></p>
-                <div id="overlayHeader" class="overlayHeader">
-                    <div id="popupHeader" class="popupHeader">
-                        <h2>
-                            Exemple simple de popup
-                            <span id="btnCloseHeader" class="btnCloseHeader" onclick="closeModalHeader()">X</span>
-                        </h2>
-                        <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a nulla
-                            a massa interdum imperdiet sed nec nibh. Proin porttitor euismod nulla ut
-                            interdum. Cras elementum placerat aliquam.
-                        </div>
-                    </div>
-                </div>
-                <a href="/application">lancer l'appli</a>
-                <p>0156829643 <br>mail.mail@mail.mail</p>
+            <div id="burger-menu-content">
+                <p>
+                    <a href="/plan-du-site">Plan du Site</a>
+                </p>
+                <p>
+                    <a href="/application">Application BAML</a>
+                </p>
+                <p>
+                    <a href="/mention-legales">Mentions Légale</a>
+                </p>
+                <p>
+                    <a href="/qui-sommes-nous">qui sommes nous</a>
+                </p>
 
 
-            </div>
 
         </header>
 
         {% block content %}
-        {% endblock content %}
+        {% endblock %}
 
     </body>
+    {% include "BAML/footer.html" %}
 
 </html>

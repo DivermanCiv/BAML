@@ -1,188 +1,4 @@
 @charset "UTF-8";
-* {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0 0 0 0;
-  background-color: rgba(129, 136, 66, 0.424);
-  min-height: 100%;
-  position: relative;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-/* todo change class name of footer for mobile screen  */
-/* the style of footer */
-footer {
-  background-color: #2d8fdf;
-  height: 5rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /* prevent the default style of a tag */
-}
-footer a {
-  text-decoration: none;
-}
-@media (max-width: 480px) {
-  footer .btnPopupFooter {
-    display: none;
-  }
-}
-footer .btnPopupFooter {
-  padding: 1em 2em;
-  cursor: pointer;
-}
-footer .overlayFooter {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  background-color: rgba(0, 0, 0, 0.15);
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  display: none;
-}
-footer .popupFooter {
-  margin: 10% auto;
-  width: 70%;
-  background-color: #f3f3f3;
-  padding: 1em;
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-}
-footer .btnCloseFooter {
-  float: right;
-  font-size: 16pt;
-  cursor: pointer;
-  color: #1a1a1a;
-}
-
-/*Content of Navbar*/
-.navbar {
-  background-color: #2d8fdf;
-  width: 100%;
-  height: 4rem;
-  display: flex;
-  /*Style for navbar-title or logo  */
-}
-.navbar .navbar-title {
-  margin-right: auto;
-  padding-left: 10px;
-  font-size: 60px;
-  /* prevent the default comportment of a tag  */
-}
-.navbar .navbar-title a {
-  text-decoration: none;
-  color: black;
-}
-
-/* prevent the display of burger button with big screen */
-.navbar-burger {
-  display: none;
-}
-
-#mobile {
-  /* prevent the display of burger menu content on big screen */
-  display: none;
-}
-
-/* style change only on phone screen */
-@media (max-width: 480px) {
-  /* style of navbar on phone screen */
-  .navbar {
-    height: 5rem;
-    display: flex;
-    flex-direction: row;
-    /* style of navbar title only on phone screen */
-    /* display and style of burger menu on pĥone screen */
-  }
-  .navbar .navbar-title {
-    margin-top: 1rem;
-    font-size: 50px;
-  }
-  .navbar .navbar-burger {
-    display: flex;
-    margin: 1.5rem;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  /* Style of burger menu content if displayed */
-  #mobile {
-    display: none;
-    flex-direction: column;
-    background-color: #2d8fdf;
-    text-decoration: none;
-    padding: 0 1rem 0 1rem;
-    justify-content: flex-start;
-    align-items: center;
-    /*prevent the default comportment of a tag  */
-  }
-  #mobile a {
-    height: 2rem;
-    text-decoration: none;
-    color: black;
-  }
-}
-/* style of the pop up button in header */
-.btnPopupHeader {
-  padding: 1em 2em;
-  cursor: pointer;
-}
-
-/* style of the pop up container of content in header */
-.overlayHeader {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  background-color: rgba(0, 0, 0, 0.15);
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  display: none;
-}
-
-/* style of the pop up content in header */
-.popupHeader {
-  margin: 10% auto;
-  width: 70%;
-  background-color: #f3f3f3;
-  padding: 1em;
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-}
-
-/* style of close button on popup in header */
-.btnCloseHeader {
-  float: right;
-  font-size: 16pt;
-  cursor: pointer;
-  color: #1a1a1a;
-}
-
-/* add padding into the mention container */
-.mention {
-  padding: 2rem;
-}
-
-/* add padding into the plan container */
-.plan {
-  padding: 2rem;
-}
-
 /* todo réviser pour version tablette */
 /* style of the body of the index page */
 .presentation {
@@ -202,7 +18,7 @@ footer .btnCloseFooter {
   /* style of flex-box of content without title of the index page */
   /* style of title */
   /* style of text */
-  /* style of Lancer l'applicatiob button */
+  /* style of Lancer l'application button */
   /* prevent the default comportement of a tag */
 }
 @media (max-width: 480px) {
@@ -221,6 +37,7 @@ footer .btnCloseFooter {
   flex-direction: row;
   height: 100%;
   margin-left: 5%;
+  margin-right: 15%;
   overflow: hidden;
   /* changing direction on phone screen */
   /* changing direction on tablet screen */
@@ -237,9 +54,9 @@ footer .btnCloseFooter {
   }
 }
 .presentation .presentation-content .presentation-raw-content .presentation-image {
-  margin: 40px;
-  height: 80%;
-  width: 100%;
+  margin: 70px 40px 40px 40px;
+  height: 47%;
+  width: 67%;
   flex: 2 1 33%;
   align-self: stretch;
   /* border et border-radius + object-fit */
@@ -288,121 +105,12 @@ footer .btnCloseFooter {
   }
 }
 .presentation .presentation-content a {
+  align-self: center;
   text-decoration: none;
+  height: 5rem;
+  width: 10rem;
 }
 
-/* style of the title and text */
-.drag-application-title {
-  margin: 1rem;
-  text-align: center;
-}
-
-/* style of the form container  */
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* style of the radio button */
-#mySelect {
-  margin: 1rem;
-  padding: 1rem;
-  height: 20%;
-  width: 50%;
-  border: solid 1px;
-}
-
-form {
-  margin: 0 auto 0 auto;
-  width: 98%;
-}
-
-div.form_field {
-  margin: 0 auto 0 auto;
-  width: 98%;
-  text-align: center;
-  padding: 0.5em 0 0.5em;
-}
-
-div.form_field label {
-  display: block;
-  margin: 0 auto 0 auto;
-  padding: 0.5em 0 1em;
-  width: 100%;
-  font-size: 1.2em;
-  cursor: pointer;
-}
-
-div.form_field label div.drag_drop_field {
-  margin: 0 auto 0 auto;
-  width: 90%;
-  padding: 0.5em 0 0.5em 0;
-  box-shadow: inset 0 0 2px #000000ad;
-  color: #000000ad;
-  font-weight: lighter;
-}
-
-div.form_field label div.drag_drop_field input {
-  width: 0;
-  height: 0;
-  outline: none;
-  opacity: 0;
-}
-
-div.file_list {
-  margin: 0.2em auto 0.2em auto;
-  width: 80%;
-  grid-template-columns: 1fr;
-  font-size: 0.8em;
-}
-
-div.file_list div.file {
-  width: 100%;
-  margin: 1em auto 1em auto;
-  display: grid;
-  grid-template-columns: 100%;
-  text-transform: uppercase;
-  box-shadow: -3px 1px 6px grey;
-  letter-spacing: 0.1em;
-}
-
-div.file_list div.file div.file_name,
-div.file_list div.file div.file_details div.file_extension,
-div.file_list div.file div.file_details div.file_size {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  overflow-x: auto;
-  padding: 1.2em 0 1.2em;
-}
-
-div.file_list div.file div.file_name {
-  background: #ffffff;
-  color: #fad071;
-}
-
-div.file_list div.file div.file_details div.file_extension {
-  color: white;
-  background-color: rgba(128, 0, 128, 0.513);
-}
-
-div.file_list div.file div.file_details div.file_size {
-  color: white;
-  background-color: rgba(0, 0, 139, 0.561);
-}
-
-div.file_list div.file div.file_details {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
-@media (max-width: 1020px) {
-  .responsive {
-    width: 90%;
-  }
-}
 /* style of the flex container */
 .team {
   display: flex;
@@ -505,6 +213,311 @@ div.file_list div.file div.file_details {
 .team .team-member .container {
   padding: 2px 16px;
   border-radius: 5px 5px 0 0;
+}
+
+/* the style of footer */
+.footer {
+  background-color: #2d8fdf;
+  height: 5rem;
+  display: flex;
+  justify-content: space-around;
+  /*align-items: center; */
+  flex-direction: row;
+  /* prevent the default style of a tag */
+  /* style of the pop up button in footer */
+  /* style of the pop up container of content in footer */
+  /* style of the pop up content in footer */
+  /* style of close button on popup in footer */
+}
+.footer a {
+  text-decoration: none;
+}
+.footer .btnPopupFooter,
+.footer .btnPopupContact {
+  padding: 1em 2em;
+  cursor: pointer;
+}
+.footer .overlayFooter,
+.footer .overlayFooterContact {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+}
+.footer .popupFooter,
+.footer .popupFooterContact {
+  margin: 10% auto;
+  width: 70%;
+  background-color: #f3f3f3;
+  padding: 1em;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.footer .btnCloseFooter,
+.footer .btnCloseFooterContact {
+  float: right;
+  font-size: 16pt;
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+/* add padding into the mention container */
+.mention {
+  padding: 2rem;
+}
+
+/* add padding into the plan container */
+.plan {
+  padding: 2rem;
+  /* prevent default comportement of a tag */
+}
+.plan a {
+  text-decoration: none;
+  color: black;
+}
+
+/* style of the title and text */
+.drag-application-title {
+  margin: 1rem;
+  text-align: center;
+}
+
+/* style of the form container  */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* style of the radio button */
+#mySelect {
+  margin: 1rem;
+  padding: 1rem;
+  height: 20%;
+  width: 50%;
+  border: solid 1px;
+}
+
+form {
+  margin: 0 auto 0 auto;
+  width: 98%;
+}
+
+div.form_field {
+  margin: 0 auto 0 auto;
+  width: 98%;
+  text-align: center;
+  padding: 0.5em 0 0.5em;
+}
+
+div.drag_drop_field label {
+  display: block;
+  margin: 0 auto 0 auto;
+  padding: 0.5em 0 1em;
+  width: 100%;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+div.form_field div.drag_drop_field {
+  margin: 0 auto 0 auto;
+  width: 90%;
+  padding: 0.5em 0 0.5em 0;
+  box-shadow: inset 0 0 2px #000000ad;
+  color: #000000ad;
+  font-weight: lighter;
+}
+
+div.drag_drop_field label input {
+  width: 0;
+  height: 0;
+  outline: none;
+  opacity: 0;
+}
+
+div.file_list {
+  margin: 0.2em auto 0.2em auto;
+  width: 80%;
+  grid-template-columns: 1fr;
+  font-size: 0.8em;
+}
+
+div.file_list div.file {
+  width: 100%;
+  margin: 1em auto 1em auto;
+  display: grid;
+  grid-template-columns: 100%;
+  text-transform: uppercase;
+  box-shadow: -3px 1px 6px grey;
+  letter-spacing: 0.1em;
+}
+
+div.file_list div.file div.file_name,
+div.file_list div.file div.file_details div.file_extension,
+div.file_list div.file div.file_details div.file_size {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  overflow-x: auto;
+  padding: 1.2em 0 1.2em;
+}
+
+div.file_list div.file div.file_name {
+  background: #ffffff;
+  color: #fad071;
+}
+
+div.file_list div.file div.file_details div.file_extension {
+  color: white;
+  background-color: rgba(128, 0, 128, 0.513);
+}
+
+div.file_list div.file div.file_details div.file_size {
+  color: white;
+  background-color: rgba(0, 0, 139, 0.561);
+}
+
+div.file_list div.file div.file_details {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+@media (max-width: 1020px) {
+  .responsive {
+    width: 90%;
+  }
+}
+/*Content of Navbar*/
+.navbar {
+  background-color: #2d8fdf;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  position: fixed;
+  top: 0;
+  margin-bottom: 10rem;
+  /*Style for navbar-title or logo  */
+}
+.navbar .navbar-title {
+  margin-right: auto;
+  padding-left: 10px;
+  font-size: 60px;
+  /* prevent the default comportment of a tag  */
+}
+.navbar .navbar-title a {
+  text-decoration: none;
+  color: black;
+}
+
+/* prevent the display of burger button with big screen */
+.navbar-burger {
+  max-width: 50px;
+  margin-right: 10px;
+}
+
+#burger-menu-content {
+  /* prevent the display of burger menu content on big screen */
+  flex-direction: column;
+  background-color: #2d8fdf;
+  text-decoration: none;
+  padding: 0 1rem 0 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 80%;
+  width: 20%;
+  display: none;
+  position: fixed;
+  /* prevent the default comportment of a tag  */
+}
+#burger-menu-content a {
+  text-decoration: none;
+  color: black;
+}
+
+/* style change only on phone screen */
+@media (max-width: 480px) {
+  /* style of navbar on phone screen */
+  .navbar {
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    /* style of navbar title only on phone screen */
+    /* display and style of burger menu on pĥone screen */
+  }
+  .navbar .navbar-title {
+    margin-top: 1rem;
+    font-size: 50px;
+  }
+  .navbar .navbar-burger {
+    display: flex;
+    margin: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  /* Style of burger menu content if displayed */
+  #burger-menu-content {
+    display: none;
+    flex-direction: column;
+    background-color: #2d8fdf;
+    text-decoration: none;
+    padding: 0 1rem 0 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-left: 0;
+    /*prevent the default comportment of a tag  */
+  }
+  #burger-menu-content a {
+    height: 2rem;
+    text-decoration: none;
+    color: black;
+  }
+}
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 4rem 0 5rem 0;
+  background-color: rgba(129, 136, 66, 0.424);
+  min-height: 100%;
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 2rem;
+}
+
+.title-prediction {
+  text-align: center;
+}
+
+.separator-analyse {
+  text-align: center;
+}
+
+.title-analyse {
+  text-align: center;
+}
+
+.separator-prediction {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

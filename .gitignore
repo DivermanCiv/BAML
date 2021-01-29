@@ -5,7 +5,7 @@
 __pycache__
 db.sqlite3
 media
-BAML/script.py
+settings.py
 # Backup files # 
 *.bak 
 
@@ -22,7 +22,10 @@ BAML/script.py
 .idea/**/uiDesigner.xml 
 .idea/**/gradle.xml 
 .idea/**/libraries 
-*.iws /out/ 
+*.iws /out/
+.idea/BAML.iml
+.idea/misc.xml
+.idea/
 
 # Python # 
 *.py[cod] 

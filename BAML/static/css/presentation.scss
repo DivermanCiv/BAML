@@ -31,6 +31,7 @@
       flex-direction: row;
       height: 100%;
       margin-left: 5%;
+      margin-right: 15%;
       overflow: hidden;
 
       /* changing direction on phone screen */
@@ -49,9 +50,9 @@
       /* style of presentation image */
       .presentation-image {
 
-        margin: 40px;
-        height: 80%;
-        width: 100%;
+        margin: 70px 40px 40px 40px;
+        height: 47%;
+        width: 67%;
         flex: 2 1 33%;
         align-self: stretch;
         /* border et border-radius + object-fit */
@@ -97,7 +98,7 @@
       align-self: stretch;
     }
 
-    /* style of Lancer l'applicatiob button */
+    /* style of Lancer l'application button */
     button {
       flex: 4 1 auto;
       align-self: center;
@@ -113,7 +114,10 @@
 
     /* prevent the default comportement of a tag */
     a {
+      align-self: center;
       text-decoration: none;
+      height: 5rem;
+      width: 10rem;
     }
   }
 

@@ -4,7 +4,6 @@
 
 {% block title %}Accueil{% endblock %}
 
-
 {% block content %}
 <!--Présentation-->
 <div class="presentation">
@@ -18,19 +17,25 @@
                     alt="image ordinateur libre de droit">
             </figure>
 
-            <p> Notre projet a pour ambition de réaliser une application qui permet de déterminer le meilleurs algorithme Scikit Learn (Librairie python de Machine Learning) à appliquer à un jeu de données.
+            <p>
+                Notre projet a pour ambition de réaliser une application qui permet de déterminer le meilleurs
+                algorithme Scikit Learn (Librairie python de Machine Learning) à appliquer à un jeu de données.
                 <br>
                 <br>
-                Plus précisément, dans un monde numérique où l'intelligence artificielle est en plein essor, nous souhaitons réaliser une solution qui permette de faciliter l'utilisation du Machine Learning pour prédire des données à partir d'un jeu de données. L'idée est qu'une entreprise qui souhaite appliquer une solution de Machine Learning de prédiction sur un jeu de données sache quel algorithme utiliser, ou si elle ne souhaite qu'obtenir des prédictions, obtenir des prédictions aussi fiables que possible.
+                Plus précisément, dans un monde numérique où l'intelligence artificielle est en plein essor, nous
+                souhaitons réaliser une solution qui permette de faciliter l'utilisation du Machine Learning pour
+                prédire des données à partir d'un jeu de données. L'idée est qu'une entreprise qui souhaite appliquer
+                une solution de Machine Learning de prédiction sur un jeu de données sache quel algorithme utiliser, ou
+                si elle ne souhaite qu'obtenir des prédictions, obtenir des prédictions aussi fiables que possible.
                 <br>
                 <br>
-                L'intérêt d'un tel projet pour les utilisateurs sera le gain de temps et de ressources. Pour le commanditaire et les développeurs, il y a plusieurs intérêts: la montée en compétences, un projet d'envergure à ajouter à leurs CV et enfin travailler au cœur d'une pratique en plein essor.
-
+                L'intérêt d'un tel projet pour les utilisateurs sera le gain de temps et de ressources. Pour le
+                commanditaire et les développeurs, il y a plusieurs intérêts: la montée en compétences, un projet
+                d'envergure à ajouter à leurs CV et enfin travailler au cœur d'une pratique en plein essor.
             </p>
         </div>
-
-        <button><a href="/application">Lancer l'Application</a></button>
+        <a href="/analyse" id="application-analyze"><button>Obtenir le meilleur algorithme Scikit Learn</button></a>
+        <a href="/prediction" id="application-prediction"><button>Obtenir une prédiction des données envoyées au format .csv</button></a>
     </div>
 </div>
-{% include "BAML/footer.html" %}
-{% endblock content %}
+{% endblock %}
