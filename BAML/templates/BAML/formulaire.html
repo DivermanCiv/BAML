@@ -24,10 +24,17 @@
 
 
   <!--drag and drop-->
-  <div class="drop-zone">
-    <span class="drop-zone__prompt">Déposez ici votre fichier</span>
-
-    <input type="file" name="csvFile" class="drop-zone__input" multiple>
+  <div class="form_field">
+      <label data-form-field="attachments[]" data-form-id="drag_drop" for="input_field">
+          <span class="drag_drop_field" data-form-field="attachments[]" data-form-id="drag_drop">
+              <p data-form-field="attachments[]" data-form-id="drag_drop">Sélectionnez un fichier ou</p>
+              <p data-form-field="attachments[]" data-form-id="drag_drop">glissez et déposez votre fichier ici</p>
+              <input class="file_input" data-form-field="attachments[]" data-form-id="drag_drop" name="attachments[]"
+                     type="file" multiple id="input_field">
+          </span>
+      </label>
+      <div data-form-field="attachments[]" class="file_list">
+      </div>
   </div>
 
   <input type="submit" value="Envoyer le CSV">
