@@ -11,7 +11,7 @@
 
 </div>
 
-<form action="" method="POST" enctype="multipart/form-data">
+<form method="POST" action="" enctype="multipart/form-data" id="drag_drop">
   {% csrf_token %}
   <!-- input-->
 
@@ -26,12 +26,12 @@
   <!--drag and drop-->
   <div class="form_field">
       <label data-form-field="attachments[]" data-form-id="drag_drop" for="input_field">
-          <span class="drag_drop_field" data-form-field="attachments[]" data-form-id="drag_drop">
+          <div class="drag_drop_field" data-form-field="attachments[]" data-form-id="drag_drop">
               <p data-form-field="attachments[]" data-form-id="drag_drop">Sélectionnez un fichier ou</p>
               <p data-form-field="attachments[]" data-form-id="drag_drop">glissez et déposez votre fichier ici</p>
               <input class="file_input" data-form-field="attachments[]" data-form-id="drag_drop" name="attachments[]"
                      type="file" multiple id="input_field">
-          </span>
+          </div>
       </label>
       <div data-form-field="attachments[]" class="file_list">
       </div>
