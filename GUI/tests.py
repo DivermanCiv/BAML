@@ -12,7 +12,7 @@ class viewTest(TestCase):
 
     def test_page_is_not_found(self):
         response = self.client.get('/a_page_which_not_exists/')
-        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 404) 
 
     def test_home_view_url_exists_at_desired_location(self):
         response = self.client.get('')
@@ -30,14 +30,14 @@ class viewTest(TestCase):
         response = self.client.get('/plan-du-site/')
         self.assertEqual(response.status_code, 200)
 
-    def test_qui_sommes_nous_view_url_exists_at_desired_location5(self):
+    def test_qui_sommes_nous_view_url_exists_at_desired_location(self):
         response = self.client.get('/qui-sommes-nous/')
         self.assertEqual(response.status_code, 200)
 
-    def test_analyse_view_url_exists_at_desired_location6(self):
+    def test_analyse_view_url_exists_at_desired_location(self):
         response = self.client.get('/analyze/')
         self.assertEqual(response.status_code, 200)
 
-    def prediction_analyse_view_url_exists_at_desired_location7(self):
+    def prediction_analyse_view_url_exists_at_desired_location(self):
         response = self.client.get('/prediction/')
         self.assertEqual(response.status_code, 200)

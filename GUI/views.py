@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-import logging, traceback
+import logging, traceback, csv
 
 
 
@@ -21,6 +21,14 @@ def index(request):
     """
 
     return render(request, 'BAML/index.html')
+
+
+def html404(request, exception):
+    """Method to redirect a 404 error to 404 page
+
+    """
+
+    return render(request, 'BAML/404.html')
 
 
 def quiSommesNous(request):
@@ -92,9 +100,18 @@ def predict(request, separator, csvFile = None):
     """
 #mettre ici l'algorithme
 
-    message = "Vous avez choisi " + separator + " comme séparateur de CVS"
+    with open(csvFile) :
+        csv_reader = csv_reader(csvFile, delimiter = separator)
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                print(f'Les noms de colonnes sont {separator.join(row)}')
+                line_count += 1
+            else :
+                line_count += 1
+        line_number = line_count - 1
 
-    return message
+    return line_number
 
 
 
@@ -127,5 +144,13 @@ def analyseHTML(request):
 
 
 def predictionHTML(request):
-    separator = request.POST.get('separator')
-    return render(request, 'BAML/prediction.html',{'separator': separator} )
+    if request.POST :
+
+        separator = request.POST.get('separator')
+        file = request.POST.get('attachments[]')
+        print(file)
+        # predict(request, separator, file)
+        return render(request, 'BAML/prediction.html',{'separator': separator, 'csvFile' : file}) #, 'line_number' : line_number# })
+
+    else :
+        return(render(request, 'BAML/prediction.html'))

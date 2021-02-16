@@ -20,6 +20,8 @@ from django.urls import path, include, reverse
 from BAML import settings
 from GUI import views
 
+handler404 = 'GUI.views.html404'
+
 urlpatterns = [
     url(r'^$', views.index),
     url('mention-legales/', views.mentionLegales),
@@ -28,7 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url('prediction/', views.predictionHTML, name ="predictionHTML"),
     url(r'analyse/$', views.analyseHTML, name="analyzeHTML")
-
 
 ]
 
