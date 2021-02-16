@@ -21,7 +21,7 @@ from BAML import settings
 from GUI import views
 
 handler404 = 'GUI.views.html404'
-
+handler500 = 'GUI.views.html500'
 urlpatterns = [
     url(r'^$', views.index),
     url('mention-legales/', views.mentionLegales),

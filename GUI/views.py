@@ -31,6 +31,14 @@ def html404(request, exception):
     return render(request, 'BAML/404.html')
 
 
+def html500(request, exception):
+    """Method to redirect a 500 error to 500 page
+
+    """
+
+    return render(request, 'BAML/500.html')
+
+
 def quiSommesNous(request):
     """Method to go to the Qui Sommes Nous page"""
 
