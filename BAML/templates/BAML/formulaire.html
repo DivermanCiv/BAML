@@ -21,6 +21,10 @@
     <input type="text" name="separator" id="separator" required maxlength="1">
   </div>
 
+  <div class="form-column">
+    <label for="column">Entrez le nom de la colonne à prédire</label>
+    <input type="text" name="column" id="column">
+  </div>
 
 
   <!--drag and drop-->
@@ -29,6 +33,7 @@
           <div class="drag_drop_field" data-form-field="attachments[]" data-form-id="drag_drop">
               <p data-form-field="attachments[]" data-form-id="drag_drop">Sélectionnez un fichier ou</p>
               <p data-form-field="attachments[]" data-form-id="drag_drop">glissez et déposez votre fichier ici</p>
+              <p data-form-field="attachments[]" data-form-id="drag_drop">(déposer un nouveau fichier écrasera le précédent)</p>
               <input class="file_input" data-form-field="attachments[]" data-form-id="drag_drop" name="attachments[]"
                      type="file" multiple id="input_field">
           </div>
