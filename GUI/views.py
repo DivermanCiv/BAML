@@ -150,6 +150,7 @@ def analyseHTML(request):
     if request.POST :
 
         separator = request.POST.get('separator')
+        column = request.POST.get('column')
         file = request.FILES['attachments[]']
 
         if not file.name.endswith('.csv'):
@@ -157,7 +158,7 @@ def analyseHTML(request):
             return(render(request, 'BAML/analyse.html'))
 
         # predict(request, separator, file)
-        return render(request, 'BAML/analyse.html',{'separator': separator, 'csvFile' : file}) #, 'line_number' : line_number# })
+        return render(request, 'BAML/analyse.html',{'separator': separator, 'column': column, 'csvFile' : file}) #, 'line_number' : line_number# })
 
     else :
         return(render(request, 'BAML/prediction.html'))
@@ -167,6 +168,7 @@ def predictionHTML(request):
     if request.POST :
 
         separator = request.POST.get('separator')
+        column = request.POST.get('column')
         file = request.FILES['attachments[]']
 
         if not file.name.endswith('.csv'):
@@ -174,7 +176,7 @@ def predictionHTML(request):
             return(render(request, 'BAML/prediction.html'))
 
         # predict(request, separator, file)
-        return render(request, 'BAML/prediction.html',{'separator': separator, 'csvFile' : file}) #, 'line_number' : line_number# })
+        return render(request, 'BAML/prediction.html',{'separator': separator, 'column': column, 'csvFile' : file}) #, 'line_number' : line_number# })
 
     else :
         return(render(request, 'BAML/prediction.html'))
