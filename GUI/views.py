@@ -147,16 +147,32 @@ def visitor_ip_address(request):
     return ip
 
 def analyseHTML(request):
-    separator = request.POST.get('separator')
-    return render(request, 'BAML/analyse.html', {'separator' : separator})
+    if request.POST :
+
+        separator = request.POST.get('separator')
+        file = request.FILES['attachments[]']
+
+        if not file.name.endswith('.csv'):
+            print("error")
+            return(render(request, 'BAML/analyse.html'))
+
+        # predict(request, separator, file)
+        return render(request, 'BAML/analyse.html',{'separator': separator, 'csvFile' : file}) #, 'line_number' : line_number# })
+
+    else :
+        return(render(request, 'BAML/prediction.html'))
 
 
 def predictionHTML(request):
     if request.POST :
 
         separator = request.POST.get('separator')
-        file = request.POST.get('attachments[]')
-        print(dict(request.POST.items()))
+        file = request.FILES['attachments[]']
+
+        if not file.name.endswith('.csv'):
+            print("error")
+            return(render(request, 'BAML/prediction.html'))
+
         # predict(request, separator, file)
         return render(request, 'BAML/prediction.html',{'separator': separator, 'csvFile' : file}) #, 'line_number' : line_number# })
 
