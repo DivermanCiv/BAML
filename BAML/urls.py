@@ -24,7 +24,7 @@ handler404 = 'GUI.views.html404'
 handler500 = 'GUI.views.html500'
 urlpatterns = [
     url(r'^$', views.index),
-    url('mention-legales/', views.mentionLegales),
+    url('mentions-legales/', views.mentionsLegales),
     url('plan-du-site/', views.planDuSite),
     url('qui-sommes-nous/', views.quiSommesNous),
     path('admin/', admin.site.urls),

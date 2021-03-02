@@ -45,7 +45,7 @@ def quiSommesNous(request):
     return render(request, 'BAML/qui-sommes-nous.html')
 
 
-def mentionLegales(request):
+def mentionsLegales(request):
 
     """Method to present the legal mention page
 
@@ -60,7 +60,7 @@ def mentionLegales(request):
 
         """
 
-    return render(request, 'BAML/mention-legales.html')
+    return render(request, 'BAML/mentions-legales.html')
 
 
 def planDuSite(request):
@@ -156,9 +156,20 @@ def predictionHTML(request):
 
         separator = request.POST.get('separator')
         file = request.POST.get('attachments[]')
-        print(file)
+        print(dict(request.POST.items()))
         # predict(request, separator, file)
         return render(request, 'BAML/prediction.html',{'separator': separator, 'csvFile' : file}) #, 'line_number' : line_number# })
 
     else :
         return(render(request, 'BAML/prediction.html'))
+
+
+
+
+#def createLog(request, csv_lines=None, duration=None, analyze_number=None):
+# ip = visitor_ip_address(request)
+# current_url = request.build_absolute_uri()
+#
+# file = open(request.data[2])
+# reader = csv.reader(file)
+# lines = len( list(reader))

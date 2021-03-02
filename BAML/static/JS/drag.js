@@ -19,6 +19,8 @@ class DragAndDrop {
                 let formField = e.target.getAttribute("data-form-field");
                 let input = document.querySelector(`form#${formId} input[name='${formField}']`);
                 input.files = e.dataTransfer.files;
+                console.table(input.files);
+                console.table(e.dataTransfer.files); 
                 this.displayFileList(formId, formField);
             }
         }
@@ -61,7 +63,7 @@ class DragAndDrop {
                             ${fileSize} KB
                         </div>
                     </div>
-                </div>                 
+                </div>
                 `;
         }
 
