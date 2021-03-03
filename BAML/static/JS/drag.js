@@ -20,8 +20,10 @@ class DragAndDrop {
                 let input = document.querySelector(`form#${formId} input[name='${formField}']`);
                 input.files = e.dataTransfer.files;
                 console.table(input.files);
-                console.table(e.dataTransfer.files); 
+                console.table(e.dataTransfer.files);
                 this.displayFileList(formId, formField);
+
+
             }
         }
     }
@@ -47,7 +49,7 @@ class DragAndDrop {
             let fileExt = this.getFileExtension(files[i].name);
             let fileSize = this.convertBytesTo(files[i].size, 'K', 0);
             console.log()
-            if (fileExt )
+
 
             fileList = `
                 ${fileList}
@@ -65,6 +67,16 @@ class DragAndDrop {
                     </div>
                 </div>
                 `;
+
+            if (fileExt != "csv") {
+              document.getElementById("validate_csv").hidden = true;
+              document.getElementById("file_extension_error").hidden = false;
+            }
+            else{
+              document.getElementById("validate_csv").hidden = false;
+              document.getElementById("file_extension_error").hidden = true;
+            }
+
         }
 
         document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = fileList;

@@ -153,11 +153,7 @@ def analyseHTML(request):
         column = request.POST.get('column')
         file = request.FILES['attachments[]']
 
-        if not file.name.endswith('.csv'):
-            print("error")
-            return(render(request, 'BAML/analyse.html'))
-
-        # predict(request, separator, file)
+        # analyse(request, separator, file)
         return render(request, 'BAML/analyse.html',{'separator': separator, 'column': column, 'csvFile' : file}) #, 'line_number' : line_number# })
 
     else :
@@ -171,9 +167,6 @@ def predictionHTML(request):
         column = request.POST.get('column')
         file = request.FILES['attachments[]']
 
-        if not file.name.endswith('.csv'):
-            print("error")
-            return(render(request, 'BAML/prediction.html'))
 
         # predict(request, separator, file)
         return render(request, 'BAML/prediction.html',{'separator': separator, 'column': column, 'csvFile' : file}) #, 'line_number' : line_number# })
