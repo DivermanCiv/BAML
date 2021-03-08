@@ -99,8 +99,9 @@ def predict(request, separator, csvFile = None):
     This method catch the HTTP request from the Front End and return the
     content of the Sitemap page.
 
-    :param string: separator
-    :param file: csvFile
+    :param request : HTTP request
+    :param separator : delimiter
+    :param csvFile : file
     :return: a message displayed on prediction page
     :rtype: string
 
@@ -108,18 +109,37 @@ def predict(request, separator, csvFile = None):
     """
 #mettre ici l'algorithme
 
-    with open(csvFile) :
-        csv_reader = csv_reader(csvFile, delimiter = separator)
+    with open(csvFile):
+        csv_reader = csv_reader(csvFile, delimiter=separator)
         line_count = 0
         for row in csv_reader:
             if line_count == 0:
                 print(f'Les noms de colonnes sont {separator.join(row)}')
                 line_count += 1
-            else :
+            else:
                 line_count += 1
         line_number = line_count - 1
 
     return line_number
+
+
+def badFormElements(request, separator, column, csvFile):
+
+    separator = request.POST.get('separator')
+    column = request.POST.get('column')
+    file = request.FILES['attachments[]']
+
+    with open(csvFile):
+        csv_reader = csv_reader(csvFile, delimiter=separator)
+        line_count = 0
+        try:
+            for row in csv_reader:
+                if line_count == 0:
+                   if not (column )
+
+
+
+    return
 
 
 
