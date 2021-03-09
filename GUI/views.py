@@ -123,23 +123,23 @@ def predict(request, separator, csvFile = None):
     return line_number
 
 
-def badFormElements(request, separator, column, csvFile):
+# def badFormElements(request, separator, column, csvFile):
 
-    separator = request.POST.get('separator')
-    column = request.POST.get('column')
-    file = request.FILES['attachments[]']
+#     separator = request.POST.get('separator')
+#     column = request.POST.get('column')
+#     file = request.FILES['attachments[]']
 
-    with open(csvFile):
-        csv_reader = csv_reader(csvFile, delimiter=separator)
-        line_count = 0
-        try:
-            for row in csv_reader:
-                if line_count == 0:
-                   if not (column )
+#     with open(csvFile):
+#         csv_reader = csv_reader(csvFile, delimiter=separator)
+#         line_count = 0
+#         try:
+#             for row in csv_reader:
+#                 if line_count == 0:
+#                    if not (column )
 
 
 
-    return
+#     return
 
 
 
