@@ -19,6 +19,8 @@ def index(request):
 
     """
     visitor_ip_address(request)
+    print(request.build_absolute_uri())
+
     return render(request, 'BAML/index.html')
 
 
@@ -37,6 +39,11 @@ def index(request):
 
 def application(request):
     """Method to go to the application page"""
+    print(request.build_absolute_uri())
+
+    file = open(request.data[2])
+    reader = csv.reader(file)
+    lines = len( list(reader))
 
     return render(request, 'BAML/application.html')
 
@@ -117,7 +124,6 @@ def predict(request):
     """
 def visitor_ip_address(request):
 
-
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
 
     if x_forwarded_for:
@@ -125,5 +131,8 @@ def visitor_ip_address(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
         logging.getLogger('django').info(ip)
-    
     return ip
+
+#def createLog(request, csv_lines=None, duration=None, analyze_number=None):
+#	ip = visitor_ip_address(request)
+#	current_url = request.build_absolute_uri()
