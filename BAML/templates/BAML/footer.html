@@ -1,7 +1,5 @@
 <footer>
-
     <div class="footer">
-
         <p>
             <a id="btnPopupFooter" class="btnPopupFooter" onclick="openModalFooter()">RGPD</a>
         </p>
@@ -12,40 +10,20 @@
                     <span id="btnCloseFooter" class="btnCloseFooter" onclick="closeModalFooter()">J'accepte</span>
                 </h2>
                 <div>
+                    <p><a href="https://www.baml.fr">https://www.baml.fr</a> est susceptible de traiter tout ou partie des données : </p>
+                    <ul>
+                        <li>pour permettre la navigation sur le Site : données de connexion et d’utilisation du Site, facturation, historique des commandes, etc. </li>
+                        <li>pour prévenir et lutter contre la fraude informatique (spamming, hacking…) : matériel informatique utilisé pour la navigation, l’adresse IP, le mot de passe (hashé) </li>
+                    </ul>
+                    <p><a href="https://www.baml.fr">https://www.baml.fr</a> ne commercialise pas vos données personnelles qui sont donc uniquement utilisées par nécessité ou à des fins statistiques et d’analyses.</p>
 
+                    <div ng-bind-html="rgpdHTML"></div>
 
-
-
-              <p><a href="https://www.baml.fr">https://www.baml.fr</a> est susceptible de traiter tout ou partie des données : </p>
-
-              <ul>
-
-              <li>pour permettre la navigation sur le Site : données de connexion et d’utilisation du Site, facturation, historique des commandes, etc. </li>
-
-              <li>pour prévenir et lutter contre la fraude informatique (spamming, hacking…) : matériel informatique utilisé pour la navigation, l’adresse IP, le mot de passe (hashé) </li>
-
-
-              </ul>
-
-              <p><a href="https://www.baml.fr">https://www.baml.fr</a> ne commercialise pas vos données personnelles qui sont donc uniquement utilisées par nécessité ou à des fins statistiques et d’analyses.</p>
-
-              <div ng-bind-html="rgpdHTML"></div>
-
-
-              <strong>Pour plus d'informations, veuillez consulter les <a href="/mentions-legales">Mentions Légales</a></strong>
-
-
-
-
-
-
+                    <strong>Pour plus d'informations, veuillez consulter les <a href="/mentions-legales">Mentions Légales</a></strong>
                 </div>
             </div>
         </div>
-
         <p>©BAML, 2020 - Tous droits réservés</p>
-
-
         <p>
             <a id="btnPopupContact" class="btnPopupContact" onclick="openModalFooterContact()">Contact</a>
         </p>
@@ -58,11 +36,9 @@
                 </h2>
                 <div>
                     <p>0156829643 <br>mail.mail@mail.mail</p>
-                    <p>La communication du site a été prise en charge par com.consulting : com.consulting@campus.academy
-                    </p>
+                    <p>La communication du site a été prise en charge par com.consulting : com.consulting@campus.academy</p>
                 </div>
             </div>
         </div>
     </div>
-
 </footer>
