@@ -1,8 +1,8 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect
-import logging, traceback, csv
-
-
+from django.http import HttpResponse
+from django.shortcuts import render
+import logging
+# import traceback
+import csv
 
 
 # Create your views here.
@@ -10,45 +10,28 @@ def index(request):
     """Method to present the application HomePage
 
     This method catch the HTTP request from the Front End and return the
-    content of the HomePage. This method also call the visitor_ip_address method which catch the user IP and send it to the log.
+    content of the HomePage. This method also call the visitor_ip_address
+    method which catch the user IP and send it to the log.
 
     :param request: HTTP request
     :type request: HttpRequest
     :return: Response HTTP with the HomePage content.
     :rtype: HttpResponse
-
-
     """
-<<<<<<< HEAD
     visitor_ip_address(request)
     print(request.build_absolute_uri())
 
     return render(request, 'BAML/index.html')
-=======
->>>>>>> ee1d978a04010182590d97d4c8326312a0833d78
-
-    return render(request, 'BAML/index.html')
 
 
-def html404(request, exception):
+def html_404(request, exception):
     """Method to redirect a 404 error to 404 page
 
     """
-
-<<<<<<< HEAD
-def application(request):
-    """Method to go to the application page"""
-    print(request.build_absolute_uri())
-
-    file = open(request.data[2])
-    reader = csv.reader(file)
-    lines = len( list(reader))
-=======
     return render(request, 'BAML/404.html')
->>>>>>> ee1d978a04010182590d97d4c8326312a0833d78
 
 
-def html500(request):
+def html_500(request):
     """Method to redirect a 500 error to 500 page
 
     """
@@ -56,13 +39,13 @@ def html500(request):
     return render(request, 'BAML/500.html')
 
 
-def quiSommesNous(request):
+def how_we_work(request):
     """Method to go to the Qui Sommes Nous page"""
 
     return render(request, 'BAML/qui-sommes-nous.html')
 
 
-def mentionsLegales(request):
+def legal_notices(request):
 
     """Method to present the legal mention page
 
@@ -80,54 +63,56 @@ def mentionsLegales(request):
     return render(request, 'BAML/mentions-legales.html')
 
 
-def planDuSite(request):
+def sitemap(request):
     """Method to go to the planDuSite page"""
 
     return render(request, 'BAML/plan-du-site.html')
 
 
-
-def analyze(request, separator, csvFile = None):
+def analyze(request, separator, csv_file=None):
     """Method to analyse the CVS file
 
     This method catch the HTTP request from the Front End and return the
     content of the Sitemap page.
 
-    :param string: separator
-    :param file: csvFile
-    :return: a message displayed on analyse page
-    :rtype: string
+    :param request : HTTP request.
+    :type request: object
+    :param separator: Separator in csv file.
+    :type separator: str
+    :param csv_file: CSV file uploaded.
+    :type csv_file: object
+    :return: A message displayed on analyse page.
+    :rtype: str
 
     """
 
-    message = "Vous avez choisi " + separator + " comme séparateur de CVS"
+    message = "Vous avez choisi " + separator + " comme séparateur de csv."
 
 
-# mettre ici l'algorithme
+# todo: put the algorithm here.
 
     return message
 
 
+def predict(request, separator, csv_file=None):
+    """Method to predict the CSV file.
 
+    This method catch the HTTP request from the frontend and return the content
+    of the Sitemap page.
 
-def predict(request, separator, csvFile = None):
-    """Method to prediction the CVS file
-
-    This method catch the HTTP request from the Front End and return the
-    content of the Sitemap page.
-
-    :param request : HTTP request
-    :param separator : delimiter
-    :param csvFile : file
-    :return: a message displayed on prediction page
-    :rtype: string
-
-
+    :param request : HTTP request.
+    :type request: object
+    :param separator : Delimiter of the csv file.
+    :type separator: str
+    :param csvFile : CSV file uploaded.
+    :type csv_file: object
+    :return: A message displayed on prediction page.
+    :rtype: str
     """
-#mettre ici l'algorithme
+    #  Mettre ici l'algorithme
 
-    with open(csvFile):
-        csv_reader = csv_reader(csvFile, delimiter=separator)
+    with open(csv_file):
+        csv_reader = csv.reader(csv_file, delimiter=separator)
         line_count = 0
         for row in csv_reader:
             if line_count == 0:
@@ -140,7 +125,7 @@ def predict(request, separator, csvFile = None):
     return line_number
 
 
-# def badFormElements(request, separator, column, csvFile):
+# def bad_form_element(request, separator, column, csvFile):
 
 #     separator = request.POST.get('separator')
 #     column = request.POST.get('column')
@@ -154,11 +139,7 @@ def predict(request, separator, csvFile = None):
 #                 if line_count == 0:
 #                    if not (column )
 
-
-
 #     return
-
-
 
 def visitor_ip_address(request):
     """Method to get the user IP
@@ -170,12 +151,7 @@ def visitor_ip_address(request):
     :return: user IP adress
     :rtype: request
 
-
-<<<<<<< HEAD
-=======
     """
-
->>>>>>> ee1d978a04010182590d97d4c8326312a0833d78
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
 
     if x_forwarded_for:
@@ -183,52 +159,58 @@ def visitor_ip_address(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
         logging.getLogger('django').info(ip)
-<<<<<<< HEAD
     return ip
 
-#def createLog(request, csv_lines=None, duration=None, analyze_number=None):
-#	ip = visitor_ip_address(request)
-#	current_url = request.build_absolute_uri()
-=======
-    print(ip)
-    return ip
+# def createLog(request, csv_lines=None, duration=None, analyze_number=None):
+# 	ip = visitor_ip_address(request)
+# 	current_url = request.build_absolute_uri()
 
-def analyseHTML(request):
-    if request.POST :
+
+def analyze_html(request):
+    if request.POST:
 
         separator = request.POST.get('separator')
         column = request.POST.get('column')
         file = request.FILES['attachments[]']
 
         # analyse(request, separator, file)
-        return render(request, 'BAML/analyse.html',{'separator': separator, 'column': column, 'csvFile' : file}) #, 'line_number' : line_number# })
+        return render(request,
+                      'BAML/analyse.html',
+                      {
+                              'separator': separator,
+                               'column': column,
+                               'csvFile' : file
+                       })
+        # , 'line_number' : line_number# })
 
-    else :
-        return(render(request, 'BAML/analyse.html'))
+    else:
+        return render(request, 'BAML/analyse.html')
 
 
-def predictionHTML(request):
-    if request.POST :
+def prediction_html(request):
+    if request.POST:
 
         separator = request.POST.get('separator')
         column = request.POST.get('column')
         file = request.FILES['attachments[]']
 
-
         # predict(request, separator, file)
-        return render(request, 'BAML/prediction.html',{'separator': separator, 'column': column, 'csvFile' : file}) #, 'line_number' : line_number# })
+        return render(request,
+                      'BAML/prediction.html',
+                      {
+                              'separator': separator,
+                              'column': column,
+                              'csvFile': file
+                      })
+        # , 'line_number' : line_number# })
 
-    else :
-        return(render(request, 'BAML/prediction.html'))
+    else:
+        return render(request, 'BAML/prediction.html')
 
-
-
-
-#def createLog(request, csv_lines=None, duration=None, analyze_number=None):
-# ip = visitor_ip_address(request)
-# current_url = request.build_absolute_uri()
+# def createLog(request, csv_lines=None, duration=None, analyze_number=None):
+#     ip = visitor_ip_address(request)
+#     current_url = request.build_absolute_uri()
 #
-# file = open(request.data[2])
-# reader = csv.reader(file)
-# lines = len( list(reader))
->>>>>>> ee1d978a04010182590d97d4c8326312a0833d78
+#     file = open(request.data[2])
+#     reader = csv.reader(file)
+#     lines = len( list(reader))

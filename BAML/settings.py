@@ -25,11 +25,10 @@ SECRET_KEY = 'nxokv@#7n9%b0@fi35yc%t%@f8d&s1u@)s%$11@39!=be5i0yh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -76,7 +75,6 @@ WSGI_APPLICATION = 'BAML.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # Adaptateur postgresql
@@ -91,7 +89,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation'
@@ -114,34 +111,23 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
-
 LANGUAGE_CODE = 'fr-FR'
-
 TIME_ZONE = 'Europe/Paris'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'BAML/static'),
 ]
 
-# print(STATIC_URL)
-
 INTERNAL_IPS = ['127.0.0.1']
 
-# Loggers
-
-
+# Logs
 LOGGING = {
     'version': 1,
     'loggers': {
@@ -161,7 +147,7 @@ LOGGING = {
     'formatters': {
         'simpleformat': {
             'format': '{levelname} {asctime} {message}',
-            'style': '{',
+            'style': '{'
         }
     }
 }
@@ -169,9 +155,9 @@ LOGGING = {
 # Jenkins
 JENKINS_TASKS = (
     'django_jenkins.tasks.run_pep8',
-    'django_jenkins.tasks.run_pyflakes',
-
+    'django_jenkins.tasks.run_pyflakes'
 )
+
 PROJECT_APPS = (
 
 )

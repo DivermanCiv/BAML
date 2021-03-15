@@ -14,27 +14,28 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
-from django.urls import path, include, reverse
+# from django.contrib import admin
+from django.urls import path, include
+
+import debug_toolbar
 
 from BAML import settings
 from GUI import views
 
-handler404 = 'GUI.views.html404'
-handler500 = 'GUI.views.html500'
+handler404 = 'GUI.views.html_404'
+handler500 = 'GUI.views.html_500'
+
 urlpatterns = [
     url(r'^$', views.index),
-    url('mentions-legales/', views.mentionsLegales),
-    url('plan-du-site/', views.planDuSite),
-    url('qui-sommes-nous/', views.quiSommesNous),
-    path('admin/', admin.site.urls),
-    url('prediction/', views.predictionHTML, name ="predictionHTML"),
-    url(r'analyse/$', views.analyseHTML, name="analyzeHTML")
-
+    url('mentions-legales/', views.legal_notices),
+    url('plan-du-site/', views.sitemap),
+    url('qui-sommes-nous/', views.how_we_work),
+    # path('admin/', admin.site.urls),
+    url('prediction/', views.prediction_html, name="predictionHTML"),
+    url(r'analyse/$', views.analyze_html, name="analyzeHTML")
 ]
 
 if settings.DEBUG:
-    import debug_toolbar
     urlpatterns = [
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns

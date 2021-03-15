@@ -1,10 +1,9 @@
 {% load static %}
 
-<!-- title and explaination-->
+<!-- title and explanation-->
 <div class="drag-application-title">
 
   <h1>Notre application</h1>
-  <!-- <p>Veuillez sélectionner un type de traitement et glisser votre fichier à analyser</p> -->
 
 </div>
 
@@ -37,7 +36,7 @@
   </div>
 
   <input id="validate_csv" type="submit" value="Envoyer le CSV">
-  <p color ="red" id="file_extension_error" hidden>Désolé, seuls les fichiers au format .csv sont pris en charge </p>
+  <p style="color: red" id="file_extension_error" hidden>Désolé, seuls les fichiers au format .csv sont pris en charge </p>
 
 </form>
 <script type="text/javascript" src="{% static 'JS/drag.js' %}"></script>
