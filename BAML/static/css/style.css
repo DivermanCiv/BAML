@@ -46,8 +46,6 @@
 @media (max-width: 480px) {
   .presentation .presentation-content .presentation-raw-content {
     flex-direction: column;
-    margin-left: 0%;
-    margin-right: 0%;
   }
 }
 @media (min-width: 480px) and (max-width: 1024px) {
@@ -65,6 +63,7 @@
   border: 1px black solid;
   border-radius: 15px;
   object-fit: fill;
+  /* the image is not shown on phone screen */
   /* image style on tablet screen */
 }
 @media (max-width: 480px) {
@@ -74,7 +73,9 @@
 }
 @media (min-width: 480px) and (max-width: 1024px) {
   .presentation .presentation-content .presentation-raw-content .presentation-image {
-    display: none;
+    align-self: center;
+    width: 80%;
+    height: 80%;
   }
 }
 .presentation .presentation-content .presentation-raw-content p {
@@ -96,31 +97,19 @@
   align-self: center;
   height: 5rem;
   width: 10rem;
-  border-radius: 20px;
-  cursor: pointer;
-  background-color: #2d8fdf;
-  font-weight: bold;
+  /* the button is not show on phone screen */
 }
-
-.presentation .presentation-content button:hover{
-  color: #ffffff;
+@media (max-width: 480px) {
+  .presentation .presentation-content button {
+    display: none;
+  }
 }
-
 .presentation .presentation-content a {
   align-self: center;
   text-decoration: none;
   height: 5rem;
   width: 10rem;
-  margin: .5rem;
 }
-
-.presentation-buttons{
-  display: flex;
-  flex-flow: row wrap;
-  align-items: stretch;
-  align-self: center;
-}
-
 
 /* style of the flex container */
 .team {
@@ -262,7 +251,6 @@
 .footer .popupFooter,
 .footer .popupFooterContact {
   margin: 10% auto;
-  height : 30%;
   width: 70%;
   background-color: #f3f3f3;
   padding: 1em;
@@ -303,6 +291,15 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* style of the radio button */
+#mySelect {
+  margin: 1rem;
+  padding: 1rem;
+  height: 20%;
+  width: 50%;
+  border: solid 1px;
 }
 
 form {
@@ -421,7 +418,6 @@ div.file_list div.file div.file_details {
 .navbar-burger {
   max-width: 50px;
   margin-right: 10px;
-  cursor: pointer;
 }
 
 #burger-menu-content {
@@ -522,22 +518,6 @@ footer {
 
 .separator-prediction {
   text-align: center;
-}
-
-/*Logos of the Mention Legales page css*/
-
-.logos{
-  height: 200px;
-  width: auto;
-  margin: 2%;
-}
-
-@media (max-width: 480px){
-  .logos{
-    height: 120px;
-    width: auto;
-    margin: 2%;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
