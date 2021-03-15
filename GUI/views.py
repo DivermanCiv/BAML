@@ -167,6 +167,17 @@ def visitor_ip_address(request):
     return ip
 
 def analyseHTML(request):
+    """Method to process the filled form to analyse datas from the csv
+
+    This method catch the separator, column and the csv file sent by the user in the form and process the datas to return the Best Analyse Machine Learning.
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Best Analyse Machine Learning
+    :rtype: request
+
+
+    """
     if request.POST :
 
         separator = request.POST.get('separator')
@@ -181,6 +192,17 @@ def analyseHTML(request):
 
 
 def predictionHTML(request):
+    """Method to process the filled form to analyse datas from the csv
+
+    This method catch the separator, column and the csv file sent by the user in the form and process the datas to return a prediction of the dats which have been sent.
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Best Analyse Machine Learning prediction
+    :rtype: request
+
+
+    """
     if request.POST :
 
         separator = request.POST.get('separator')

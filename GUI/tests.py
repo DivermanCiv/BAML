@@ -15,7 +15,7 @@ class viewTest(TestCase):
         self.assertTemplateUsed(response, "BAML/404.html")
 
     # def test_server_error(self):
-    #     response =
+    #     response = 
     #     self.assertTemplateUsed(response, "BAML/500.html")
 
     def test_home_view_url_exists_at_desired_location(self):
