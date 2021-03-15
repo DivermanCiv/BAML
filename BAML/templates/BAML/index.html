@@ -8,17 +8,14 @@
 <!--Présentation-->
 <div class="presentation">
     <div class="presentation-content">
-
         <h2>L'application BAML</h2>
         <div class="presentation-raw-content">
-
             <figure class="img-container">
                 <img class="presentation-image" src="{% static 'images/data.jpg' %}"
                     alt="image ordinateur libre de droit">
             </figure>
-
             <p>
-                Notre projet a pour ambition de réaliser une application qui permet de déterminer le meilleurs
+                Notre projet a pour ambition de réaliser une application qui permet de déterminer le meilleur
                 algorithme Scikit Learn (Librairie python de Machine Learning) à appliquer à un jeu de données.
                 <br>
                 <br>
@@ -34,8 +31,10 @@
                 d'envergure à ajouter à leurs CV et enfin travailler au cœur d'une pratique en plein essor.
             </p>
         </div>
-        <a href="/analyse" id="application-analyze"><button>Obtenir le meilleur algorithme Scikit Learn</button></a>
-        <a href="/prediction" id="application-prediction"><button>Obtenir une prédiction des données envoyées au format .csv</button></a>
+        <div class="presentation-buttons">
+          <a href="/analyse" id="application-analyze"><button>Obtenir le meilleur algorithme Scikit Learn</button></a>
+          <a href="/prediction" id="application-prediction"><button>Obtenir une prédiction des données envoyées au format .csv</button></a>
+        </div>
     </div>
 </div>
 {% endblock %}

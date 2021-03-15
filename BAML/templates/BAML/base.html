@@ -17,31 +17,23 @@
                     <a href="/">BAML</a>
                 </div>
                 <img src="{% static 'images/logo-menu-burger.png' %}" class="navbar-burger" onclick="afficheMenu()">
-
             </div>
-
             <div id="burger-menu-content">
                 <p>
                     <a href="/plan-du-site">Plan du Site</a>
                 </p>
                 <p>
-                    <a href="/application">Application BAML</a>
+                    <a href="/">Application BAML</a>
                 </p>
                 <p>
-                    <a href="/mentions-legales">Mentions Légale</a>
+                    <a href="/mentions-legales">Mentions Légales</a>
                 </p>
                 <p>
-                    <a href="/qui-sommes-nous">qui sommes nous</a>
+                    <a href="/qui-sommes-nous">Qui Sommes-Nous</a>
                 </p>
-
-
-
+            </div>
         </header>
-
-        {% block content %}
-        {% endblock %}
-
+        {% block content %}{% endblock %}
     </body>
     {% include "BAML/footer.html" %}
-
 </html>

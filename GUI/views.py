@@ -204,7 +204,7 @@ def analyseHTML(request):
         return render(request, 'BAML/analyse.html',{'separator': separator, 'column': column, 'csvFile' : file}) #, 'line_number' : line_number# })
 
     else :
-        return(render(request, 'BAML/prediction.html'))
+        return(render(request, 'BAML/analyse.html'))
 
 
 def predictionHTML(request):
