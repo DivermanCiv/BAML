@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'GUI.apps.GuiConfig',
+    'django_jenkins',
 ]
 
 MIDDLEWARE = [
@@ -164,3 +165,13 @@ LOGGING = {
         }
     }
 }
+
+# Jenkins
+JENKINS_TASKS = (
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_pyflakes',
+
+)
+PROJECT_APPS = (
+
+)

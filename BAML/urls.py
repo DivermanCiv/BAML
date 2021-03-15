@@ -15,19 +15,22 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, reverse
 
 from BAML import settings
 from GUI import views
 
+handler404 = 'GUI.views.html404'
+handler500 = 'GUI.views.html500'
 urlpatterns = [
     url(r'^$', views.index),
-    url('application/', views.application),
-    url('mention-legales/', views.mentionLegales),
+    url('mentions-legales/', views.mentionsLegales),
     url('plan-du-site/', views.planDuSite),
     url('qui-sommes-nous/', views.quiSommesNous),
-    url(r'^home/', include('GUI.urls')),
     path('admin/', admin.site.urls),
+    url('prediction/', views.predictionHTML, name ="predictionHTML"),
+    url(r'analyse/$', views.analyseHTML, name="analyzeHTML")
+
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,49 @@
+
+{% load static %}
+
+<!-- title and explaination-->
+<div class="drag-application-title">
+
+  <h1>Notre application</h1>
+  <!-- <p>Veuillez sélectionner un type de traitement et glisser votre fichier à analyser</p> -->
+
+
+
+</div>
+
+<form method="POST" action="" enctype="multipart/form-data" id="drag_drop">
+  {% csrf_token %}
+  <!-- input-->
+
+
+  <div class="form-separator">
+    <label for="separator">Entrez votre séparateur </label>
+    <input type="text" name="separator" id="separator" required maxlength="1">
+  </div>
+
+  <div class="form-column">
+    <label for="column">Entrez le nom de la colonne à prédire</label>
+    <input type="text" name="column" id="column" required>
+  </div>
+
+
+  <!--drag and drop-->
+  <div class="form_field">
+      <label data-form-field="attachments[]" data-form-id="drag_drop" for="input_field">
+          <div class="drag_drop_field" data-form-field="attachments[]" data-form-id="drag_drop">
+              <p data-form-field="attachments[]" data-form-id="drag_drop">Sélectionnez un fichier ou</p>
+              <p data-form-field="attachments[]" data-form-id="drag_drop">glissez et déposez votre fichier ici</p>
+              <p data-form-field="attachments[]" data-form-id="drag_drop">(déposer un nouveau fichier écrasera le précédent)</p>
+              <input class="file_input" data-form-field="attachments[]" data-form-id="drag_drop" name="attachments[]"
+                     type="file" multiple id="input_field" required>
+          </div>
+      </label>
+      <div data-form-field="attachments[]" class="file_list">
+      </div>
+  </div>
+
+  <input id="validate_csv" type="submit" value="Envoyer le CSV">
+  <p color ="red" id="file_extension_error" hidden>Désolé, seuls les fichiers au format .csv sont pris en charge </p>
+
+</form>
+<script type="text/javascript" src="{% static 'JS/drag.js' %}"></script>
