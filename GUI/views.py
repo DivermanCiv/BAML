@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 import logging
+from .utils import canonical_caseless
 # import traceback
 import csv
 
@@ -170,7 +171,7 @@ def analyze_html(request):
     if request.POST:
 
         separator = request.POST.get('separator')
-        column = request.POST.get('column')
+        column = canonical_caseless(request.POST.get('column'))
         file = request.FILES['attachments[]']
         decoded_file = file.read().decode('utf-8').splitlines()
         reader = csv.DictReader(decoded_file)
@@ -198,7 +199,7 @@ def prediction_html(request):
     if request.POST:
 
         separator = request.POST.get('separator')
-        column = request.POST.get('column')
+        column = canonical_caseless(request.POST.get('column'))
         file = request.FILES['attachments[]']
         decoded_file = file.read().decode('utf-8').splitlines()
         reader = csv.DictReader(decoded_file)
