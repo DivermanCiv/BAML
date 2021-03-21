@@ -27,7 +27,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
-# 'nxokv@#7n9%b0@fi35yc%t%@f8d&s1u@)s%$11@39!=be5i0yh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,17 +84,11 @@ WSGI_APPLICATION = 'BAML.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': env('DATABASE_ENGINE'),
-        # 'django.db.backends.postgresql',  # Adaptateur postgresql
         'NAME': env('DATABASE_NAME'),
-        # 'baml',  # Nom de la BDD
         'USER': env('DATABASE_USER'),
-        # 'postgres',  # Nom d'utilisateur
         'PASSWORD': env('DATABASE_PASS'),
-        # 'root',
         'HOST': env('DATABASE_HOSTING'),
-        # '127.0.0.1',
         'PORT': env('DATABASE_PORT')
-        # '5432',
     }
 }
 
@@ -136,7 +129,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, env('STATIC_PATH')),
-    # 'BAML/static'),
 ]
 
 INTERNAL_IPS = ['127.0.0.1']
@@ -155,7 +147,6 @@ LOGGING = {
             'level': 'INFO',
             'class': 'logging.FileHandler',
             'filename': env('IP_FILENAME'),
-            # './BAML/logs/IP.log',
             'formatter': 'simpleformat',
         },
     },

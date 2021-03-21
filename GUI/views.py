@@ -172,6 +172,13 @@ def analyze_html(request):
         separator = request.POST.get('separator')
         column = request.POST.get('column')
         file = request.FILES['attachments[]']
+        decoded_file = file.read().decode('utf-8').splitlines()
+        reader = csv.DictReader(decoded_file)
+
+        for row in reader:
+        # Get each cell value based on key-value pair.
+        # Key will always be what lies on the first row.
+            print(row)
 
         # analyse(request, separator, file)
         return render(request,
@@ -179,7 +186,7 @@ def analyze_html(request):
                       {
                               'separator': separator,
                                'column': column,
-                               'csvFile' : file
+                               'csvFile' : decoded_file
                        })
         # , 'line_number' : line_number# })
 
@@ -193,6 +200,13 @@ def prediction_html(request):
         separator = request.POST.get('separator')
         column = request.POST.get('column')
         file = request.FILES['attachments[]']
+        decoded_file = file.read().decode('utf-8').splitlines()
+        reader = csv.DictReader(decoded_file)
+
+        for row in reader:
+            # Get each cell value based on key-value pair.
+            # Key will always be what lies on the first row.
+            print(row)
 
         # predict(request, separator, file)
         return render(request,
@@ -200,7 +214,7 @@ def prediction_html(request):
                       {
                               'separator': separator,
                               'column': column,
-                              'csvFile': file
+                              'csvFile': decoded_file
                       })
         # , 'line_number' : line_number# })
 
