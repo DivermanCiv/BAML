@@ -72,3 +72,4 @@ traitlets==5.0.5
 virtualenv==20.0.29
 wcwidth==0.2.5
 webencodings==0.5.1
+django-environ==0.4.5
