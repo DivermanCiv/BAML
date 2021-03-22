@@ -12,7 +12,6 @@
   margin: 0 5rem;
   display: flex;
   flex-direction: column;
-  height: 45rem;
   /* prevent the superposition of footer on content in phone screen */
   /* prevent the superposition of footer on content in tablet screen */
   /* style of flex-box of content without title of the index page */
