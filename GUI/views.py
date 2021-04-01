@@ -126,21 +126,19 @@ def predict(request, separator, csv_file=None):
     return line_number
 
 
-# def bad_form_element(request, separator, column, csvFile):
+def bad_form_element(request, column, csvFile):
 
-#     separator = request.POST.get('separator')
-#     column = request.POST.get('column')
-#     file = request.FILES['attachments[]']
+    """Method to check if there is an error in the csvfile received by the format
 
-#     with open(csvFile):
-#         csv_reader = csv_reader(csvFile, delimiter=separator)
-#         line_count = 0
-#         try:
-#             for row in csv_reader:
-#                 if line_count == 0:
-#                    if not (column )
+    Addressed errors :
+        selected column in the form match with an existing column in the file
+    """
+    error_message =""
+    if column not in csvFile.fieldnames :
+        error_message = "Le nom de colonne à analyser n'existe pas dans le fichier sélectionné"
 
-#     return
+
+    return error_message
 
 def visitor_ip_address(request):
     """Method to get the user IP
@@ -174,15 +172,18 @@ def analyze_html(request):
         column = canonical_caseless(request.POST.get('column'))
         file = request.FILES['attachments[]']
         decoded_file = file.read().decode('utf-8').splitlines()
-        reader = csv.DictReader(decoded_file)
+        reader = csv.DictReader(decoded_file, delimiter = separator)
+
+        error_message = bad_form_element(request, column, reader)
 
         for row in reader:
         # Get each cell value based on key-value pair.
         # Key will always be what lies on the first row.
-            print(row)
+            pass
 
         # analyse(request, separator, file)
-        return render(request,
+        if error_message == "" :
+            return render(request,
                       'BAML/analyse.html',
                       {
                               'separator': separator,
@@ -190,6 +191,9 @@ def analyze_html(request):
                                'csvFile' : decoded_file
                        })
         # , 'line_number' : line_number# })
+
+        else :
+            return render(request, 'BAML/erreur_formulaire.html',           {'error_message': error_message, 'previous': 'analyse'})
 
     else:
         return render(request, 'BAML/analyse.html')
@@ -204,20 +208,26 @@ def prediction_html(request):
         decoded_file = file.read().decode('utf-8').splitlines()
         reader = csv.DictReader(decoded_file)
 
+        error_message = bad_form_element(request, column, reader)
+
         for row in reader:
             # Get each cell value based on key-value pair.
             # Key will always be what lies on the first row.
-            print(row)
+            pass
 
         # predict(request, separator, file)
-        return render(request,
+        if error_message == "" :
+            return render(request,
                       'BAML/prediction.html',
                       {
                               'separator': separator,
-                              'column': column,
-                              'csvFile': decoded_file
-                      })
+                               'column': column,
+                               'csvFile' : decoded_file
+                       })
         # , 'line_number' : line_number# })
+
+        else :
+            return render(request, 'BAML/erreur_formulaire.html',           {'error_message': error_message, 'previous': 'prediction'})
 
     else:
         return render(request, 'BAML/prediction.html')

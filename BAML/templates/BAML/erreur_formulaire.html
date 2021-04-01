@@ -1,0 +1,10 @@
+{% extends 'BAML/base.html'%}
+
+{% load static %}
+
+{% block title %}Erreur{% endblock %}
+
+{% block content %}
+  <p class="separator-analyse">{{ error_message }}</p>
+  <a class = "separator-analyse" href = "\{{ previous }}">Retour au formulaire</a>
+{% endblock content %}
