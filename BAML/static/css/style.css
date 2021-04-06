@@ -356,6 +356,7 @@ div.file_list div.file {
   text-transform: uppercase;
   box-shadow: -3px 1px 6px grey;
   letter-spacing: 0.1em;
+  background: #ffffff;
 }
 
 div.file_list div.file div.file_name,
@@ -387,6 +388,19 @@ div.file_list div.file div.file_details div.file_size {
 div.file_list div.file div.file_details {
   display: grid;
   grid-template-columns: 50% 50%;
+}
+
+span.filelist_close_cross {
+  background-color: #ffffff;
+  padding: 0 0 0 0 ;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 0 0 ;
+  width: 0;
+  color: red;
+  right: -97%;
+  top : 20%;
+  position: relative;
 }
 
 @media (max-width: 1020px) {

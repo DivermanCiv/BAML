@@ -134,6 +134,7 @@ def bad_form_element(request, column, csvFile):
         selected column in the form match with an existing column in the file
     """
     error_message =""
+    print(csvFile.fieldnames)
     if column not in csvFile.fieldnames :
         error_message = "Le nom de colonne à analyser n'existe pas dans le fichier sélectionné"
 
