@@ -41,6 +41,7 @@ class DragAndDrop {
     }
 
     displayFileList(formId, formField) {
+        document.getElementById("no_file_present").hidden = true;
         let files = document.querySelector(`form#${formId} input[name='${formField}']`).files;
         let fileList = ``;
 
@@ -81,9 +82,11 @@ class DragAndDrop {
 
         document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = fileList;
 
-        document.getElementById("filelist_close_cross").onclick = function(){
+        document.getElementById("filelist_close_cross").addEventListener("click", function(){
+
           document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = '';
-        };
+
+        });
 
     }
     convertBytesTo(bytes, to, decimalPlaces = 2) {
@@ -113,8 +116,13 @@ class DragAndDrop {
     }
 
     checkIfFileExists(){
-      alert("test");
-      document.getElementById("no_file_present").hidden = false;
+      if (typeof fileList === 'undefined'){
+        document.getElementById("no_file_present").hidden = false;
+        return false;
+      }
+      else{
+        return true; 
+      }
     }
 
 }

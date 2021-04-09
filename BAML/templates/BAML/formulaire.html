@@ -35,7 +35,7 @@
       <div data-form-field="attachments[]" class="file_list"></div>
   </div>
 
-  <input id="validate_csv" type="submit" value="Envoyer le CSV" onclick="checkIfFileExists()">
+  <input id="validate_csv" type="submit" value="Envoyer le CSV" onclick="return dd.checkIfFileExists()">
   <p style="color: red" id="file_extension_error" hidden>Désolé, seuls les fichiers au format .csv sont pris en charge </p>
   <p style="color: red" id="no_file_present" hidden>Veuillez ajouter un fichier</p>
 
