@@ -131,10 +131,9 @@ def bad_form_element(request, column, csvFile):
     """Method to check if there is an error in the csvfile received by the format
 
     Addressed errors :
-        selected column in the form match with an existing column in the file
+        - selected column in the form match with an existing column in the file
     """
     error_message =""
-    print(csvFile.fieldnames)
     if column not in csvFile.fieldnames :
         error_message = "Le nom de colonne à analyser n'existe pas dans le fichier sélectionné"
 
