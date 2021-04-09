@@ -16,8 +16,11 @@ host    replication     all            10.01.128.23/32serveurdistant            
 
 		1) créer nouvel utilisateur
 
+[Linux]
 aller dans le shell postgres : sudo -i -u postgres
 se connecter en temps qu'utilisateur postgres ( super utilisateur ) : psql
+[windows]
+se aller sur la bdd avec l'utilisateur  postgres : psql -h localhost -U postgres -p 8032 baml
 optionel [ voir la table des rôles : select * from pg_roles; ]
 création d'un nouveau role avec mdp : CREATE ROLE su_baml_admin PASSWORD 'New_r00t' LOGIN;
 
@@ -41,7 +44,7 @@ se déco de postgres : exit
 se co a la bdd via nouvel utilisateur : psql -h localhost -U su_baml_admin -p 8032 baml
 regarder dans la table test : select * from test;
 
-insérer nouvelle ligne = INSERT INTO test VALUES ('je suis un test');
+insérer nouvelle ligne = INSERT INTO test VALUES (1,'je suis un test');
 regarder dans la table test : select * from test;
 
 mettre a jour la ligne : UPDATE test SET name = 'et je marche' WHERE id = 1;
@@ -53,6 +56,7 @@ regarder dans la table test : select * from test;
 
 sortir de la bdd avec nouvel utilisateur : exit
 sortir de postgres : exit
+
 
 
 
