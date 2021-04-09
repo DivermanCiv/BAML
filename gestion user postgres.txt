@@ -1,0 +1,61 @@
+probleme postgres :
+
+/etc/postgresql/13/main>psql -h localhost -U postgres -p 8032 baml
+pour se co
+
+dans 
+
+/etc/postgresql/13/main>sudo vim pg_hba.conf
+
+
+host    replication     all            10.01.128.23/32serveurdistant                 scram-sha-256 (si marche pas md-5)
+
+
+
+
+
+		1) créer nouvel utilisateur
+
+aller dans le shell postgres : sudo -i -u postgres
+se connecter en temps qu'utilisateur postgres ( super utilisateur ) : psql
+optionel [ voir la table des rôles : select * from pg_roles; ]
+création d'un nouveau role avec mdp : CREATE ROLE su_baml_admin PASSWORD 'New_r00t' LOGIN;
+
+
+		2) se connecter avec pour vérifier que ça a marché
+sortir de l'utilisateur postgres : exit
+se connecter à la BDD baml via le nouvelutilisateur : psql -h localhost -U su_baml_admin -p 8032 baml
+verifier utilisateur en cours : select * from user;
+
+
+		3) donner droit lire ecrire modifier supprimer (CRUD) au nouvel utilisateur 
+
+sortir du nouvel utilisateur : exit
+se connecter a la bdd baml avec postgres : psql -h localhost -U postgres -p 8032 baml
+relié nouvel utilisateur à la base de donnée : ALTER DATABASE baml OWNER TO su_baml_admin;
+créer une table fictive : CREATE TABLE test(id integer primary key, name varchar(50) not null );
+donner les droits au nouvel utilisateur : GRANT SELECT, INSERT, UPDATE, DELETE ON test to su_baml_admin;
+
+		4) tests finaux 
+se déco de postgres : exit
+se co a la bdd via nouvel utilisateur : psql -h localhost -U su_baml_admin -p 8032 baml
+regarder dans la table test : select * from test;
+
+insérer nouvelle ligne = INSERT INTO test VALUES ('je suis un test');
+regarder dans la table test : select * from test;
+
+mettre a jour la ligne : UPDATE test SET name = 'et je marche' WHERE id = 1;
+regarder dans la table test : select * from test;
+
+supprimer la ligne : DELETE FROM test WHERE id =1;
+regarder dans la table test : select * from test;
+
+
+sortir de la bdd avec nouvel utilisateur : exit
+sortir de postgres : exit
+
+
+
+
+
+

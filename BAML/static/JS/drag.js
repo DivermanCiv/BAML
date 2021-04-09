@@ -8,7 +8,7 @@ class DragAndDrop {
 
         for (let i = 0; i < field.length; i++) {
 
-            field[i].ondragover = field[i].ondragenter = function(e) {
+            field[i].ondragover = field[i].ondragenter = function (e) {
                 e.preventDefault();
             };
 
@@ -28,7 +28,7 @@ class DragAndDrop {
         }
     }
 
-    filesChanged(){
+    filesChanged() {
         let field = document.querySelectorAll("input.file_input");
 
         for (let j = 0; j < field.length; j++) {
@@ -69,36 +69,37 @@ class DragAndDrop {
                 `;
 
             if (fileExt != "csv") {
-              document.getElementById("validate_csv").hidden = true;
-              document.getElementById("file_extension_error").hidden = false;
+                document.getElementById("validate_csv").hidden = true;
+                document.getElementById("file_extension_error").hidden = false;
             }
-            else{
-              document.getElementById("validate_csv").hidden = false;
-              document.getElementById("file_extension_error").hidden = true;
+            else {
+                document.getElementById("validate_csv").hidden = false;
+                document.getElementById("file_extension_error").hidden = true;
             }
 
         }
 
         document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = fileList;
 
-        document.getElementById("filelist_close_cross").onclick = function(){
-          document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = '';
+        document.getElementById("filelist_close_cross").onclick = function () {
+            document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = '';
+
         };
 
     }
     convertBytesTo(bytes, to, decimalPlaces = 2) {
         switch (to) {
-            case 'K' :
+            case 'K':
                 {
                     bytes = bytes / 1024;
                     break;
                 }
-            case 'M' :
+            case 'M':
                 {
                     bytes = bytes / 1048576;
                     break;
                 }
-            case 'G' :
+            case 'G':
                 {
                     bytes = bytes / 1073741824;
                     break;
@@ -112,9 +113,9 @@ class DragAndDrop {
         return fileName.split('.').pop()
     }
 
-    checkIfFileExists(){
-      alert("test");
-      document.getElementById("no_file_present").hidden = false;
+    checkIfFileExists() {
+        alert("test");
+        document.getElementById("no_file_present").hidden = false;
     }
 
 }
