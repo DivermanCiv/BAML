@@ -48,7 +48,6 @@ class DragAndDrop {
 
             let fileExt = this.getFileExtension(files[i].name);
             let fileSize = this.convertBytesTo(files[i].size, 'K', 0);
-            console.log()
 
 
             fileList = `
@@ -82,7 +81,7 @@ class DragAndDrop {
 
         document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = fileList;
 
-        document.getElementsByClassName("filelist_close_cross").onclick = this.deleteFile;
+        document.getElementsByClassName("filelist_close_cross").onclick = this.deleteFile();
 
     }
     convertBytesTo(bytes, to, decimalPlaces = 2) {
@@ -112,9 +111,14 @@ class DragAndDrop {
     }
 
     deleteFile(){
+      //vérifier que c'est le bon élement (la croix) qui est récupéré et utilisé
       // ajouter fonction pour supprimer fichier lorsqu'on clique sur la croix
       console.log("click");
-      this.filesDropped();
+    }
+
+    checkIfFileExists(){
+      alert("test");
+      document.getElementById("no_file_present").hidden = false;
     }
 
 }

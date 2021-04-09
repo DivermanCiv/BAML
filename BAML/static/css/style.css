@@ -403,6 +403,10 @@ span.filelist_close_cross {
   position: relative;
 }
 
+.filelist_close_cross:hover{
+  cursor : pointer;
+}
+
 @media (max-width: 1020px) {
   .responsive {
     width: 90%;
