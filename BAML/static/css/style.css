@@ -390,7 +390,7 @@ div.file_list div.file div.file_details {
   grid-template-columns: 50% 50%;
 }
 
-span.filelist_close_cross {
+#filelist_close_cross {
   background-color: #ffffff;
   padding: 0 0 0 0 ;
   font-size: 18px;
@@ -403,7 +403,7 @@ span.filelist_close_cross {
   position: relative;
 }
 
-.filelist_close_cross:hover{
+#filelist_close_cross:hover{
   cursor : pointer;
 }
 

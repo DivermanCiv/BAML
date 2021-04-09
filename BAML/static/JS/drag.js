@@ -53,7 +53,7 @@ class DragAndDrop {
             fileList = `
                 ${fileList}
                 <div class="file">
-                    <span class="filelist_close_cross">X</span>
+                    <span id="filelist_close_cross">X</span>
                     <div class="file_name">
                         ${files[i].name}
                     </div>
@@ -81,7 +81,9 @@ class DragAndDrop {
 
         document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = fileList;
 
-        document.getElementsByClassName("filelist_close_cross").onclick = this.deleteFile();
+        document.getElementById("filelist_close_cross").onclick = function(){
+          document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = '';
+        };
 
     }
     convertBytesTo(bytes, to, decimalPlaces = 2) {
@@ -108,12 +110,6 @@ class DragAndDrop {
 
     getFileExtension(fileName) {
         return fileName.split('.').pop()
-    }
-
-    deleteFile(){
-      //vérifier que c'est le bon élement (la croix) qui est récupéré et utilisé
-      // ajouter fonction pour supprimer fichier lorsqu'on clique sur la croix
-      console.log("click");
     }
 
     checkIfFileExists(){
