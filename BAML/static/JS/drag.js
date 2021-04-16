@@ -3,6 +3,7 @@ class DragAndDrop {
     constructor() {
         this.filesDropped();
         this.filesChanged();
+        this.file_exists = false;
     }
     //action when file is dropped
     filesDropped() {
@@ -21,8 +22,6 @@ class DragAndDrop {
                 let formField = e.target.getAttribute("data-form-field");
                 let input = document.querySelector(`form#${formId} input[name='${formField}']`);
                 input.files = e.dataTransfer.files;
-                console.table(input.files);
-                console.table(e.dataTransfer.files);
                 this.displayFileList(formId, formField);
             }
         }
@@ -39,8 +38,9 @@ class DragAndDrop {
             }
         }
     }
-    // DOM modification when a file is uploaded or dropped 
+    // DOM modification when a file is uploaded or dropped
     displayFileList(formId, formField) {
+        dd.file_exists = true;
         document.getElementById("no_file_present").hidden = true;
         let files = document.querySelector(`form#${formId} input[name='${formField}']`).files;
         let fileList = ``;
@@ -67,7 +67,7 @@ class DragAndDrop {
                     </div>
                 </div>
                 `;
-
+            //check if the uploaded file is a .csv
             if (fileExt != "csv") {
                 document.getElementById("validate_csv").hidden = true;
                 document.getElementById("file_extension_error").hidden = false;
@@ -83,6 +83,7 @@ class DragAndDrop {
         document.getElementById("filelist_close_cross").addEventListener("click", function () {
 
             document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = '';
+            dd.file_exists = false;
         });
     }
     // convert byte to decimal
@@ -113,7 +114,7 @@ class DragAndDrop {
     }
     // return if a file is dropped
     checkIfFileExists() {
-        if (typeof fileList === 'undefined') {
+        if (dd.file_exists == false) {
             document.getElementById("no_file_present").hidden = false;
             return false;
         }

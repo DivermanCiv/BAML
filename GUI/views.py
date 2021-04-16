@@ -26,7 +26,7 @@ def index(request):
 
 def html_404(request, exception):
     """Method to redirect a 404 error to 404 page
-    
+
     This method catch the HTTP request from the Front End and return the
     content of the 404 page.
 
@@ -64,7 +64,7 @@ def how_we_work(request):
     :return: Response HTTP with the Qui Sommes Nous page content.
     :rtype: HttpResponse
     """
-    
+
 
     return render(request, 'BAML/qui-sommes-nous.html')
 
@@ -104,7 +104,7 @@ def analyze(request, separator, csv_file=None):
     """Method to analyse the CVS file
 
     This method catch the HTTP request from the Front End and return the
-    content of the Sitemap page.
+    content of the analyse page.
 
     :param request : HTTP request.
     :type request: object
@@ -127,7 +127,7 @@ def predict(request, separator, csv_file=None):
     """Method to predict the CSV file.
 
     This method catch the HTTP request from the frontend and return the content
-    of the Sitemap page.
+    of the prediction page.
 
     :param request : HTTP request.
     :type request: object
@@ -196,6 +196,18 @@ def visitor_ip_address(request):
 
 
 def analyze_html(request):
+    """Method to process the uploaded file when using the analyze function.
+
+    This method catch the form response and check if there's an error in the file (cf bad_form_element()). If there is no error, it returns the analyzed file with the chosen separator, the column and the content of the csv file.
+    If an error occurs, it returns a error page with an error type explanation.
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Response HTTP with analyze page content.
+    :rtype: HttpResponse
+
+
+    """
     if request.POST:
 
         separator = request.POST.get('separator')
@@ -230,6 +242,18 @@ def analyze_html(request):
 
 
 def prediction_html(request):
+    """Method to process the uploaded file when using the predict function.
+
+    This method catch the form response and check if there's an error in the file (cf bad_form_element()). If there is no error, it returns the predicted file with the chosen separator, the column and the content of the csv file.
+    If an error occurs, it returns a error page with an error type explanation.
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Response HTTP with prediction page content.
+    :rtype: HttpResponse
+
+
+    """
     if request.POST:
 
         separator = request.POST.get('separator')
@@ -261,4 +285,3 @@ def prediction_html(request):
 
     else:
         return render(request, 'BAML/prediction.html')
-
