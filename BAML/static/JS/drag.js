@@ -1,14 +1,16 @@
+//class for drag and drop
 class DragAndDrop {
     constructor() {
         this.filesDropped();
         this.filesChanged();
     }
+    //action when file is dropped
     filesDropped() {
         let field = document.querySelectorAll("div.drag_drop_field");
 
         for (let i = 0; i < field.length; i++) {
 
-            field[i].ondragover = field[i].ondragenter = function(e) {
+            field[i].ondragover = field[i].ondragenter = function (e) {
                 e.preventDefault();
             };
 
@@ -22,13 +24,11 @@ class DragAndDrop {
                 console.table(input.files);
                 console.table(e.dataTransfer.files);
                 this.displayFileList(formId, formField);
-
-
             }
         }
     }
-
-    filesChanged(){
+    // action when file is uploaded
+    filesChanged() {
         let field = document.querySelectorAll("input.file_input");
 
         for (let j = 0; j < field.length; j++) {
@@ -39,7 +39,7 @@ class DragAndDrop {
             }
         }
     }
-
+    // DOM modification when a file is uploaded or dropped 
     displayFileList(formId, formField) {
         document.getElementById("no_file_present").hidden = true;
         let files = document.querySelector(`form#${formId} input[name='${formField}']`).files;
@@ -49,7 +49,6 @@ class DragAndDrop {
 
             let fileExt = this.getFileExtension(files[i].name);
             let fileSize = this.convertBytesTo(files[i].size, 'K', 0);
-
 
             fileList = `
                 ${fileList}
@@ -70,38 +69,36 @@ class DragAndDrop {
                 `;
 
             if (fileExt != "csv") {
-              document.getElementById("validate_csv").hidden = true;
-              document.getElementById("file_extension_error").hidden = false;
+                document.getElementById("validate_csv").hidden = true;
+                document.getElementById("file_extension_error").hidden = false;
             }
-            else{
-              document.getElementById("validate_csv").hidden = false;
-              document.getElementById("file_extension_error").hidden = true;
+            else {
+                document.getElementById("validate_csv").hidden = false;
+                document.getElementById("file_extension_error").hidden = true;
             }
-
         }
 
         document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = fileList;
 
-        document.getElementById("filelist_close_cross").addEventListener("click", function(){
+        document.getElementById("filelist_close_cross").addEventListener("click", function () {
 
-          document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = '';
-
+            document.querySelector(`form#${formId} div.file_list[data-form-field='${formField}']`).innerHTML = '';
         });
-
     }
+    // convert byte to decimal
     convertBytesTo(bytes, to, decimalPlaces = 2) {
         switch (to) {
-            case 'K' :
+            case 'K':
                 {
                     bytes = bytes / 1024;
                     break;
                 }
-            case 'M' :
+            case 'M':
                 {
                     bytes = bytes / 1048576;
                     break;
                 }
-            case 'G' :
+            case 'G':
                 {
                     bytes = bytes / 1073741824;
                     break;
@@ -110,20 +107,19 @@ class DragAndDrop {
         return bytes = +bytes.toFixed(decimalPlaces);
     }
 
-
+    // return the extension of file dropped
     getFileExtension(fileName) {
         return fileName.split('.').pop()
     }
-
-    checkIfFileExists(){
-      if (typeof fileList === 'undefined'){
-        document.getElementById("no_file_present").hidden = false;
-        return false;
-      }
-      else{
-        return true; 
-      }
+    // return if a file is dropped
+    checkIfFileExists() {
+        if (typeof fileList === 'undefined') {
+            document.getElementById("no_file_present").hidden = false;
+            return false;
+        }
+        else {
+            return true;
+        }
     }
-
 }
 let dd = new DragAndDrop();

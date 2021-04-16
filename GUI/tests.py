@@ -14,10 +14,6 @@ class viewTest(TestCase):
         response = self.client.get('/a_page_which_not_exists/')
         self.assertTemplateUsed(response, "BAML/404.html")
 
-    # def test_server_error(self):
-    #     response =
-    #     self.assertTemplateUsed(response, "BAML/500.html")
-
     def test_home_view_url_exists_at_desired_location(self):
         response = self.client.get('')
         self.assertEqual(response.status_code, 200)

@@ -20,11 +20,13 @@ form {
     border: solid 1px;
 }
 
+/* style of the form */
 form {
     margin: 0 auto 0 auto;
     width: 98%
 }
 
+/* style of the drop zone */
 div.form_field {
     margin: 0 auto 0 auto;
     width: 98%;
@@ -32,6 +34,7 @@ div.form_field {
     padding: 0.5em 0 0.5em;
 }
 
+/* style of the drop zone label */
 div.form_field label {
     display: block;
     margin: 0 auto 0 auto;
@@ -41,6 +44,7 @@ div.form_field label {
     cursor: pointer;
 }
 
+/* style of the drop zone label */
 div.form_field label div.drag_drop_field {
     margin: 0 auto 0 auto;
     width: 90%;
@@ -50,6 +54,7 @@ div.form_field label div.drag_drop_field {
     font-weight: lighter;
 }
 
+/* style of the drop zone label input */
 div.form_field label div.drag_drop_field input {
     width: 0;
     height: 0;
@@ -57,6 +62,7 @@ div.form_field label div.drag_drop_field input {
     opacity: 0;
 }
 
+/* style of the zone after element dropped */
 div.file_list {
     margin: 0.2em auto 0.2em auto;
     width: 80%;
@@ -64,6 +70,7 @@ div.file_list {
     font-size: 0.8em;
 }
 
+/* style of the zone after element dropped */
 div.file_list div.file {
     width: 100%;
     margin: 1em auto 1em auto;
@@ -74,6 +81,7 @@ div.file_list div.file {
     letter-spacing: 0.1em;
 }
 
+/* style of the zone after element dropped */
 div.file_list div.file div.file_name,
 div.file_list div.file div.file_details div.file_extension,
 div.file_list div.file div.file_details div.file_size {
@@ -85,20 +93,27 @@ div.file_list div.file div.file_details div.file_size {
     padding: 1.2em 0 1.2em;
 }
 
+/* style of the name after element dropped */
 div.file_list div.file div.file_name {
     background: #ffffff;
     color: #fad071;
 }
+
+/* style of the extension after element dropped */
 
 div.file_list div.file div.file_details div.file_extension {
     color: white;
     background-color: rgba(128, 0, 128, 0.513);
 }
 
+/* style of the size after element dropped */
+
 div.file_list div.file div.file_details div.file_size {
     color: white;
     background-color: rgba(0, 0, 139, 0.561);
 }
+
+/* style of the detail after element dropped */
 
 div.file_list div.file div.file_details {
     display: grid;

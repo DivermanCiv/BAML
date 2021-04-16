@@ -2,7 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import logging
 from .utils import canonical_caseless
-# import traceback
 import csv
 
 
@@ -27,7 +26,14 @@ def index(request):
 
 def html_404(request, exception):
     """Method to redirect a 404 error to 404 page
+    
+    This method catch the HTTP request from the Front End and return the
+    content of the 404 page.
 
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Response HTTP with the 404 content.
+    :rtype: HttpResponse
     """
     return render(request, 'BAML/404.html')
 
@@ -35,13 +41,30 @@ def html_404(request, exception):
 def html_500(request):
     """Method to redirect a 500 error to 500 page
 
+    This method catch the HTTP request from the Front End and return the
+    content of the 500.
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Response HTTP with the 500 page content.
+    :rtype: HttpResponse
     """
 
     return render(request, 'BAML/500.html')
 
 
 def how_we_work(request):
-    """Method to go to the Qui Sommes Nous page"""
+    """Method to go to the Qui Sommes Nous page
+
+    This method catch the HTTP request from the Front End and return the
+    content of the Qui Sommes nous page.
+
+    :param request: HTTP request
+    :type request: HttpRequest
+    :return: Response HTTP with the Qui Sommes Nous page content.
+    :rtype: HttpResponse
+    """
+    
 
     return render(request, 'BAML/qui-sommes-nous.html')
 
@@ -51,21 +74,28 @@ def legal_notices(request):
     """Method to present the legal mention page
 
         This method catch the HTTP request from the Front End and return the
-        content of the Sitemap page.
+        content of the legal_notices page.
 
         :param request: HTTP request
         :type request: HttpRequest
-        :return: Response HTTP with Sitemap page content.
+        :return: Response HTTP with legal notices page content.
         :rtype: HttpResponse
-
-
         """
 
     return render(request, 'BAML/mentions-legales.html')
 
 
 def sitemap(request):
-    """Method to go to the planDuSite page"""
+    """Method to go to the planDuSite page
+
+        This method catch the HTTP request from the Front End and return the
+        content of the site map page.
+
+        :param request: HTTP request
+        :type request: HttpRequest
+        :return: Response HTTP with Sitemap page content.
+        :rtype: HttpResponse
+"""
 
     return render(request, 'BAML/plan-du-site.html')
 
@@ -88,8 +118,6 @@ def analyze(request, separator, csv_file=None):
     """
 
     message = "Vous avez choisi " + separator + " comme séparateur de csv."
-
-
 # todo: put the algorithm here.
 
     return message
@@ -132,6 +160,12 @@ def bad_form_element(request, column, csvFile):
 
     Addressed errors :
         - selected column in the form match with an existing column in the file
+
+        :param request : HTTP request.
+        :param column : colum of the CVSFile.
+        :param cvsFile : The cvsFile dropped.
+        :return: an error message
+        :rtype : str
     """
     error_message =""
     if column not in csvFile.fieldnames :
@@ -149,7 +183,6 @@ def visitor_ip_address(request):
     :type request: HttpRequest
     :return: user IP adress
     :rtype: request
-
     """
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
 
@@ -160,9 +193,6 @@ def visitor_ip_address(request):
         logging.getLogger('django').info(ip)
     return ip
 
-# def createLog(request, csv_lines=None, duration=None, analyze_number=None):
-# 	ip = visitor_ip_address(request)
-# 	current_url = request.build_absolute_uri()
 
 
 def analyze_html(request):
@@ -224,7 +254,7 @@ def prediction_html(request):
                                'column': column,
                                'csvFile' : decoded_file
                        })
-        # , 'line_number' : line_number# })
+
 
         else :
             return render(request, 'BAML/erreur_formulaire.html',           {'error_message': error_message, 'previous': 'prediction'})
@@ -232,10 +262,3 @@ def prediction_html(request):
     else:
         return render(request, 'BAML/prediction.html')
 
-# def createLog(request, csv_lines=None, duration=None, analyze_number=None):
-#     ip = visitor_ip_address(request)
-#     current_url = request.build_absolute_uri()
-#
-#     file = open(request.data[2])
-#     reader = csv.reader(file)
-#     lines = len( list(reader))

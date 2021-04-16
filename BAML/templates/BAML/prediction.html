@@ -5,20 +5,17 @@
 {% block title %}Prédiction{% endblock %}
 
 {% block content %}
-  {% if request.method == "POST" %}
+{% if request.method == "POST" %}
 
-    <h1 class="title-prediction">Prédictions des algorithmes scikitlearn </h1>
+<h1 class="title-prediction">Prédictions des algorithmes scikitlearn </h1>
+<p class="separator-analyse">vous avez choisi {{ separator }} comme séparateur</p>
+<p class="separator-analyse">vous avez choisi d'analyser la colonne {{ column }}</p>
+<p class="separator-analyse">le fichier s'appelle {{ csvFile }}</p>
 
-    <p class="separator-analyse">vous avez choisi {{ separator }} comme séparateur</p>
+{% else %}
 
-    <p class="separator-analyse">vous avez choisi d'analyser la colonne {{ column }}</p>
+{% include "BAML/formulaire.html" %}
 
-    <p class="separator-analyse">le fichier s'appelle {{ csvFile }}</p>
-
-  {% else %}
-
-    {% include "BAML/formulaire.html" %}
-
-  {% endif %}
+{% endif %}
 
 {% endblock content %}
